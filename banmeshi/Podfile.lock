@@ -1,0 +1,22 @@
+PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
+  - IQKeyboardManagerSwift (6.5.9)
+
+DEPENDENCIES:
+  - Charts
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - Charts
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+
+PODFILE CHECKSUM: 50775888d0b2d02588241a9c23a50c60a39de6b0
+
+COCOAPODS: 1.11.2

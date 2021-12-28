@@ -6,6 +6,8 @@ target 'banmeshi' do
   use_frameworks!
 
   # Pods for banmeshi
+  pod 'Charts'
+  pod 'IQKeyboardManagerSwift'
 
   target 'banmeshiTests' do
     inherit! :search_paths
