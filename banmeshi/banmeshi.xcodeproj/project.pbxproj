@@ -12,13 +12,19 @@
 		6FEFA8150200749D90745F8C /* Pods_banmeshi_banmeshiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
 		C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */; };
-		C17A4C62277AF02A007CBE66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C61277AF02A007CBE66 /* ViewController.swift */; };
+		C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C61277AF02A007CBE66 /* HomeViewController.swift */; };
 		C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17A4C63277AF02A007CBE66 /* Main.storyboard */; };
 		C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C17A4C66277AF02C007CBE66 /* Assets.xcassets */; };
 		C17A4C6A277AF02C007CBE66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17A4C68277AF02C007CBE66 /* LaunchScreen.storyboard */; };
 		C17A4C75277AF02C007CBE66 /* banmeshiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C74277AF02C007CBE66 /* banmeshiTests.swift */; };
 		C17A4C7F277AF02C007CBE66 /* banmeshiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C7E277AF02C007CBE66 /* banmeshiUITests.swift */; };
 		C17A4C81277AF02C007CBE66 /* banmeshiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C80277AF02C007CBE66 /* banmeshiUITestsLaunchTests.swift */; };
+		C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4E9D277B03C1007CBE66 /* Alert.swift */; };
+		C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EA0277B0402007CBE66 /* UIViewController+.swift */; };
+		C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EA2277B0433007CBE66 /* UIColor+.swift */; };
+		C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EA5277B04EA007CBE66 /* Router.swift */; };
+		C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */; };
+		C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +57,7 @@
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C17A4C61277AF02A007CBE66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C17A4C61277AF02A007CBE66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C17A4C64277AF02A007CBE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C17A4C66277AF02C007CBE66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C17A4C69277AF02C007CBE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +67,12 @@
 		C17A4C7A277AF02C007CBE66 /* banmeshiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = banmeshiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A4C7E277AF02C007CBE66 /* banmeshiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = banmeshiUITests.swift; sourceTree = "<group>"; };
 		C17A4C80277AF02C007CBE66 /* banmeshiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = banmeshiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C17A4E9D277B03C1007CBE66 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C17A4EA0277B0402007CBE66 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		C17A4EA2277B0433007CBE66 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		C17A4EA5277B04EA007CBE66 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteViewController.swift; sourceTree = "<group>"; };
+		C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,8 @@
 				C17A4E90277AFE2C007CBE66 /* Services */,
 				C17A4C8D277AFD44007CBE66 /* ViewControllers */,
 				C17A4C8E277AFD53007CBE66 /* Views */,
+				C17A4EA4277B04E1007CBE66 /* Router */,
+				C17A4E9F277B03ED007CBE66 /* Extension */,
 				C17A4E8E277AFDCB007CBE66 /* Resources */,
 				C17A4E91277AFE3F007CBE66 /* Storyboards */,
 				C17A4E93277AFE86007CBE66 /* Utils */,
@@ -173,7 +187,8 @@
 		C17A4C8D277AFD44007CBE66 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C17A4C61277AF02A007CBE66 /* ViewController.swift */,
+				C17A4C61277AF02A007CBE66 /* HomeViewController.swift */,
+				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -220,6 +235,7 @@
 		C17A4E92277AFE66007CBE66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,8 +243,26 @@
 		C17A4E93277AFE86007CBE66 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C17A4E9D277B03C1007CBE66 /* Alert.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C17A4E9F277B03ED007CBE66 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C17A4EA0277B0402007CBE66 /* UIViewController+.swift */,
+				C17A4EA2277B0433007CBE66 /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C17A4EA4277B04E1007CBE66 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C17A4EA5277B04EA007CBE66 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,9 +504,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C17A4C62277AF02A007CBE66 /* ViewController.swift in Sources */,
+				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
+				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
+				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
+				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
+				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
+				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
+				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +705,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = testproject.banmeshi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testproject.banmeshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -694,7 +734,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = testproject.banmeshi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testproject.banmeshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
