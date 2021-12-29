@@ -19,6 +19,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var registerBtn: UIButton!
     private var point: Int = 6
     var disposeBag = DisposeBag()
+    let realm = try! Realm()
      
     // 初期表示時の処理
     override func viewDidLoad() {
@@ -69,13 +70,26 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     }
 
     @IBAction func tapRegisterBtn(_ sender: Any) {
+        let menu = Menu()
+        menu.name = menuTextField.text!
+        menu.point = Int(pointTextField.text!)!
+        try! realm.write {
+            realm.add(menu)
+        }
+        menuTextField.text = ""
+        pointTextField.text = ""
+        menuTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let menuData = realm.objects(Menu.self)
+        return menuData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let menuData = realm.objects(Menu.self)
+        cell.textLabel!.text = "\(menuData[indexPath.row].name)"
+        cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
         return cell
     }
  

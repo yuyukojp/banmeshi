@@ -6,94 +6,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class HomeViewController: UIViewController {
     
-//    private lazy var textField1: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField2: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField3: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField4: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField5: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField6: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField7: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField8: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//    private lazy var textField9: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//
-//    private lazy var textField10: UITextField = {
-//        let field = UITextField()
-//        field.placeholder = "入力してください"
-//        field.backgroundColor = .white
-//        field.borderStyle = .roundedRect
-//        return field
-//    }()
-//
-//    private lazy var textFields: [UITextField] = [
-//        textField1,
-//        textField2,
-//        textField3,
-//        textField4,
-//        textField5,
-//        textField6,
-//        textField7,
-//        textField8,
-//        textField9,
-//        textField10
-//    ]
-
 
     @objc func didTapMenuButton(_ sender: UIButton) {
         let personalViewController = setStoryboard(sbName: "Menu").instantiateViewController(withIdentifier: "MenuViewController")
