@@ -63,9 +63,9 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         //MARK: - TextField入力制限に越した場合ボタン非活性化
         Observable.combineLatest(menuTextField.rx.text.orEmpty.asObservable(), pointTextField.rx.text.orEmpty.asObservable()){
             $0.count > 0 && $1.count > 0
-                    }
-                    .bind(to: registerBtn.rx.isEnabled)
-                    .disposed(by: disposeBag)
+        }
+        .bind(to: registerBtn.rx.isEnabled)
+        .disposed(by: disposeBag)
         
     }
 

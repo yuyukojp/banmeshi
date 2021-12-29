@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 final class HomeViewController: UIViewController {
+    let realm = try! Realm()
     
 
     @objc func didTapMenuButton(_ sender: UIButton) {
@@ -23,12 +24,24 @@ final class HomeViewController: UIViewController {
     
     @objc func didTapSetButton(_ sender: UIButton) {
         DispatchQueue.main.async {
-            var data: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-//            data = self.textFields.map {
-//                $0.text!
-//            }
-            Router.shared.showRoulette(from: self, data: data)
+            if self.realm.objects(Menu.self).count == 0 {
+                Alert.okAlert(title: Const.alertTitle, message: Const.noMenuErrorMsg, on: self)
+            } else if self.realm.objects(Menu.self).count == 0 {
+                Alert.okAlert(title: Const.alertTitle, message: Const.oneMenuErrorMsg, on: self)
+            } else {
+                Router.shared.showRoulette(from: self, data: self.getData())
+            }           
         }
+    }
+    
+    private func getData() -> [String]{
+        var namedata: [String] = []
+        let menuData = self.realm.objects(Menu.self)
+        let menuCount = menuData.count
+        for i in 0...(menuCount - 1) {
+            namedata.append(menuData[i].name)
+        }
+        return namedata
     }
     
     private var menuButton: UIButton = UIButton()
