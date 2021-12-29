@@ -17,6 +17,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var pointTextField: UITextField!
     @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     private var point: Int = 6
     var disposeBag = DisposeBag()
     let realm = try! Realm()
@@ -25,7 +26,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextField()
-        view.backgroundColor = .white
+//        view.backgroundColor = .clear
         registerBtn.isEnabled = false
     }
     
@@ -90,6 +91,17 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    
+    @IBAction func tapEditButton(_ sender: Any) {
+        if(menuTableView.isEditing){
+            menuTableView.setEditing(false, animated: true)
+            editButton.setTitle("编辑", for: .normal)
+        } else {
+            menuTableView.setEditing(true, animated: true)
+            editButton.setTitle("完了", for: .normal)
+        }
+    }
+    
     //MARK: - 新規ID作成
     func newId<T: Object>(model: T) -> Int? {
         guard let key = T.primaryKey() else { return nil }
@@ -123,8 +135,17 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     
     // Delete ボタンが押された時に呼ばれるメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        var isSwipe: Bool = true
+        if editingStyle == .delete {
+            try! realm.write {
+                let menuData = realm.objects(Menu.self)
+                self.realm.delete(menuData[indexPath.row])
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
+            }
+            isSwipe = false
+        }
 
-        if editingStyle == UITableViewCell.EditingStyle.delete {
+        if editingStyle == UITableViewCell.EditingStyle.delete && isSwipe {
             // データベースから削除する
             try! realm.write {
                 let menuData = realm.objects(Menu.self)

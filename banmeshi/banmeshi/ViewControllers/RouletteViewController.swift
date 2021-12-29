@@ -78,7 +78,14 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
                 let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    Alert.okAlert(title: self.menuDatas[selectedIndex], message: "", on: self)
+                    if self.menuPoints[selectedIndex] > 6 {
+                        Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
+                    } else if self.menuPoints[selectedIndex] > 3 {
+                        Alert.okAlert(title: "抱歉！", message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖", on: self)
+                    } else {
+                        Alert.okAlert(title: "警告！！", message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)", on: self)
+                    }
+                   
                 }
             }
         }

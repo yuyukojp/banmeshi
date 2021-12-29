@@ -55,7 +55,7 @@ final class HomeViewController: UIViewController {
                                   height: ButtonHeight)
         menuButton.backgroundColor = UIColor.systemPink
         menuButton.addTarget(self, action: #selector(didTapMenuButton(_:)), for: .touchUpInside)
-        menuButton.setTitle("メニュー", for: .normal)
+        menuButton.setTitle("查看菜单", for: .normal)
         menuButton.layer.cornerRadius = 10
         menuButton.setTitleColor(UIColor.black, for: .normal)
         self.view.addSubview(menuButton)
@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
                                       height: ButtonHeight)
         rouletteButton.backgroundColor = UIColor.systemYellow
         rouletteButton.addTarget(self, action: #selector(didTapSetButton(_:)), for: .touchUpInside)
-        rouletteButton.setTitle("ラッキールーレット", for: .normal)
+        rouletteButton.setTitle("幸运大转盘", for: .normal)
         rouletteButton.layer.cornerRadius = 10
         rouletteButton.setTitleColor(UIColor.black, for: .normal)
         view.addSubview(rouletteButton)
