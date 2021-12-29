@@ -96,10 +96,14 @@ final class HomeViewController: UIViewController {
 
 
     @objc func didTapMenuButton(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            Router.shared.showMenu(from: self)
-        }
+        let personalViewController = setStoryboard(sbName: "Menu").instantiateViewController(withIdentifier: "MenuViewController")
+        self.navigationController?.pushViewController(personalViewController, animated: true)
     }
+    
+    func setStoryboard(sbName : String) -> UIStoryboard {
+        return UIStoryboard(name: sbName, bundle: Bundle.main)
+    }
+    
     
     @objc func didTapSetButton(_ sender: UIButton) {
         DispatchQueue.main.async {
