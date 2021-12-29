@@ -25,6 +25,9 @@
 		C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EA5277B04EA007CBE66 /* Router.swift */; };
 		C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */; };
 		C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */; };
+		C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */; };
+		C17A4EB1277BE568007CBE66 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB0277BE568007CBE66 /* Const.swift */; };
+		C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		C17A4EA5277B04EA007CBE66 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteViewController.swift; sourceTree = "<group>"; };
 		C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartManager.swift; sourceTree = "<group>"; };
+		C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C17A4EB0277BE568007CBE66 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 			children = (
 				C17A4C61277AF02A007CBE66 /* HomeViewController.swift */,
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
+				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 		C17A4C8E277AFD53007CBE66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				C17A4E9D277B03C1007CBE66 /* Alert.swift */,
+				C17A4EB0277BE568007CBE66 /* Const.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -505,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
+				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
@@ -513,6 +523,8 @@
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
+				C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */,
+				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
