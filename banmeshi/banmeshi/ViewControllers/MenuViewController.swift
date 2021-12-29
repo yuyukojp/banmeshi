@@ -133,7 +133,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         return true
     }
     
-    // Delete ボタンが押された時に呼ばれるメソッド
+    //MARK: - Delete ボタンが押された時に呼ばれるメソッド
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         var isSwipe: Bool = true
         if editingStyle == .delete {
@@ -155,6 +155,22 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         }
     }
  
+}
+
+extension MenuViewController: UITableViewDelegate {
+    //MARK: - メニューをタップしたとき
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // アクションを実装
+        let menuDataId = realm.objects(Menu.self)[indexPath.row].id
+        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
+        print("+++++\(indexPath.row)番目の行が選択されました。")
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//         // タップされたセルの行番号を出力
+//         print("+++++\(indexPath.row)番目の行が選択されました。")
+//     }
 }
 
 extension MenuViewController: UITextFieldDelegate {

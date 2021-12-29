@@ -30,7 +30,12 @@ final class Router {
     func showMenu(from: UIViewController) {
         let menuVC = MenuViewController()
         from.show(to: menuVC)
-        
+    }
+    
+    func showMenuDetail(from: UIViewController, indexPath: Int) {
+        let MenuDetailVC = MenuDetailViewController()
+        MenuDetailVC.menuIndex = indexPath
+        from.show(to: MenuDetailVC)
     }
     
 }

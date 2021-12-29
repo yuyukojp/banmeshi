@@ -10,6 +10,7 @@
 		428CFE43F42732A0BD180B38 /* Pods_banmeshiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CF0376D1E3700EC71C091E /* Pods_banmeshiTests.framework */; };
 		61363172257BF0A542C8DC48 /* Pods_banmeshi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10ADB904EE09BD479E234C /* Pods_banmeshi.framework */; };
 		6FEFA8150200749D90745F8C /* Pods_banmeshi_banmeshiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */; };
+		C11D7EEC277C59A4002B563D /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
 		C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */; };
 		C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C61277AF02A007CBE66 /* HomeViewController.swift */; };
@@ -59,6 +60,7 @@
 		97CF0376D1E3700EC71C091E /* Pods_banmeshiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_banmeshiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_banmeshi_banmeshiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF21760BBB669F74F5A2AE8B /* Pods-banmeshiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-banmeshiTests.debug.xcconfig"; path = "Target Support Files/Pods-banmeshiTests/Pods-banmeshiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				C17A4C61277AF02A007CBE66 /* HomeViewController.swift */,
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
+				C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
 				C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */,
+				C11D7EEC277C59A4002B563D /* MenuDetailViewController.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

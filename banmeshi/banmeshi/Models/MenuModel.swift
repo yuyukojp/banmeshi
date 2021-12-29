@@ -13,6 +13,8 @@ class Menu: Object {
     @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var point = 0
+    @objc dynamic var urlString = ""
+//    @objc dynamic var imageUrl = 
  
     override static func primaryKey() -> String? {
         return "id"
