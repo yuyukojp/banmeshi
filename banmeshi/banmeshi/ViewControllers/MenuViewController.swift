@@ -32,7 +32,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     private func setTextField() {
         pointTextField.delegate = self
         menuTextField.delegate = self
-        menuTextField.placeholder = "メニューを入力してください。"
+        menuTextField.placeholder = "请输入菜名"
         pointTextField.placeholder = "\(point)"
 
         pointTextField.keyboardType = UIKeyboardType.numberPad
@@ -62,7 +62,7 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         
         //MARK: - TextField入力制限に越した場合ボタン非活性化
         Observable.combineLatest(menuTextField.rx.text.orEmpty.asObservable(), pointTextField.rx.text.orEmpty.asObservable()){
-            $0.count > 0 && $1.count > 0
+            $0.count > 0 && $1.count >= 0
         }
         .bind(to: registerBtn.rx.isEnabled)
         .disposed(by: disposeBag)
@@ -71,7 +71,6 @@ class MenuViewController: UIViewController, UITableViewDataSource {
 
     @IBAction func tapRegisterBtn(_ sender: Any) {
         addMenu()
-        
         menuTextField.text = ""
         pointTextField.text = ""
         menuTableView.reloadData()
@@ -80,7 +79,11 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     private func addMenu() {
         let menu = Menu()
         menu.name = menuTextField.text!
-        menu.point = Int(pointTextField.text!)!
+        if pointTextField.text == "" {
+            menu.point = Int(pointTextField.placeholder ?? "0")!
+        } else {
+            menu.point = Int(pointTextField.text!)!
+        }
         menu.id = self.newId(model: menu)!
         try! realm.write {
             realm.add(menu)
@@ -129,7 +132,6 @@ class MenuViewController: UIViewController, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
         }
-        print("+++++\(realm.objects(Menu.self).count)")
     }
  
 }
