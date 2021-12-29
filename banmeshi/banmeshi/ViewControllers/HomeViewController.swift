@@ -29,20 +29,11 @@ final class HomeViewController: UIViewController {
             } else if self.realm.objects(Menu.self).count == 0 {
                 Alert.okAlert(title: Const.alertTitle, message: Const.oneMenuErrorMsg, on: self)
             } else {
-                Router.shared.showRoulette(from: self, data: self.getData())
+                Router.shared.showRoulette(from: self)
             }           
         }
     }
     
-    private func getData() -> [String]{
-        var namedata: [String] = []
-        let menuData = self.realm.objects(Menu.self)
-        let menuCount = menuData.count
-        for i in 0...(menuCount - 1) {
-            namedata.append(menuData[i].name)
-        }
-        return namedata
-    }
     
     private var menuButton: UIButton = UIButton()
     private var rouletteButton: UIButton = UIButton()
@@ -85,34 +76,4 @@ final class HomeViewController: UIViewController {
     }
     
 }
-
-//private extension HomeViewController {
-//    private func setupViewsLayout() {
-//        let vStackView = UIStackView(arrangedSubviews: textFields)
-//        vStackView.axis = .vertical
-//        vStackView.alignment = .fill
-//        vStackView.distribution = .fillEqually
-//        vStackView.spacing = 8
-//        view.addSubview(vStackView)
-//        vStackView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate(
-//            [
-//                vStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-//                vStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-//                vStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-//                vStackView.heightAnchor.constraint(equalToConstant: 500)
-//            ]
-//        )
-//        view.addSubview(setButton)
-//        setButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate(
-//            [
-//                setButton.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16),
-//                setButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                setButton.heightAnchor.constraint(equalToConstant: 60),
-//                setButton.widthAnchor.constraint(equalToConstant: 200)
-//            ]
-//        )
-//    }
-//}
 

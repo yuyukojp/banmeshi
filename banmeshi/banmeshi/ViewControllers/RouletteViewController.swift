@@ -7,8 +7,10 @@
 
 import UIKit
 import Charts
+import RealmSwift
 
 final class RouletteViewController: UIViewController, ChartViewDelegate {
+    let realm = try! Realm()
     
     private let pieChartManager = PieChartManager()
     
@@ -16,7 +18,8 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     
     private var randomAngle: Int = 0
     
-    var data: [String] = []
+    var menuDatas: [String] = []
+    var menuPoints: [Int] = []
     
     private lazy var pieChartView: PieChartView = {
         let view = PieChartView()
@@ -70,10 +73,12 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
                 self.startStopButton.setTitle("Start", for: .normal)
                 
                 //SHOW RESULT
-                let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.data.count, randomAngle: self.randomAngle)
+//                let menus = self.realm.objects(Menu.self)
+//                let dataCount = menus.count
+                let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    Alert.okAlert(title: self.data[selectedIndex], message: "", on: self)
+                    Alert.okAlert(title: self.menuDatas[selectedIndex], message: "", on: self)
                 }
             }
         }
@@ -82,6 +87,7 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setData()
         //Layout
         setupViewsLayout()
         //Pie Chartの設定
@@ -90,7 +96,16 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pieChartManager.setData(pieChartView, data: data)
+        pieChartManager.setData(pieChartView, data: menuDatas)
+    }
+    
+    private func setData() {
+        let menus = self.realm.objects(Menu.self)
+        let dataCount = menus.count
+        for i in 0...(dataCount - 1) {
+            menuDatas.append(menus[i].name)
+            menuPoints.append(menus[i].point)
+        }
     }
 }
 

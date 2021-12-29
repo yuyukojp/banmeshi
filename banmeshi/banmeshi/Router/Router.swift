@@ -21,9 +21,9 @@ final class Router {
         self.window = window
     }
     
-    func showRoulette(from: UIViewController, data: [String]) {
+    func showRoulette(from: UIViewController) {
         let rouletteVC = RouletteViewController()
-        rouletteVC.data = data
+//        rouletteVC.data = data
         from.show(to: rouletteVC)
     }
     
