@@ -26,7 +26,7 @@ final class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             if self.realm.objects(Menu.self).count == 0 {
                 Alert.okAlert(title: Const.alertTitle, message: Const.noMenuErrorMsg, on: self)
-            } else if self.realm.objects(Menu.self).count == 0 {
+            } else if self.realm.objects(Menu.self).count == 1 {
                 Alert.okAlert(title: Const.alertTitle, message: Const.oneMenuErrorMsg, on: self)
             } else {
                 Router.shared.showRoulette(from: self)

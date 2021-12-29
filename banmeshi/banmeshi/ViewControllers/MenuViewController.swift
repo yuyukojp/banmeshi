@@ -79,14 +79,12 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     
     private func addMenu() {
         let menu = Menu()
-//        let menuId = realm.objects(Menu.self).count
         menu.name = menuTextField.text!
         menu.point = Int(pointTextField.text!)!
         menu.id = self.newId(model: menu)!
         try! realm.write {
             realm.add(menu)
         }
-        print("+++++\(realm.objects(Menu.self))")
     }
     
     //MARK: - 新規ID作成
@@ -119,14 +117,20 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     {
         return true
     }
+    
+    // Delete ボタンが押された時に呼ばれるメソッド
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-//    //スワイプしたセルを削除　※arrayNameは変数名に変更してください
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == UITableViewCell.EditingStyle.delete {
-//            arrayName.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-//        }
-//    }
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            // データベースから削除する
+            try! realm.write {
+                let menuData = realm.objects(Menu.self)
+                self.realm.delete(menuData[indexPath.row])
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
+            }
+        }
+        print("+++++\(realm.objects(Menu.self).count)")
+    }
  
 }
 
