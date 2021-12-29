@@ -8,6 +8,9 @@ target 'banmeshi' do
   # Pods for banmeshi
   pod 'Charts'
   pod 'IQKeyboardManagerSwift'
+  pod 'RealmSwift'
+  pod 'RxSwift'
+  pod 'RxCocoa'  
 
   target 'banmeshiTests' do
     inherit! :search_paths
