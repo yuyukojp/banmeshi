@@ -70,21 +70,42 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     }
 
     @IBAction func tapRegisterBtn(_ sender: Any) {
-        let menu = Menu()
-        menu.name = menuTextField.text!
-        menu.point = Int(pointTextField.text!)!
-        try! realm.write {
-            realm.add(menu)
-        }
+        addMenu()
+        
         menuTextField.text = ""
         pointTextField.text = ""
         menuTableView.reloadData()
+    }
+    
+    private func addMenu() {
+        let menu = Menu()
+//        let menuId = realm.objects(Menu.self).count
+        menu.name = menuTextField.text!
+        menu.point = Int(pointTextField.text!)!
+        menu.id = self.newId(model: menu)!
+        try! realm.write {
+            realm.add(menu)
+        }
+        print("+++++\(realm.objects(Menu.self))")
+    }
+    
+    //MARK: - 新規ID作成
+    func newId<T: Object>(model: T) -> Int? {
+        guard let key = T.primaryKey() else { return nil }
+
+        if let last = realm.objects(T.self).last,
+            let lastId = last[key] as? Int {
+            return lastId + 1
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let menuData = realm.objects(Menu.self)
         return menuData.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let menuData = realm.objects(Menu.self)
@@ -92,6 +113,20 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
         return cell
     }
+    
+    //セルの編集許可
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+
+//    //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == UITableViewCell.EditingStyle.delete {
+//            arrayName.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+//        }
+//    }
  
 }
 
