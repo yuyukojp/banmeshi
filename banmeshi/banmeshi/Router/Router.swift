@@ -27,4 +27,10 @@ final class Router {
         from.show(to: rouletteVC)
     }
     
+    func showMenu(from: UIViewController) {
+        let menuVC = MenuViewController()
+        from.show(to: menuVC)
+        
+    }
+    
 }
