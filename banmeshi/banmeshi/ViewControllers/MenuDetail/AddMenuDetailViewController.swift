@@ -28,7 +28,25 @@ class AddMenuDetailViewController: BaseViewController {
     
     //MARK: - MenuViewに戻る
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
-        Router.shared.showMenuDetail(from: self, indexPath: menuIndex)
+        //部品のアラートを作る
+        let alertController = UIAlertController(title: AlertConst.saveAlertTitle, message: AlertConst.saveAlertMsg, preferredStyle: UIAlertController.Style.alert)
+        //OKボタン追加
+        let okAction = UIAlertAction(title: AlertConst.save, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+            Router.shared.showMenuDetail(from: self, indexPath: self.menuIndex)
+        })
+        let cancelAction = UIAlertAction(title: AlertConst.noSave, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)        
+
+        //アラートを表示する
+         present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @objc func saveAction() {
+        
     }
 
 }

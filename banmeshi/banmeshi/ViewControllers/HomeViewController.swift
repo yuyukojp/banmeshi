@@ -24,9 +24,9 @@ final class HomeViewController: BaseViewController {
     @objc func didTapSetButton(_ sender: UIButton) {
         DispatchQueue.main.async {
             if self.realm.objects(Menu.self).count == 0 {
-                Alert.okAlert(title: Const.alertTitle, message: Const.noMenuErrorMsg, on: self)
+                Alert.okAlert(title: AlertConst.alertTitle, message: AlertConst.noMenuErrorMsg, on: self)
             } else if self.realm.objects(Menu.self).count == 1 {
-                Alert.okAlert(title: Const.alertTitle, message: Const.oneMenuErrorMsg, on: self)
+                Alert.okAlert(title: AlertConst.alertTitle, message: AlertConst.oneMenuErrorMsg, on: self)
             } else {
                 Router.shared.showRoulette(from: self)
             }           

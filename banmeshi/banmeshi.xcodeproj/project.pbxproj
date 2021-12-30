@@ -38,6 +38,7 @@
 		C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17A4EB4277BF35E007CBE66 /* Menu.storyboard */; };
 		C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB6277BF39B007CBE66 /* MenuModel.swift */; };
 		C1B800CC277D653D009B06D0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CB277D653D009B06D0 /* Ingredient.swift */; };
+		C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		C17A4EB4277BF35E007CBE66 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		C17A4EB6277BF39B007CBE66 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		C1B800CB277D653D009B06D0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		C1B800CD277D7E31009B06D0 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				C17A4EA0277B0402007CBE66 /* UIViewController+.swift */,
+				C1B800CD277D7E31009B06D0 /* UIApplication.swift */,
 				C17A4EA2277B0433007CBE66 /* UIColor+.swift */,
 			);
 			path = Extension;
@@ -563,6 +566,7 @@
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
+				C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */,
 				C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */,
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
