@@ -129,7 +129,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let menuData = realm.objects(Menu.self)
-        cell.textLabel!.text = "\(menuData[indexPath.row].name)"
+        cell.textLabel!.text = menuData[indexPath.row].name
         cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
         return cell
     }
@@ -170,6 +170,8 @@ extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuData = realm.objects(Menu.self)[indexPath.row]
         let menuDataId = menuData.id
+        //MARK: - 一時的に強制的メニュー詳細に遷移させる
+//        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         if menuData.isSetData {
             Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         } else {

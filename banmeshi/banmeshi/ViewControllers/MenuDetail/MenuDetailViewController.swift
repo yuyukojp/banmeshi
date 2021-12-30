@@ -18,6 +18,8 @@ class MenuDetailViewController: BaseViewController {
     @IBOutlet weak var introductionTableView: UITableView!
     private var results: Results<Menu>!
     
+    private var backButton: UIBarButtonItem!
+    
     var menuIndex: Int = 0
     private var titlelabel: UILabel = UILabel()
 
@@ -32,6 +34,19 @@ class MenuDetailViewController: BaseViewController {
         self.navigationItem.title = results[0].name
         introductionTableView.dataSource = self
         introductionTableView.delegate = self
+        introductionTableView.register(UINib(nibName: "MenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuDetailTableViewCell")
+        setNavigationItems()
+    }
+    
+    private func setNavigationItems() {
+        backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backToMenu(_:)))
+        navigationItem.setLeftBarButton(backButton, animated: true)
+
+    }
+    
+    @objc func backToMenu (_ sender: UIBarButtonItem) {
+        let targetVC = navigationController?.viewControllers[1] ?? UIViewController()
+        navigationController?.popToViewController(targetVC, animated: true)
     }
 
 }
@@ -42,11 +57,11 @@ extension MenuDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "IntroductionCell", for: indexPath)
-        let menuData = realm.objects(Menu.self)
-        print("++++ct:\(menuData[indexPath.row].name.count)")
-        cell.textLabel!.text = "\(menuData[indexPath.row].name)"
-        cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
+        let cell: UITableViewCell = introductionTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath)
+        let menuData = realm.objects(Menu.self)[menuIndex]
+//        print("++++ct:\(menuData[indexPath.row].name.count)")
+//        cell.textLabel!.text =  menuData.ingredients[indexPath.row].0
+//        cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
         return cell
     }
 }
