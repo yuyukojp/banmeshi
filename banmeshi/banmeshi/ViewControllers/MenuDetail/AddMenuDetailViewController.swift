@@ -32,6 +32,7 @@ class AddMenuDetailViewController: BaseViewController {
         let alertController = UIAlertController(title: AlertConst.saveAlertTitle, message: AlertConst.saveAlertMsg, preferredStyle: UIAlertController.Style.alert)
         //OKボタン追加
         let okAction = UIAlertAction(title: AlertConst.save, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+            self.saveAction()
             Router.shared.showMenuDetail(from: self, indexPath: self.menuIndex)
         })
         let cancelAction = UIAlertAction(title: AlertConst.noSave, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
@@ -46,7 +47,11 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     @objc func saveAction() {
-        
+        let results = realm.objects(Menu.self).filter("id == \(menuIndex)").first
+
+        try! realm.write {
+            results?.setValue(true, forKey: "isSetData")
+        }
     }
 
 }
