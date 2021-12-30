@@ -17,4 +17,22 @@ extension UIColor{
         let b = CGFloat(v / Int(powf(256, 0)) % 256) / 255
         self.init(red: r, green: g, blue: b, alpha: min(max(alpha, 0), 1))
     }
+    
+    public static func navigationWhite() -> UIColor {
+        
+        return UIColor(
+            red: 204/255.0,
+            green: 206/255.0,
+            blue: 206/255.0,
+            alpha: 1)
+    }
+    
+    
+    public static func whiteTwo() -> UIColor {
+        return UIColor(
+            red: 224/255.0,
+            green: 224/255.0,
+            blue: 224/255.0,
+            alpha: 1)
+    }
 }

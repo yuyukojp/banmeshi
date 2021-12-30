@@ -10,7 +10,13 @@
 		428CFE43F42732A0BD180B38 /* Pods_banmeshiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CF0376D1E3700EC71C091E /* Pods_banmeshiTests.framework */; };
 		61363172257BF0A542C8DC48 /* Pods_banmeshi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10ADB904EE09BD479E234C /* Pods_banmeshi.framework */; };
 		6FEFA8150200749D90745F8C /* Pods_banmeshi_banmeshiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */; };
-		C11D7EEC277C59A4002B563D /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */; };
+		C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EED277D3A46002B563D /* BaseViewController.swift */; };
+		C11D7EF6277D454A002B563D /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */; };
+		C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */; };
+		C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EFA277D49ED002B563D /* MenuDetailTableViewCell.swift */; };
+		C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */; };
+		C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */; };
+		C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
 		C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */; };
 		C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C61277AF02A007CBE66 /* HomeViewController.swift */; };
@@ -60,7 +66,13 @@
 		97CF0376D1E3700EC71C091E /* Pods_banmeshiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_banmeshiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_banmeshi_banmeshiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF21760BBB669F74F5A2AE8B /* Pods-banmeshiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-banmeshiTests.debug.xcconfig"; path = "Target Support Files/Pods-banmeshiTests/Pods-banmeshiTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
+		C11D7EED277D3A46002B563D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
+		C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailViewController.xib; sourceTree = "<group>"; };
+		C11D7EFA277D49ED002B563D /* MenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailTableViewCell.swift; sourceTree = "<group>"; };
+		C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
+		C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailViewController.swift; sourceTree = "<group>"; };
+		C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailViewController.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +150,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C11D7EF3277D44DB002B563D /* MenuDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */,
+				C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */,
+				C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */,
+				C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */,
+			);
+			path = MenuDetail;
+			sourceTree = "<group>";
+		};
 		C17A4C51277AF02A007CBE66 = {
 			isa = PBXGroup;
 			children = (
@@ -199,10 +222,11 @@
 		C17A4C8D277AFD44007CBE66 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C11D7EED277D3A46002B563D /* BaseViewController.swift */,
 				C17A4C61277AF02A007CBE66 /* HomeViewController.swift */,
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
-				C11D7EEB277C59A4002B563D /* MenuDetailViewController.swift */,
+				C11D7EF3277D44DB002B563D /* MenuDetail */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */,
+				C11D7EFA277D49ED002B563D /* MenuDetailTableViewCell.swift */,
+				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,9 +419,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17A4C6A277AF02C007CBE66 /* LaunchScreen.storyboard in Resources */,
+				C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */,
+				C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */,
+				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,19 +552,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11D7EF6277D454A002B563D /* MenuDetailViewController.swift in Sources */,
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
+				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
+				C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */,
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
+				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
 				C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */,
-				C11D7EEC277C59A4002B563D /* MenuDetailViewController.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,15 +752,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.testproject.banmeshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -749,15 +782,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.testproject.banmeshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

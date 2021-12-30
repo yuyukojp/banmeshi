@@ -14,6 +14,8 @@ class Menu: Object {
     @objc dynamic var name = ""
     @objc dynamic var point = 0
     @objc dynamic var urlString = ""
+    @objc dynamic var isSetData = false
+//    @objc dynamic var Ingredients = ["",""]
 //    @objc dynamic var imageUrl = 
  
     override static func primaryKey() -> String? {

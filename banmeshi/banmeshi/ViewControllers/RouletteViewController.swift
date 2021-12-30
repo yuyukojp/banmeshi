@@ -9,8 +9,7 @@ import UIKit
 import Charts
 import RealmSwift
 
-final class RouletteViewController: UIViewController, ChartViewDelegate {
-    let realm = try! Realm()
+final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     private let pieChartManager = PieChartManager()
     

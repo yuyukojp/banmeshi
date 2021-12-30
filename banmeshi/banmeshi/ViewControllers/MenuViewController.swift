@@ -10,7 +10,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
  
-class MenuViewController: UIViewController, UITableViewDataSource {
+class MenuViewController: BaseViewController, UITableViewDataSource {
 
   
     @IBOutlet weak var menuTextField: UITextField!
@@ -20,14 +20,21 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var editButton: UIButton!
     private var point: Int = 6
     var disposeBag = DisposeBag()
-    let realm = try! Realm()
      
     // 初期表示時の処理
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "菜单一览"
+
         setTextField()
-//        view.backgroundColor = .clear
         registerBtn.isEnabled = false
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+           super.viewDidAppear(animated)
+     
+           // NavigationBarを表示したい場合
+           self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func setTextField() {
@@ -155,22 +162,20 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         }
     }
  
+ 
 }
 
 extension MenuViewController: UITableViewDelegate {
     //MARK: - メニューをタップしたとき
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // アクションを実装
-        let menuDataId = realm.objects(Menu.self)[indexPath.row].id
-        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
-        print("+++++\(indexPath.row)番目の行が選択されました。")
+        let menuData = realm.objects(Menu.self)[indexPath.row]
+        let menuDataId = menuData.id
+        if menuData.isSetData {
+            Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
+        } else {
+            Router.shared.showAddMenuDetail(from: self, indexPath: menuDataId)
+        }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//         // タップされたセルの行番号を出力
-//         print("+++++\(indexPath.row)番目の行が選択されました。")
-//     }
 }
 
 extension MenuViewController: UITextFieldDelegate {

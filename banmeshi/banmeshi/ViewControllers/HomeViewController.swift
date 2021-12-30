@@ -8,18 +8,17 @@
 import UIKit
 import RealmSwift
 
-final class HomeViewController: UIViewController {
-    let realm = try! Realm()
-    
+final class HomeViewController: BaseViewController {
+        
 
     @objc func didTapMenuButton(_ sender: UIButton) {
         let personalViewController = setStoryboard(sbName: "Menu").instantiateViewController(withIdentifier: "MenuViewController")
         self.navigationController?.pushViewController(personalViewController, animated: true)
     }
     
-    func setStoryboard(sbName : String) -> UIStoryboard {
-        return UIStoryboard(name: sbName, bundle: Bundle.main)
-    }
+//    func setStoryboard(sbName : String) -> UIStoryboard {
+//        return UIStoryboard(name: sbName, bundle: Bundle.main)
+//    }
     
     
     @objc func didTapSetButton(_ sender: UIButton) {

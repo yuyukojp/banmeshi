@@ -23,7 +23,6 @@ final class Router {
     
     func showRoulette(from: UIViewController) {
         let rouletteVC = RouletteViewController()
-//        rouletteVC.data = data
         from.show(to: rouletteVC)
     }
     
@@ -34,6 +33,12 @@ final class Router {
     
     func showMenuDetail(from: UIViewController, indexPath: Int) {
         let MenuDetailVC = MenuDetailViewController()
+        MenuDetailVC.menuIndex = indexPath
+        from.show(to: MenuDetailVC)
+    }
+    
+    func showAddMenuDetail(from: UIViewController, indexPath: Int) {
+        let MenuDetailVC = AddMenuDetailViewController()
         MenuDetailVC.menuIndex = indexPath
         from.show(to: MenuDetailVC)
     }
