@@ -7,8 +7,9 @@
 
 import UIKit
 import Charts
+import RealmSwift
 
-final class RouletteViewController: UIViewController, ChartViewDelegate {
+final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     private let pieChartManager = PieChartManager()
     
@@ -16,7 +17,8 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     
     private var randomAngle: Int = 0
     
-    var data: [String] = []
+    var menuDatas: [String] = []
+    var menuPoints: [Int] = []
     
     private lazy var pieChartView: PieChartView = {
         let view = PieChartView()
@@ -70,10 +72,19 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
                 self.startStopButton.setTitle("Start", for: .normal)
                 
                 //SHOW RESULT
-                let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.data.count, randomAngle: self.randomAngle)
+//                let menus = self.realm.objects(Menu.self)
+//                let dataCount = menus.count
+                let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    Alert.okAlert(title: self.data[selectedIndex], message: "", on: self)
+                    if self.menuPoints[selectedIndex] > 6 {
+                        Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
+                    } else if self.menuPoints[selectedIndex] > 3 {
+                        Alert.okAlert(title: "抱歉！", message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖", on: self)
+                    } else {
+                        Alert.okAlert(title: "警告！！", message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)", on: self)
+                    }
+                   
                 }
             }
         }
@@ -82,6 +93,7 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setData()
         //Layout
         setupViewsLayout()
         //Pie Chartの設定
@@ -90,7 +102,16 @@ final class RouletteViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pieChartManager.setData(pieChartView, data: data)
+        pieChartManager.setData(pieChartView, data: menuDatas)
+    }
+    
+    private func setData() {
+        let menus = self.realm.objects(Menu.self)
+        let dataCount = menus.count
+        for i in 0...(dataCount - 1) {
+            menuDatas.append(menus[i].name)
+            menuPoints.append(menus[i].point)
+        }
     }
 }
 
