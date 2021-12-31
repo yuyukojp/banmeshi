@@ -8,6 +8,7 @@
 import UIKit
 
 class AddDetailViewController: UIViewController {
+    var tableViewIndexPath: IndexPath!
 
     override func viewDidLoad() {
         super.viewDidLoad()

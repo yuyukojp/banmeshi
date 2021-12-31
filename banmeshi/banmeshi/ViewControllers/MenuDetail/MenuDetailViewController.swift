@@ -26,6 +26,7 @@ class MenuDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        print("++++menuid:\(menuIndex)")
     }
     
     private func setupUI() {
@@ -53,15 +54,17 @@ class MenuDetailViewController: BaseViewController {
 
 extension MenuDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let result = realm.objects(MenuDetail.self)[menuIndex]
+        print("++++\(result.menuCount)")
+        return result.menuCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = introductionTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath) as! MenuDetailTableViewCell
-        let menuData = realm.objects(Menu.self)[menuIndex]
+        let result = realm.objects(MenuDetail.self)[menuIndex]
 //        print("++++ct:\(menuData[indexPath.row].name.count)")
-//        cell.textLabel!.text =  menuData.ingredients[indexPath.row].0
-//        cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
+        cell.textLabel!.text =  result.ingredientName0
+        cell.detailTextLabel!.text = result.amount0
         return cell
     }
 }

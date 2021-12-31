@@ -149,10 +149,16 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         var isSwipe: Bool = true
         if editingStyle == .delete {
+            var tempPath = 0
             try! realm.write {
                 let menuData = realm.objects(Menu.self)
+                tempPath = menuData[indexPath.row].id
                 self.realm.delete(menuData[indexPath.row])
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
+            }
+            try! realm.write {
+                guard let results = realm.objects(MenuDetail.self).filter("menuId == \(tempPath)").first else { return }
+                self.realm.delete(results)                
             }
             isSwipe = false
         }

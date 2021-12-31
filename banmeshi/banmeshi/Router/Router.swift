@@ -43,4 +43,10 @@ final class Router {
         from.show(to: MenuDetailVC)
     }
     
+    func showAddDetail(from: UIViewController, indexPath: IndexPath) {
+        let AddDetailVC = AddDetailViewController()
+        AddDetailVC.tableViewIndexPath = indexPath
+        from.show(to: AddDetailVC)
+    }
+    
 }

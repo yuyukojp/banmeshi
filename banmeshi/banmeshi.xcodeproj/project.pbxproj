@@ -41,7 +41,6 @@
 		C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */; };
 		C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17A4EB4277BF35E007CBE66 /* Menu.storyboard */; };
 		C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB6277BF39B007CBE66 /* MenuModel.swift */; };
-		C1B800CC277D653D009B06D0 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CB277D653D009B06D0 /* Ingredient.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +106,6 @@
 		C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableView.swift; sourceTree = "<group>"; };
 		C17A4EB4277BF35E007CBE66 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		C17A4EB6277BF39B007CBE66 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
-		C1B800CB277D653D009B06D0 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -295,7 +293,6 @@
 			children = (
 				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 				C17A4EB6277BF39B007CBE66 /* MenuModel.swift */,
-				C1B800CB277D653D009B06D0 /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -574,7 +571,6 @@
 			files = (
 				C11D7EF6277D454A002B563D /* MenuDetailViewController.swift in Sources */,
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
-				C1B800CC277D653D009B06D0 /* Ingredient.swift in Sources */,
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,

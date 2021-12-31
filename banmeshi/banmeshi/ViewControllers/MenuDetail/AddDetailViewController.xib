@@ -39,7 +39,7 @@
                 <constraint firstItem="IOT-lK-AQM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="OVN-HQ-s9b"/>
                 <constraint firstItem="IOT-lK-AQM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="oKk-9r-Rtc"/>
             </constraints>
-            <point key="canvasLocation" x="130.76923076923077" y="76.777251184834114"/>
+            <point key="canvasLocation" x="91" y="105"/>
         </view>
     </objects>
     <resources>
