@@ -96,6 +96,11 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         try! realm.write {
             realm.add(menu)
         }
+        let menuDetail = MenuDetail()
+        menuDetail.menuId = menu.id
+        try! realm.write {
+            realm.add(menuDetail)
+        }
     }
     
     

@@ -10,10 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddMenuDetailViewController" customModule="banmeshi" customModuleProvider="target">
             <connections>
-                <outlet property="textField1" destination="SBP-yY-JVp" id="Zl3-mW-zKY"/>
-                <outlet property="textfield2" destination="AhG-6B-VIs" id="yXO-Aa-iES"/>
-                <outlet property="textfield3" destination="Ptf-7p-R4u" id="1yO-1x-5vX"/>
-                <outlet property="textfield4" destination="VIe-hz-nia" id="jUz-aJ-Jhr"/>
+                <outlet property="mainTableView" destination="vpI-md-Zgb" id="pH6-rN-YYg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,56 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBP-yY-JVp">
-                    <rect key="frame" x="46" y="286" width="97" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="97" id="fWy-fL-E0i"/>
-                        <constraint firstAttribute="height" constant="34" id="w5s-XX-rMf"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-7p-R4u">
-                    <rect key="frame" x="46" y="345" width="97" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="6ZE-aV-4Rb"/>
-                        <constraint firstAttribute="width" constant="97" id="iyy-Se-Tff"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-6B-VIs">
-                    <rect key="frame" x="207" y="286" width="97" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="E5R-y1-3Do"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VIe-hz-nia">
-                    <rect key="frame" x="207" y="345" width="97" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="97" id="db4-TS-1MC"/>
-                        <constraint firstAttribute="height" constant="34" id="gGM-2m-P1x"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vpI-md-Zgb">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="SBP-yY-JVp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="E9z-U6-ef8"/>
-                <constraint firstItem="VIe-hz-nia" firstAttribute="leading" secondItem="Ptf-7p-R4u" secondAttribute="trailing" constant="64" id="Tvd-Rf-yK5"/>
-                <constraint firstItem="AhG-6B-VIs" firstAttribute="centerY" secondItem="SBP-yY-JVp" secondAttribute="centerY" id="YKe-TY-dzg"/>
-                <constraint firstItem="SBP-yY-JVp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="242" id="aUY-yX-Fn0"/>
-                <constraint firstItem="AhG-6B-VIs" firstAttribute="leading" secondItem="SBP-yY-JVp" secondAttribute="trailing" constant="64" id="gBa-Ee-OEJ"/>
-                <constraint firstItem="Ptf-7p-R4u" firstAttribute="top" secondItem="SBP-yY-JVp" secondAttribute="bottom" constant="25" id="gdG-1T-NCU"/>
-                <constraint firstItem="VIe-hz-nia" firstAttribute="top" secondItem="AhG-6B-VIs" secondAttribute="bottom" constant="25" id="sT5-M1-gHW"/>
-                <constraint firstItem="Ptf-7p-R4u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="sT7-Qe-Vtx"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AhG-6B-VIs" secondAttribute="trailing" constant="110" id="wU7-oc-zzn"/>
+                <constraint firstAttribute="bottom" secondItem="vpI-md-Zgb" secondAttribute="bottom" id="1y7-oq-6Yw"/>
+                <constraint firstItem="vpI-md-Zgb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DUB-aW-Cky"/>
+                <constraint firstItem="vpI-md-Zgb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Udx-Z6-zCi"/>
+                <constraint firstItem="vpI-md-Zgb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uLD-U3-egC"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="59"/>
+            <point key="canvasLocation" x="131.8840579710145" y="58.928571428571423"/>
         </view>
     </objects>
     <resources>

@@ -11,7 +11,7 @@ class MenuDetailTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setCellLayout()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -19,5 +19,7 @@ class MenuDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func setCellLayout() {
+        self.frame.size.width = Const.screenWidth
+    }
 }

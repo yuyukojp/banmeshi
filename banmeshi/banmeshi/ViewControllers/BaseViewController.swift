@@ -10,11 +10,13 @@ import RealmSwift
 
 class BaseViewController: UIViewController {
     let realm = try! Realm()
-
+    let backBotton = UIBarButtonItem()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        backBotton.title = "返回"
+        navigationItem.backBarButtonItem = backBotton
     }
     
     func setStoryboard(sbName : String) -> UIStoryboard {

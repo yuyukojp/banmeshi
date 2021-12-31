@@ -39,7 +39,7 @@ class MenuDetailViewController: BaseViewController {
     }
     
     private func setNavigationItems() {
-        backButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backToMenu(_:)))
+        backButton = UIBarButtonItem(title: "＜ 返回", style: .done, target: self, action: #selector(backToMenu(_:)))
         navigationItem.setLeftBarButton(backButton, animated: true)
 
     }
@@ -57,7 +57,7 @@ extension MenuDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = introductionTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath)
+        let cell: UITableViewCell = introductionTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath) as! MenuDetailTableViewCell
         let menuData = realm.objects(Menu.self)[menuIndex]
 //        print("++++ct:\(menuData[indexPath.row].name.count)")
 //        cell.textLabel!.text =  menuData.ingredients[indexPath.row].0

@@ -17,6 +17,10 @@
 		C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */; };
 		C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */; };
 		C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */; };
+		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
+		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
+		C13AB5C4277EC94E005345F4 /* AddDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5C2277EC94E005345F4 /* AddDetailViewController.swift */; };
+		C13AB5C5277EC94E005345F4 /* AddDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5C3277EC94E005345F4 /* AddDetailViewController.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
 		C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */; };
 		C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C61277AF02A007CBE66 /* HomeViewController.swift */; };
@@ -75,6 +79,10 @@
 		C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailViewController.swift; sourceTree = "<group>"; };
 		C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailViewController.xib; sourceTree = "<group>"; };
+		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
+		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
+		C13AB5C2277EC94E005345F4 /* AddDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailViewController.swift; sourceTree = "<group>"; };
+		C13AB5C3277EC94E005345F4 /* AddDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDetailViewController.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17A4C5F277AF02A007CBE66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +169,8 @@
 				C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */,
 				C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */,
 				C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */,
+				C13AB5C2277EC94E005345F4 /* AddDetailViewController.swift */,
+				C13AB5C3277EC94E005345F4 /* AddDetailViewController.xib */,
 			);
 			path = MenuDetail;
 			sourceTree = "<group>";
@@ -241,6 +251,8 @@
 				C17A4EB2277BED5F007CBE66 /* MenuTableView.swift */,
 				C11D7EFA277D49ED002B563D /* MenuDetailTableViewCell.swift */,
 				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
+				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
+				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,10 +439,12 @@
 				C17A4C6A277AF02C007CBE66 /* LaunchScreen.storyboard in Resources */,
 				C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */,
 				C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */,
+				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
+				C13AB5C5277EC94E005345F4 /* AddDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +578,7 @@
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
+				C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
 				C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */,
@@ -575,6 +590,7 @@
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
+				C13AB5C4277EC94E005345F4 /* AddDetailViewController.swift in Sources */,
 				C17A4EB3277BED5F007CBE66 /* MenuTableView.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
 			);
@@ -764,7 +780,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -794,7 +810,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
