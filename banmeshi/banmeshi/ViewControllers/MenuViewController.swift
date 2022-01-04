@@ -74,7 +74,6 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         }
         .bind(to: registerBtn.rx.isEnabled)
         .disposed(by: disposeBag)
-        
     }
 
     @IBAction func tapRegisterBtn(_ sender: Any) {

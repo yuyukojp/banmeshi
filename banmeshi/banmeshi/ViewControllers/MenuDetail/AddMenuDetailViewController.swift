@@ -7,6 +7,8 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class AddMenuDetailViewController: BaseViewController {
     @IBOutlet weak var mainTableView: UITableView!
@@ -20,6 +22,8 @@ class AddMenuDetailViewController: BaseViewController {
     let itemNameTextfield = UITextField()
     let itemQuantityLabel = UILabel()
     let itemQuantityTextField = UITextField()
+    private var detailData: [String] = []
+    var disposeBag = DisposeBag()
     
     private var saveButton: UIBarButtonItem!
     var menuIndex: Int = 0
@@ -109,9 +113,11 @@ class AddMenuDetailViewController: BaseViewController {
         confirmButton.setTitle("确认", for: .normal)
         confirmButton.backgroundColor = UIColor(red: 251/255, green: 102/255, blue: 72/255, alpha: 0.5)
         confirmButton.setTitleColor(.black, for: .normal)
+        confirmButton.setTitleColor(.gray, for: .disabled)
         confirmButton.layer.cornerRadius = 10
         confirmButton.addTarget(self, action: #selector(tapConfirmBtn), for: .touchUpInside)
         addView.addSubview(confirmButton)
+        setTextField()
     }
     
     @objc func tapConfirmBtn() {
@@ -256,6 +262,43 @@ extension AddMenuDetailViewController: UITableViewDelegate {
         }
         
     }
+    
+    private func setTextField() {
+//        itemNameTextfield.delegate = self
+//        itemQuantityTextField.delegate = self
+        itemNameTextfield.placeholder = "请输入配料名"
+        itemQuantityTextField.placeholder = "请输入配量"
+        
+        //MARK: - TextFieldの最大文字数設定
+        itemNameTextfield.rx.text
+            .map { text in
+                if let text = text, text.count > 40 {
+                    return String(text.prefix(40))
+                } else {
+                    return text ?? ""
+                }
+            }
+            .bind(to: itemNameTextfield.rx.text)
+            .disposed(by: disposeBag)
+        
+        itemQuantityTextField.rx.text
+            .map { text in
+                if let text = text, text.count > 20 {
+                    return String(text.prefix(20))
+                } else {
+                    return text ?? ""
+                }
+            }
+            .bind(to: itemQuantityTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        //MARK: - TextField入力制限に越した場合ボタン非活性化
+        Observable.combineLatest(itemNameTextfield.rx.text.orEmpty.asObservable(), itemQuantityTextField.rx.text.orEmpty.asObservable()){
+            $0.count > 0 && $1.count > 0
+        }
+        .bind(to: confirmButton.rx.isEnabled)
+        .disposed(by: disposeBag)
+    }
 }
 
 extension AddMenuDetailViewController: UITableViewDataSource {
@@ -304,6 +347,4 @@ extension AddMenuDetailViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
