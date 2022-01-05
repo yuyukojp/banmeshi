@@ -13,7 +13,7 @@
                 <outlet property="closeBtn" destination="0Or-AW-K5a" id="mTj-q0-9fh"/>
                 <outlet property="confirmBtn" destination="Koz-dE-0zm" id="JIe-64-s2Q"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="atS-0X-Qdc"/>
-                <outlet property="introductionTextField" destination="QcC-oC-QN0" id="Fso-Vy-NiW"/>
+                <outlet property="introductionTextView" destination="5qm-5Q-kjQ" id="tEt-dQ-b3O"/>
                 <outlet property="subView" destination="LYE-rp-weL" id="bjS-3J-cbC"/>
                 <outlet property="titleLabel" destination="nYN-qh-cLP" id="Q2F-Ca-IBj"/>
             </connections>
@@ -69,14 +69,6 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcC-oC-QN0">
-                            <rect key="frame" x="30" y="62" width="314" height="120"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="120" id="lEQ-RJ-v8z"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Or-AW-K5a">
                             <rect key="frame" x="349" y="3" width="20" height="20"/>
                             <constraints>
@@ -90,17 +82,47 @@
                                 <action selector="tapCloseBtn:" destination="-1" eventType="touchUpInside" id="991-jX-AMp"/>
                             </connections>
                         </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qm-5Q-kjQ">
+                            <rect key="frame" x="30" y="62" width="314" height="120"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="DG5-46-3DW"/>
+                            </constraints>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColo">
+                                    <color key="value" systemColor="systemTealColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                    <real key="value" value="0.59999999999999998"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                    <size key="value" width="1" height="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Koz-dE-0zm" secondAttribute="bottom" constant="20" id="Ajr-OY-0Xc"/>
                         <constraint firstItem="nYN-qh-cLP" firstAttribute="leading" secondItem="LYE-rp-weL" secondAttribute="leading" constant="30" id="CIQ-qB-8T4"/>
                         <constraint firstItem="Koz-dE-0zm" firstAttribute="centerX" secondItem="LYE-rp-weL" secondAttribute="centerX" id="H4Z-Li-fxB"/>
-                        <constraint firstItem="QcC-oC-QN0" firstAttribute="top" secondItem="nYN-qh-cLP" secondAttribute="bottom" constant="12" id="Q0b-CJ-Bca"/>
+                        <constraint firstItem="5qm-5Q-kjQ" firstAttribute="leading" secondItem="LYE-rp-weL" secondAttribute="leading" constant="30" id="P4c-Xb-MPk"/>
                         <constraint firstItem="nYN-qh-cLP" firstAttribute="top" secondItem="LYE-rp-weL" secondAttribute="top" constant="30" id="esA-Z2-1iM"/>
-                        <constraint firstItem="QcC-oC-QN0" firstAttribute="leading" secondItem="LYE-rp-weL" secondAttribute="leading" constant="30" id="fiH-hM-vJh"/>
+                        <constraint firstItem="5qm-5Q-kjQ" firstAttribute="top" secondItem="nYN-qh-cLP" secondAttribute="bottom" constant="12" id="kJ5-un-S9c"/>
+                        <constraint firstAttribute="trailing" secondItem="5qm-5Q-kjQ" secondAttribute="trailing" constant="30" id="mCt-8x-Grd"/>
                         <constraint firstItem="0Or-AW-K5a" firstAttribute="top" secondItem="LYE-rp-weL" secondAttribute="top" constant="3" id="nMU-mR-Nnf"/>
-                        <constraint firstAttribute="trailing" secondItem="QcC-oC-QN0" secondAttribute="trailing" constant="30" id="oOz-BE-xJQ"/>
                         <constraint firstAttribute="trailing" secondItem="0Or-AW-K5a" secondAttribute="trailing" constant="5" id="qxy-hE-wcC"/>
                         <constraint firstAttribute="height" constant="250" id="vnp-d0-a9I"/>
                         <constraint firstAttribute="trailing" secondItem="nYN-qh-cLP" secondAttribute="trailing" constant="20" id="wDf-70-oho"/>
@@ -142,8 +164,14 @@
     </objects>
     <resources>
         <image name="delete.forward.fill" catalog="system" width="128" height="104"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

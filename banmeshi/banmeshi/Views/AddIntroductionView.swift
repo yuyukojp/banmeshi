@@ -14,7 +14,7 @@ final class AddIntroductionView: UIView {
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var introductionTextField: UITextField!
+    @IBOutlet weak var introductionTextView: UITextView!
     @IBOutlet weak var closeBtn: UIButton!
     var disposeBag = DisposeBag()
     
@@ -33,22 +33,29 @@ final class AddIntroductionView: UIView {
     
     func setupView() {
         titleLabel.text = "简介内容："
-        introductionTextField.placeholder = "请输入简介"
+        // 枠のカラー
+        introductionTextView.layer.borderColor = UIColor.blue.cgColor
+        // 枠の幅
+        introductionTextView.layer.borderWidth = 1.0
+        // 枠を角丸にする
+        introductionTextView.layer.cornerRadius = 8.0
+        introductionTextView.layer.masksToBounds = true
+//        introductionTextField.placeholder = "请输入简介"
         
         //MARK: - TextFieldの最大文字数設定
-        introductionTextField.rx.text
+        introductionTextView.rx.text
             .map { text in
-                if let text = text, text.count > 300 {
-                    return String(text.prefix(300))
+                if let text = text, text.count > 200 {
+                    return String(text.prefix(200))
                 } else {
                     return text ?? ""
                 }
             }
-            .bind(to: introductionTextField.rx.text)
+            .bind(to: introductionTextView.rx.text)
             .disposed(by: disposeBag)
         
         //MARK: - TextField入力制限に越した場合ボタン非活性化
-        Observable.combineLatest(introductionTextField.rx.text.orEmpty.asObservable(), introductionTextField.rx.text.orEmpty.asObservable()){
+        Observable.combineLatest(introductionTextView.rx.text.orEmpty.asObservable(), introductionTextView.rx.text.orEmpty.asObservable()){
             $0.count > 0 && $1.count > 0
         }
         .bind(to: confirmBtn.rx.isEnabled)
@@ -63,18 +70,18 @@ final class AddIntroductionView: UIView {
     }
     
     func getIngredientData() -> String {
-        return introductionTextField.text ?? ""
+        return introductionTextView.text ?? ""
     }
     
     func hideView() {
-        introductionTextField.endEditing(true)
+        introductionTextView.endEditing(true)
         UIView.animate(withDuration: 0.3) {
             self.frame.origin.y = -Const.screenHeight
         }
     }
     
     func showView() {
-        introductionTextField.becomeFirstResponder()
+        introductionTextView.becomeFirstResponder()
         self.frame.origin.y = 0
     }
 
