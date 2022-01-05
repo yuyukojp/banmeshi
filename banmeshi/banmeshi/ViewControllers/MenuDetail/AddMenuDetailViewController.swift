@@ -69,8 +69,17 @@ class AddMenuDetailViewController: BaseViewController {
     
     //MARK: - MenuViewに戻る
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
+        var alertTitle = ""
+        var alertMessage = ""
+        if introductionData == "" {
+            alertTitle = AlertConst.noIntroductionTitle
+            alertMessage = AlertConst.noIntroductionMsg
+        } else {
+            alertTitle = AlertConst.alertTitle
+            alertMessage = AlertConst.saveAlertMsg
+        }
         //部品のアラートを作る
-        let alertController = UIAlertController(title: AlertConst.saveAlertTitle, message: AlertConst.saveAlertMsg, preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
         //OKボタン追加
         let okAction = UIAlertAction(title: AlertConst.save, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
             self.saveAction()
@@ -88,6 +97,10 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     @objc func saveAction() {
+        if introductionData == "" {
+            introductionData = "未输入"
+        }
+        
         let results = realm.objects(Menu.self).filter("id == \(menuIndex)").first
 
         try! realm.write {

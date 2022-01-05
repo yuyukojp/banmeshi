@@ -31,4 +31,6 @@ struct AlertConst {
     static let cancel = "Cancel"
     static let save = "保存"
     static let noSave = "继续编辑"
+    static let noIntroductionTitle = "请注意"
+    static let noIntroductionMsg = "未填写简介内容，是否继续保存？"
 }
