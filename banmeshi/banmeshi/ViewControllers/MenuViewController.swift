@@ -80,6 +80,8 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         addMenu()
         menuTextField.text = ""
         pointTextField.text = ""
+        menuTextField.endEditing(true)
+        pointTextField.endEditing(true)
         menuTableView.reloadData()
     }
     
@@ -180,6 +182,8 @@ extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuData = realm.objects(Menu.self)[indexPath.row]
         let menuDataId = menuData.id
+        menuTextField.endEditing(true)
+        pointTextField.endEditing(true)
         //MARK: - 一時的に強制的メニュー詳細に遷移させる
 //        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         if menuData.isSetData {

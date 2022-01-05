@@ -61,7 +61,7 @@ class AddMenuDetailViewController: BaseViewController {
         
     }
     
-    @objc func tapConfirmBtn() {
+//    @objc func tapConfirmBtn() {
 //        guard let results = realm.objects(MenuDetail.self).filter("menuId == \(menuIndex)").first else { return }
 //
 //        switch tempIndexPath.row {
@@ -151,7 +151,7 @@ class AddMenuDetailViewController: BaseViewController {
 //        itemNameTextfield.becomeFirstResponder()
 //        itemNameTextfield.text = ""
 //        itemQuantityTextField.text = ""
-    }
+//    }
     
     private func setNavigationBar() {
         saveButton = UIBarButtonItem(title: "編集", style: .done, target: self, action: #selector(saveButtonTapped(_:)))
@@ -185,6 +185,190 @@ class AddMenuDetailViewController: BaseViewController {
         try! realm.write {
             results?.setValue(true, forKey: "isSetData")
         }
+       saveDataToDB()
+        
+    }
+    
+    private func saveDataToDB() {
+        guard let resultsDetail = realm.objects(MenuDetail.self).filter("menuId == \(menuIndex)").first else { return }
+        guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
+        //MARK: - 画像URL保存TBD.
+//        try! realm.write {
+//            resultsMenu.setValue(imageUrlData, forKey: "urlString")
+//        }
+        //紹介文を保存
+        try! realm.write {
+            resultsMenu.setValue(introductionData, forKey: "introduction")
+        }
+
+        //素材保存
+        for i in 0...detailData.count - 1 {
+            switch i {
+            case 0:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[0], forKey: "ingredientName0")
+                    resultsDetail.setValue(ingredientData[0], forKey: "amount0")
+                }
+            case 1:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[1], forKey: "ingredientName1")
+                    resultsDetail.setValue(ingredientData[1], forKey: "amount1")
+                }
+            case 2:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[2], forKey: "ingredientName2")
+                    resultsDetail.setValue(ingredientData[2], forKey: "amount2")
+                }
+            case 3:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[3], forKey: "ingredientName3")
+                    resultsDetail.setValue(ingredientData[3], forKey: "amount3")
+                }
+            case 4:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[4], forKey: "ingredientName4")
+                    resultsDetail.setValue(ingredientData[4], forKey: "amount4")
+                }
+            case 5:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[5], forKey: "ingredientName5")
+                    resultsDetail.setValue(ingredientData[5], forKey: "amount5")
+                }
+            case 6:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[6], forKey: "ingredientName6")
+                    resultsDetail.setValue(ingredientData[6], forKey: "amount6")
+                }
+            case 7:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[7], forKey: "ingredientName7")
+                    resultsDetail.setValue(ingredientData[7], forKey: "amount7")
+                }
+            case 8:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[8], forKey: "ingredientName8")
+                    resultsDetail.setValue(ingredientData[8], forKey: "amount8")
+                }
+            case 9:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[9], forKey: "ingredientName9")
+                    resultsDetail.setValue(ingredientData[9], forKey: "amount9")
+                }
+            case 10:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[10], forKey: "ingredientName10")
+                    resultsDetail.setValue(ingredientData[10], forKey: "amount10")
+                }
+            case 11:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[11], forKey: "ingredientName11")
+                    resultsDetail.setValue(ingredientData[11], forKey: "amount11")
+                }
+            case 12:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[12], forKey: "ingredientName12")
+                    resultsDetail.setValue(ingredientData[12], forKey: "amount12")
+                }
+            case 13:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[13], forKey: "ingredientName13")
+                    resultsDetail.setValue(ingredientData[13], forKey: "amount13")
+                }
+            case 14:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[14], forKey: "ingredientName14")
+                    resultsDetail.setValue(ingredientData[14], forKey: "amount14")
+                }
+            case 15:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[15], forKey: "ingredientName15")
+                    resultsDetail.setValue(ingredientData[15], forKey: "amount15")
+                }
+            case 16:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[16], forKey: "ingredientName16")
+                    resultsDetail.setValue(ingredientData[16], forKey: "amount16")
+                }
+            case 17:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[17], forKey: "ingredientName17")
+                    resultsDetail.setValue(ingredientData[17], forKey: "amount17")
+                }
+            case 18:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[18], forKey: "ingredientName18")
+                    resultsDetail.setValue(ingredientData[18], forKey: "amount18")
+                }
+            case 19:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[19], forKey: "ingredientName19")
+                    resultsDetail.setValue(ingredientData[19], forKey: "amount19")
+                }
+            case 20:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[20], forKey: "ingredientName20")
+                    resultsDetail.setValue(ingredientData[20], forKey: "amount20")
+                }
+            case 21:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[21], forKey: "ingredientName21")
+                    resultsDetail.setValue(ingredientData[21], forKey: "amount21")
+                }
+            case 22:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[22], forKey: "ingredientName22")
+                    resultsDetail.setValue(ingredientData[22], forKey: "amount22")
+                }
+            case 23:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[23], forKey: "ingredientName23")
+                    resultsDetail.setValue(ingredientData[23], forKey: "amount23")
+                }
+            case 24:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[24], forKey: "ingredientName24")
+                    resultsDetail.setValue(ingredientData[24], forKey: "amount24")
+                }
+            case 25:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[25], forKey: "ingredientName25")
+                    resultsDetail.setValue(ingredientData[25], forKey: "amount25")
+                }
+            case 26:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[26], forKey: "ingredientName26")
+                    resultsDetail.setValue(ingredientData[26], forKey: "amount26")
+                }
+            case 27:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[27], forKey: "ingredientName27")
+                    resultsDetail.setValue(ingredientData[27], forKey: "amount27")
+                }
+            case 28:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[28], forKey: "ingredientName28")
+                    resultsDetail.setValue(ingredientData[28], forKey: "amount28")
+                }
+            case 29:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[29], forKey: "ingredientName29")
+                    resultsDetail.setValue(ingredientData[29], forKey: "amount29")
+                }
+            case 30:
+                try! realm.write {
+                    resultsDetail.setValue(detailData[30], forKey: "ingredientName30")
+                    resultsDetail.setValue(ingredientData[30], forKey: "amount30")
+                }
+            default:
+                break
+            }
+        }
+        
+        //素材数保存
+        try! realm.write {
+            resultsDetail.setValue(detailData.count, forKey: "menuCount")
+        }
+        
     }
         
     
@@ -279,7 +463,7 @@ extension AddMenuDetailViewController: UITableViewDelegate {
 extension AddMenuDetailViewController: UITableViewDataSource {
     //セッションを設置
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitle.count
+        return sectionTitle.count > 31 ? 31 : sectionTitle.count
     }
     // Sectioのタイトル
     func tableView(_ tableView: UITableView,
