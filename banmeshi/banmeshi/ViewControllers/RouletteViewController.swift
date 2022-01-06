@@ -93,7 +93,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         setData()
         //Layout
         setupViewsLayout()

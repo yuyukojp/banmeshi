@@ -791,8 +791,10 @@
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -821,8 +823,10 @@
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
