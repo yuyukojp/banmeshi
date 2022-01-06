@@ -16,6 +16,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     private var spinFlg: Bool = false //停止中
     
     private var randomAngle: Int = 0
+    private var errorView: NoMenuDataView!
     
     var menuDatas: [String] = []
     var menuPoints: [Int] = []
@@ -103,6 +104,17 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pieChartManager.setData(pieChartView, data: menuDatas)
+        setupUI()
+    }
+    
+    private func setupUI() {
+        let result = realm.objects(Menu.self)
+        if result.count <= 1 {
+            let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
+            errorView = NoMenuDataView(frame: frame)
+            self.view.addSubview(errorView)
+        }
+
     }
     
     private func setData() {

@@ -53,7 +53,7 @@ class MenuDetailViewController: BaseViewController {
     }
     
     @objc func backToMenu (_ sender: UIBarButtonItem) {
-        let targetVC = navigationController?.viewControllers[1] ?? UIViewController()
+        let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
         navigationController?.popToViewController(targetVC, animated: true)
     }
 

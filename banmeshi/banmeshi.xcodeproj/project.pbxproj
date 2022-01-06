@@ -44,6 +44,8 @@
 		C18B8EFC278446E900D61B08 /* AddDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8EFB278446E900D61B08 /* AddDetailView.xib */; };
 		C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F132785816100D61B08 /* AddPhotoViewController.swift */; };
 		C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F142785816100D61B08 /* AddPhotoViewController.xib */; };
+		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
+		C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,8 @@
 		C18B8EFB278446E900D61B08 /* AddDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDetailView.xib; sourceTree = "<group>"; };
 		C18B8F132785816100D61B08 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		C18B8F142785816100D61B08 /* AddPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoViewController.xib; sourceTree = "<group>"; };
+		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
+		C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +264,8 @@
 				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
 				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
 				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
+				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
+				C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
+				C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */,
 				C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
 				C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */,
@@ -592,6 +599,7 @@
 				C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */,
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
+				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
