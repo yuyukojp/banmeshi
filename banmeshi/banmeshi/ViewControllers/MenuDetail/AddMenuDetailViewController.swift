@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 import RxSwift
 import RxCocoa
+import SwiftUI
 
 class AddMenuDetailViewController: BaseViewController {
     @IBOutlet weak var mainTableView: UITableView!
@@ -31,10 +32,11 @@ class AddMenuDetailViewController: BaseViewController {
     var menuIndex: Int = 0
     // Sectionのタイトル
     let sectionTitle: NSArray = ["照片", "简介", "详细"]
-    private var imageUrlData: String = ""
+    var imageData: Data = Data()
     private var introductionData: String = ""
     private var detailData: [String] = []
     private var ingredientData: [String] = []
+    var isEditMode: Bool = false
     
     
     override func viewDidLoad() {
@@ -42,12 +44,133 @@ class AddMenuDetailViewController: BaseViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("++++set\(isEditMode)")
+        if isEditMode {
+            setDataFromDB()
+        }
+        mainTableView.reloadData()
+        setAddView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        isEditMode = false
+        print("+++++close")
+    }
+    
     private func setupUI() {
         setNavigationBar()
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "AddMenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCell")
-        setAddView()
+        
+    }
+    
+    private func setDataFromDB() {
+        guard let resultsDetail = realm.objects(MenuDetail.self).filter("menuId == \(menuIndex)").first else { return }
+        guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
+        imageData = resultsMenu.imageData
+        introductionData = resultsMenu.introduction
+        for i in 0...(resultsDetail.menuCount - 1) {
+            switch i {
+            case 0:
+                detailData.append(resultsDetail.ingredientName0)
+                ingredientData.append(resultsDetail.amount0)
+            case 1:
+                detailData.append(resultsDetail.ingredientName1)
+                ingredientData.append(resultsDetail.amount1)
+            case 2:
+                detailData.append(resultsDetail.ingredientName2)
+                ingredientData.append(resultsDetail.amount2)
+            case 3:
+                detailData.append(resultsDetail.ingredientName3)
+                ingredientData.append(resultsDetail.amount3)
+            case 4:
+                detailData.append(resultsDetail.ingredientName4)
+                ingredientData.append(resultsDetail.amount4)
+            case 5:
+                detailData.append(resultsDetail.ingredientName5)
+                ingredientData.append(resultsDetail.amount5)
+            case 6:
+                detailData.append(resultsDetail.ingredientName6)
+                ingredientData.append(resultsDetail.amount6)
+            case 7:
+                detailData.append(resultsDetail.ingredientName7)
+                ingredientData.append(resultsDetail.amount7)
+            case 8:
+                detailData.append(resultsDetail.ingredientName8)
+                ingredientData.append(resultsDetail.amount8)
+            case 9:
+                detailData.append(resultsDetail.ingredientName9)
+                ingredientData.append(resultsDetail.amount9)
+            case 10:
+                detailData.append(resultsDetail.ingredientName10)
+                ingredientData.append(resultsDetail.amount10)
+            case 11:
+                detailData.append(resultsDetail.ingredientName11)
+                ingredientData.append(resultsDetail.amount11)
+            case 12:
+                detailData.append(resultsDetail.ingredientName12)
+                ingredientData.append(resultsDetail.amount12)
+            case 13:
+                detailData.append(resultsDetail.ingredientName13)
+                ingredientData.append(resultsDetail.amount13)
+            case 14:
+                detailData.append(resultsDetail.ingredientName14)
+                ingredientData.append(resultsDetail.amount14)
+            case 15:
+                detailData.append(resultsDetail.ingredientName15)
+                ingredientData.append(resultsDetail.amount15)
+            case 16:
+                detailData.append(resultsDetail.ingredientName16)
+                ingredientData.append(resultsDetail.amount16)
+            case 17:
+                detailData.append(resultsDetail.ingredientName17)
+                ingredientData.append(resultsDetail.amount17)
+            case 18:
+                detailData.append(resultsDetail.ingredientName18)
+                ingredientData.append(resultsDetail.amount18)
+            case 19:
+                detailData.append(resultsDetail.ingredientName19)
+                ingredientData.append(resultsDetail.amount19)
+            case 20:
+                detailData.append(resultsDetail.ingredientName20)
+                ingredientData.append(resultsDetail.amount20)
+            case 21:
+                detailData.append(resultsDetail.ingredientName21)
+                ingredientData.append(resultsDetail.amount21)
+            case 22:
+                detailData.append(resultsDetail.ingredientName22)
+                ingredientData.append(resultsDetail.amount22)
+            case 23:
+                detailData.append(resultsDetail.ingredientName23)
+                ingredientData.append(resultsDetail.amount23)
+            case 24:
+                detailData.append(resultsDetail.ingredientName24)
+                ingredientData.append(resultsDetail.amount24)
+            case 25:
+                detailData.append(resultsDetail.ingredientName25)
+                ingredientData.append(resultsDetail.amount25)
+            case 26:
+                detailData.append(resultsDetail.ingredientName26)
+                ingredientData.append(resultsDetail.amount26)
+            case 27:
+                detailData.append(resultsDetail.ingredientName27)
+                ingredientData.append(resultsDetail.amount27)
+            case 28:
+                detailData.append(resultsDetail.ingredientName28)
+                ingredientData.append(resultsDetail.amount28)
+            case 29:
+                detailData.append(resultsDetail.ingredientName29)
+                ingredientData.append(resultsDetail.amount29)
+            case 30:
+                detailData.append(resultsDetail.ingredientName30)
+                ingredientData.append(resultsDetail.amount30)
+            default:
+                break
+            }
+        }
+        
     }
     
     private func setAddView() {
@@ -62,11 +185,19 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     private func setNavigationBar() {
-        saveButton = UIBarButtonItem(title: "編集", style: .done, target: self, action: #selector(saveButtonTapped(_:)))
+        if isEditMode {
+            saveButton = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(editSaveButtonTapped(_:)))
+            navigationItem.setRightBarButton(saveButton, animated: false)
+        }
+        saveButton = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(saveButtonTapped(_:)))
         navigationItem.setRightBarButton(saveButton, animated: false)
-        navigationItem.rightBarButtonItem?.title = "保存"
+//        navigationItem.rightBarButtonItem?.title = "保存"
     }
     
+    @objc func editSaveButtonTapped (_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+        
     //MARK: - MenuViewに戻る
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
         var alertTitle = ""
@@ -114,9 +245,9 @@ class AddMenuDetailViewController: BaseViewController {
         guard let resultsDetail = realm.objects(MenuDetail.self).filter("menuId == \(menuIndex)").first else { return }
         guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
         //MARK: - 画像URL保存TBD.
-//        try! realm.write {
-//            resultsMenu.setValue(imageUrlData, forKey: "urlString")
-//        }
+        try! realm.write {
+            resultsMenu.setValue(imageData, forKey: "imageData")
+        }
         //紹介文を保存
         try! realm.write {
             resultsMenu.setValue(introductionData, forKey: "introduction")
@@ -309,6 +440,17 @@ class AddMenuDetailViewController: BaseViewController {
         mainTableView.reloadData()
     }
     
+    @objc func tapDetailEditBtn() {
+        guard tempIndexPath.row < detailData.count else { return }
+        let tempRow = tempIndexPath.row
+        self.detailData[tempRow] = addDetailView.getDetailData()
+        self.ingredientData[tempRow] = addDetailView.getIngredientData()
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        addDetailView.detailTextField.text = ""
+        addDetailView.ingredientTextfield.text = ""
+        mainTableView.reloadData()
+    }
+    
     @objc func tapAddCloseBtn() {
         self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
@@ -321,6 +463,8 @@ extension AddMenuDetailViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             print("++++0")
+            
+            Router.shared.showAddPhoto(from: self, indexPath: self.menuIndex)
         case 1:
             UIView.animate(withDuration: 0.3) {
                 self.addIntroductionView.showView()
@@ -329,15 +473,19 @@ extension AddMenuDetailViewController: UITableViewDelegate {
                 self.navigationItem.rightBarButtonItem?.isEnabled = false
             }
         case 2:
-            if indexPath.row == detailData.count {
-                UIView.animate(withDuration: 0.3) {
-                    self.addDetailView.showView()
+            UIView.animate(withDuration: 0.3) {
+                if indexPath.row == self.detailData.count {
+                    self.addDetailView.showView(detail: nil, ingredient: nil)
                     self.addDetailView.confirmBtn.addTarget(self, action: #selector(self.tapDetailOKBtn), for: .touchUpInside)
-                    self.addDetailView.closeBtn.addTarget(self, action: #selector(self.tapAddCloseBtn), for: .touchUpInside)
-                    self.navigationItem.rightBarButtonItem?.isEnabled = false
+                } else if indexPath.row < self.detailData.count {
+                    self.addDetailView.showView(detail: self.detailData[indexPath.row], ingredient: self.ingredientData[indexPath.row])
+                    self.addDetailView.confirmBtn.addTarget(self, action: #selector(self.tapDetailEditBtn), for: .touchUpInside)
+                } else { return }
+                self.addDetailView.closeBtn.addTarget(self, action: #selector(self.tapAddCloseBtn), for: .touchUpInside)
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
 
-                }
-            } //else { break }
+            }
+
         default:
             break
         }
@@ -403,13 +551,14 @@ extension AddMenuDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddMenuDetailTableViewCell
 
-        if indexPath.section == 0 /*&& imageUrlData != ""*/ {
-            print("+++++section 0")
+        if indexPath.section == 0 && self.imageData != Data() {
             cell.nameLabel.isHidden = true
             cell.amfeLabel.isHidden = true
             cell.introductionLabel.isHidden = true
-            cell.addLabel.isHidden = false
-            cell.addLabel.text = "TBD."
+            cell.addLabel.isHidden = true
+            let cellImage = UIImage(data: imageData)
+            cell.photoView.image = cellImage?.resize(size: CGSize(width: 200,height: 200))
+            cell.photoView.isHidden = false
         } else if indexPath.section == 1 && introductionData != "" {
             cell.introductionLabel.isHidden = false
             cell.addLabel.isHidden = true
@@ -426,6 +575,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.amfeLabel.isHidden = true
             cell.introductionLabel.isHidden = true
             cell.addLabel.isHidden = false
+            cell.photoView.isHidden = true
             cell.addLabel.text = "添加"
         }
        

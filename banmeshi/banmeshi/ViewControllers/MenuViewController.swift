@@ -184,8 +184,6 @@ extension MenuViewController: UITableViewDelegate {
         let menuDataId = menuData.id
         menuTextField.endEditing(true)
         pointTextField.endEditing(true)
-        //MARK: - 一時的に強制的メニュー詳細に遷移させる
-//        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         if menuData.isSetData {
             Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         } else {

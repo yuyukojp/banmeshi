@@ -92,8 +92,12 @@ class AddDetailView: UIView {
         }
     }
     
-    func showView() {
+    func showView(detail: String?, ingredient: String?) {
         detailTextField.becomeFirstResponder()
         self.frame.origin.y = 0
+        if detail != nil && ingredient != nil {
+            detailTextField.text = detail
+            ingredientTextfield.text = ingredient
+        }
     }
 }

@@ -16,6 +16,7 @@ class MenuDetailViewController: BaseViewController {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var introductionLabel: UILabel!
     @IBOutlet weak var introductionTableView: UITableView!
+    @IBOutlet weak var editBtn: UIButton!
     
     private var backButton: UIBarButtonItem!
     
@@ -31,11 +32,18 @@ class MenuDetailViewController: BaseViewController {
         
         guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
         self.navigationItem.title = resultsMenu.name
+        if resultsMenu.imageData != Data() {
+            menuImage.image = UIImage(data: resultsMenu.imageData)
+        }
         introductionTableView.dataSource = self
         introductionTableView.delegate = self
         introductionTableView.register(UINib(nibName: "MenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuDetailTableViewCell")
         introductionLabel.text = resultsMenu.introduction
         setNavigationItems()
+    }
+    
+    @IBAction func tapEditBtn(_ sender: Any) {
+        Router.shared.showAddMenuDetailEdit(from: self, indexPath: self.menuIndex)
     }
     
     private func setNavigationItems() {
@@ -160,6 +168,40 @@ extension MenuDetailViewController: UITableViewDataSource {
         
         return cell
     }
+    
+//    //セルの編集許可
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+//    {
+//        return true
+//    }
+//
+//    //MARK: - Delete ボタンが押された時に呼ばれるメソッド
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        var isSwipe: Bool = true
+//        if editingStyle == .delete {
+//            var tempPath = 0
+//            try! realm.write {
+//                let menuData = realm.objects(Menu.self)
+//                tempPath = menuData[indexPath.row].id
+//                self.realm.delete(menuData[indexPath.row])
+//                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
+//            }
+//            try! realm.write {
+//                guard let results = realm.objects(MenuDetail.self).filter("menuId == \(tempPath)").first else { return }
+//                self.realm.delete(results)
+//            }
+//            isSwipe = false
+//        }
+//
+//        if editingStyle == UITableViewCell.EditingStyle.delete && isSwipe {
+//            // データベースから削除する
+//            try! realm.write {
+//                let menuData = realm.objects(Menu.self)
+//                self.realm.delete(menuData[indexPath.row])
+//                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
+//            }
+//        }
+//    }
 }
 
 extension MenuDetailViewController: UITableViewDelegate {

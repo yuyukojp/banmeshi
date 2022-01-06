@@ -15,8 +15,8 @@ class Menu: Object {
     @objc dynamic var name = ""
     //得点
     @objc dynamic var point = 0
-    //TBD.
-    @objc dynamic var urlString = ""
+    //写真
+    @objc dynamic var imageData: Data = Data()
     //紹介文
     @objc dynamic var introduction = ""
     //メニュー詳細設定フラグ
