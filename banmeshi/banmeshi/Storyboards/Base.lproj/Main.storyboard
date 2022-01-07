@@ -31,23 +31,11 @@
                     <view key="view" contentMode="scaleToFill" id="ODS-fK-dLr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敬请期待" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-0e-BkB">
-                                <rect key="frame" x="150" y="188" width="114" height="525"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aoT-zz-Uex"/>
-                        <constraints>
-                            <constraint firstItem="aoT-zz-Uex" firstAttribute="trailing" secondItem="H3z-0e-BkB" secondAttribute="trailing" constant="150" id="Cjk-Ki-oFK"/>
-                            <constraint firstItem="aoT-zz-Uex" firstAttribute="bottom" secondItem="H3z-0e-BkB" secondAttribute="bottom" constant="100" id="SaR-2u-jTK"/>
-                            <constraint firstItem="H3z-0e-BkB" firstAttribute="top" secondItem="aoT-zz-Uex" secondAttribute="top" constant="100" id="WPe-D5-sqn"/>
-                            <constraint firstItem="H3z-0e-BkB" firstAttribute="leading" secondItem="aoT-zz-Uex" secondAttribute="leading" constant="150" id="jVv-8g-N5y"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="TZU-T9-rex"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUG-HX-3BY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

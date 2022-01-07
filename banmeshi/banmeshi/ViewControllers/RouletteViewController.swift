@@ -94,11 +94,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .white
-        setData()
-        //Layout
-        setupViewsLayout()
-        //Pie Chartの設定
-        pieChartManager.setup(pieChartView)
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,6 +104,12 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     }
     
     private func setupUI() {
+        self.tabBarController?.tabBar.isHidden = false
+        setData()
+        //Layout
+        setupViewsLayout()
+        //Pie Chartの設定
+        pieChartManager.setup(pieChartView)
         let result = realm.objects(Menu.self)
         if result.count <= 1 {
             let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
@@ -120,6 +122,8 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     private func setData() {
         let menus = self.realm.objects(Menu.self)
         let dataCount = menus.count
+        menuDatas = []
+        menuPoints = []
         for i in 0...(dataCount - 1) {
             menuDatas.append(menus[i].name)
             menuPoints.append(menus[i].point)

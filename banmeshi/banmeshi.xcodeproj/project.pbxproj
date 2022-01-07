@@ -46,6 +46,7 @@
 		C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F142785816100D61B08 /* AddPhotoViewController.xib */; };
 		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
 		C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */; };
+		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		C18B8F142785816100D61B08 /* AddPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoViewController.xib; sourceTree = "<group>"; };
 		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
 		C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
+		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
 				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
 				C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */,
+				C18B8F312787D57900D61B08 /* CycleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
+				C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */,
 				C18B8EFA278446DE00D61B08 /* AddDetailView.swift in Sources */,
 				C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */,
 				C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */,
