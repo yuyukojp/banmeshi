@@ -38,7 +38,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         let statusBarManager: UIStatusBarManager = UIApplication.shared.windows.first!.windowScene!.statusBarManager!
         let statusHeight = statusBarManager.statusBarFrame.size.height
         
-        let rect = CGRect(x: 0, y: statusHeight + barHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 9 / 16)
+        let rect = CGRect(x: 0, y: statusHeight + barHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 9 / 14)
         
         //1.デフォルトのPageControllは中央揃え、timeintervalは２S
         let cycleView =  CycleView(frame: rect, imageNames: imageArr, timeInterval: 3)

@@ -121,7 +121,7 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
                     } else {
                         repeat {
                             randomInt = Int.random(in: 0..<result.count)
-                        } while imageIndex[j] != randomInt
+                        } while imageIndex[j] == randomInt
                     }
                     imageIndex.append(randomInt)
                 }
@@ -142,11 +142,16 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         let imageView = UIImageView(frame: cell.contentView.bounds)
         //MARK: - ここで画像入れる
         let result = realm.objects(Menu.self)
-        if result[imageIndex[indexPath.row]].imageData != Data() && indexPath.row < result.count {
-            imageView.image = UIImage(data: result[imageIndex[indexPath.row]].imageData)
+        if result.count > 0 && imageIndex.count > (indexPath.row) {
+            if result[imageIndex[indexPath.row]].imageData != Data() && indexPath.row < result.count {
+                imageView.image = UIImage(data: result[imageIndex[indexPath.row]].imageData)
+            } else {
+                imageView.image = UIImage(named: imageNames[indexPath.row])
+            }
         } else {
             imageView.image = UIImage(named: imageNames[indexPath.row])
         }
+
         cell.contentView.addSubview(imageView)
         return cell
     }
