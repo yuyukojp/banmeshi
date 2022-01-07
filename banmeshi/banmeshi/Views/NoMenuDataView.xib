@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoMenuDataView" customModule="banmeshi" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="PTE-NE-B0w"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoMenuDataView" customModule="banmeshi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bblive_2233_loading_error_128x94_" translatesAutoresizingMaskIntoConstraints="NO" id="FKk-xr-jqZ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="AIt-q7-am4"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需添加2个以上的菜谱才可以使用转盘！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-Vj-TCC">
+                    <rect key="frame" x="30" y="484" width="354" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WJS-e8-giB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请前往菜单页面添加菜谱！！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW0-4e-teS">
+                    <rect key="frame" x="30" y="546" width="354" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="46U-N5-J0n"/>
+                        <constraint firstAttribute="height" constant="50" id="nVe-9n-REb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FKk-xr-jqZ" secondAttribute="trailing" id="7aQ-eM-3KB"/>
+                <constraint firstItem="FKk-xr-jqZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9LO-8M-S6l"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b7w-Vj-TCC" secondAttribute="trailing" constant="30" id="9uB-nv-TdV"/>
+                <constraint firstItem="KW0-4e-teS" firstAttribute="top" secondItem="b7w-Vj-TCC" secondAttribute="bottom" constant="12" id="CtT-nf-nbh"/>
+                <constraint firstItem="b7w-Vj-TCC" firstAttribute="top" secondItem="FKk-xr-jqZ" secondAttribute="bottom" constant="40" id="aRd-ht-NtG"/>
+                <constraint firstItem="FKk-xr-jqZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eWJ-Rg-jBF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KW0-4e-teS" secondAttribute="trailing" constant="30" id="oR8-Kt-ksZ"/>
+                <constraint firstItem="b7w-Vj-TCC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="oXD-Je-l2E"/>
+                <constraint firstItem="KW0-4e-teS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="xxC-At-B23"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="messageLabel" destination="b7w-Vj-TCC" id="QsY-nx-M5P"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="77"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bblive_2233_loading_error_128x94_" width="128" height="94"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

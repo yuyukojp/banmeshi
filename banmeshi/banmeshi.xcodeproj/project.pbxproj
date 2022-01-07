@@ -42,7 +42,12 @@
 		C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */; };
 		C18B8EFA278446DE00D61B08 /* AddDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8EF9278446DE00D61B08 /* AddDetailView.swift */; };
 		C18B8EFC278446E900D61B08 /* AddDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8EFB278446E900D61B08 /* AddDetailView.xib */; };
-		C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIApplication.swift */; };
+		C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F132785816100D61B08 /* AddPhotoViewController.swift */; };
+		C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F142785816100D61B08 /* AddPhotoViewController.xib */; };
+		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
+		C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */; };
+		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
+		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +113,12 @@
 		C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIntroductionView.xib; sourceTree = "<group>"; };
 		C18B8EF9278446DE00D61B08 /* AddDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailView.swift; sourceTree = "<group>"; };
 		C18B8EFB278446E900D61B08 /* AddDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDetailView.xib; sourceTree = "<group>"; };
-		C1B800CD277D7E31009B06D0 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		C18B8F132785816100D61B08 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		C18B8F142785816100D61B08 /* AddPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoViewController.xib; sourceTree = "<group>"; };
+		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
+		C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
+		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
+		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +179,8 @@
 				C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */,
 				C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */,
 				C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */,
+				C18B8F132785816100D61B08 /* AddPhotoViewController.swift */,
+				C18B8F142785816100D61B08 /* AddPhotoViewController.xib */,
 			);
 			path = MenuDetail;
 			sourceTree = "<group>";
@@ -254,6 +266,9 @@
 				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
 				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
 				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
+				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
+				C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */,
+				C18B8F312787D57900D61B08 /* CycleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,7 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				C17A4EA0277B0402007CBE66 /* UIViewController+.swift */,
-				C1B800CD277D7E31009B06D0 /* UIApplication.swift */,
+				C1B800CD277D7E31009B06D0 /* UIImage+.swift */,
 				C17A4EA2277B0433007CBE66 /* UIColor+.swift */,
 			);
 			path = Extension;
@@ -442,8 +457,10 @@
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
+				C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */,
 				C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
+				C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */,
 				C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */,
 				C18B8EFC278446E900D61B08 /* AddDetailView.xib in Resources */,
 			);
@@ -581,17 +598,20 @@
 				C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
-				C1B800CE277D7E31009B06D0 /* UIApplication.swift in Sources */,
+				C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */,
 				C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */,
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
+				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
+				C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */,
 				C18B8EFA278446DE00D61B08 /* AddDetailView.swift in Sources */,
 				C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */,
+				C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,13 +790,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -788,6 +811,7 @@
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.testproject.banmeshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -805,8 +829,10 @@
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen0;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

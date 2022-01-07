@@ -16,6 +16,7 @@ class MenuDetailViewController: BaseViewController {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var introductionLabel: UILabel!
     @IBOutlet weak var introductionTableView: UITableView!
+    @IBOutlet weak var editBtn: UIButton!
     
     private var backButton: UIBarButtonItem!
     
@@ -28,14 +29,20 @@ class MenuDetailViewController: BaseViewController {
     }
     
     private func setupUI() {
-        
+        self.tabBarController?.tabBar.isHidden = true
         guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
         self.navigationItem.title = resultsMenu.name
+        if resultsMenu.imageData != Data() {
+            menuImage.image = UIImage(data: resultsMenu.imageData)
+        }
         introductionTableView.dataSource = self
-        introductionTableView.delegate = self
         introductionTableView.register(UINib(nibName: "MenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuDetailTableViewCell")
         introductionLabel.text = resultsMenu.introduction
         setNavigationItems()
+    }
+    
+    @IBAction func tapEditBtn(_ sender: Any) {
+        Router.shared.showAddMenuDetailEdit(from: self, indexPath: self.menuIndex)
     }
     
     private func setNavigationItems() {
@@ -45,7 +52,7 @@ class MenuDetailViewController: BaseViewController {
     }
     
     @objc func backToMenu (_ sender: UIBarButtonItem) {
-        let targetVC = navigationController?.viewControllers[1] ?? UIViewController()
+        let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
         navigationController?.popToViewController(targetVC, animated: true)
     }
 
@@ -160,8 +167,5 @@ extension MenuDetailViewController: UITableViewDataSource {
         
         return cell
     }
-}
-
-extension MenuDetailViewController: UITableViewDelegate {
     
 }

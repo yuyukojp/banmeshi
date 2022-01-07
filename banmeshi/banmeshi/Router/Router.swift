@@ -32,15 +32,28 @@ final class Router {
     }
     
     func showMenuDetail(from: UIViewController, indexPath: Int) {
-        let MenuDetailVC = MenuDetailViewController()
-        MenuDetailVC.menuIndex = indexPath
-        from.show(to: MenuDetailVC)
+        let menuDetailVC = MenuDetailViewController()
+        menuDetailVC.menuIndex = indexPath
+        from.show(to: menuDetailVC)
+    }
+    
+    func showAddPhoto(from: UIViewController, indexPath: Int) {
+        let addPhotoVC = AddPhotoViewController()
+        addPhotoVC.menuIndex = indexPath
+        from.show(to: addPhotoVC)
     }
     
     func showAddMenuDetail(from: UIViewController, indexPath: Int) {
-        let MenuDetailVC = AddMenuDetailViewController()
-        MenuDetailVC.menuIndex = indexPath
-        from.show(to: MenuDetailVC)
+        let menuDetailVC = AddMenuDetailViewController()
+        menuDetailVC.menuIndex = indexPath
+        from.show(to: menuDetailVC)
+    }
+    //編集で遷移するとき
+    func showAddMenuDetailEdit(from: UIViewController, indexPath: Int) {
+        let menuDetailVC = AddMenuDetailViewController()
+        menuDetailVC.menuIndex = indexPath
+        menuDetailVC.isEditMode = true
+        from.show(to: menuDetailVC)
     }
 
     

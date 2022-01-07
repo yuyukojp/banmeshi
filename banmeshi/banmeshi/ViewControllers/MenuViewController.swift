@@ -25,16 +25,18 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "菜单一览"
+        self.tabBarController?.tabBar.isHidden = false
 
         setTextField()
         registerBtn.isEnabled = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-     
-           // NavigationBarを表示したい場合
-           self.navigationController?.setNavigationBarHidden(false, animated: false)
+        super.viewDidAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
+        // NavigationBarを表示したい場合
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func setTextField() {
@@ -184,8 +186,6 @@ extension MenuViewController: UITableViewDelegate {
         let menuDataId = menuData.id
         menuTextField.endEditing(true)
         pointTextField.endEditing(true)
-        //MARK: - 一時的に強制的メニュー詳細に遷移させる
-//        Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         if menuData.isSetData {
             Router.shared.showMenuDetail(from: self, indexPath: menuDataId)
         } else {
