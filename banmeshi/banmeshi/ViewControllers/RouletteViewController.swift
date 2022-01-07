@@ -17,6 +17,8 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     private var randomAngle: Int = 0
     private var errorView: NoMenuDataView!
+    private var timer: Timer?
+    var timeInterval: Double = 2.0
     
     var menuDatas: [String] = []
     var menuPoints: [Int] = []
@@ -47,6 +49,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     @objc func didTapStartStopButton(_ sender: UIButton) {
         DispatchQueue.main.async {
             if !self.spinFlg {
+                self.setupTimer()
                 //停止→開始
                 self.spinFlg.toggle()
                 self.randomAngle = Int.random(in: 1...359) //update randomAngle
@@ -60,40 +63,14 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
                 self.startStopButton.backgroundColor = .systemBlue
                 self.startStopButton.setTitle("Stop", for: .normal)
             } else {
-                //開始→停止
-                self.spinFlg.toggle()
-                self.pieChartView.spin(
-                    duration: 2.0,
-                    fromAngle: 270,
-                    toAngle: 270 + 360 + CGFloat(self.randomAngle),
-                    easingOption: .linear
-                )
-                //button UI
-                self.startStopButton.backgroundColor = .systemRed
-                self.startStopButton.setTitle("Start", for: .normal)
-                
-                //SHOW RESULT
-//                let menus = self.realm.objects(Menu.self)
-//                let dataCount = menus.count
-                let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    if self.menuPoints[selectedIndex] > 6 {
-                        Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
-                    } else if self.menuPoints[selectedIndex] > 3 {
-                        Alert.okAlert(title: "抱歉！", message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖", on: self)
-                    } else {
-                        Alert.okAlert(title: "警告！！", message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)", on: self)
-                    }
-                   
-                }
+                self.stopRLT()
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .white
+        
         setupUI()
     }
     
@@ -117,6 +94,51 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
             self.view.addSubview(errorView)
         }
 
+    }
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(stopRoulette), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .common)
+    }
+    //タイマーをリセット
+    func resetTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func stopRoulette() {
+        stopRLT()
+    }
+    
+    private func stopRLT() {
+        self.resetTimer()
+        //開始→停止
+        self.spinFlg.toggle()
+        self.pieChartView.spin(
+            duration: 2.0,
+            fromAngle: 270,
+            toAngle: 270 + 360 + CGFloat(self.randomAngle),
+            easingOption: .linear
+        )
+        //button UI
+        self.startStopButton.backgroundColor = .systemRed
+        self.startStopButton.setTitle("Start", for: .normal)
+        
+        //SHOW RESULT
+        //                let menus = self.realm.objects(Menu.self)
+        //                let dataCount = menus.count
+        let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            if self.menuPoints[selectedIndex] > 6 {
+                Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
+            } else if self.menuPoints[selectedIndex] > 3 {
+                Alert.okAlert(title: "抱歉！", message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖", on: self)
+            } else {
+                Alert.okAlert(title: "警告！！", message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)", on: self)
+            }
+            
+        }
     }
     
     private func setData() {

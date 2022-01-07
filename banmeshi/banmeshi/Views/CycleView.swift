@@ -99,8 +99,7 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     //タイマーをリセット
     func resetTimer() {
         timer?.invalidate()
-        timer = nil
-        
+        timer = nil        
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
