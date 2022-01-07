@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RealmSwift
+import RxSwift
+import RxCocoa
 
 //無限スクロールのデリゲート
 protocol CycleViewDelegate: class {
@@ -14,6 +17,7 @@ protocol CycleViewDelegate: class {
 //パッケージングする
 class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    let realm = try! Realm()    
     var collectionView: UICollectionView!
     var width: CGFloat!
     var height: CGFloat!
@@ -24,6 +28,7 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     var pageControl: UIPageControl?
     weak var delegate: CycleViewDelegate?
     var timeInterval: Double?
+    var imageIndex: [Int] = []
     /// frame：collectionView のframe
     /// iamgeNames：画像名
     /// timeInterval：自動スクロールの時間間隔
@@ -103,6 +108,25 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        //MARK: - ここで画像入れる
+        let result = realm.objects(Menu.self)
+        //ランダムにidを作る
+        if result.count > 0 {
+            //MARK: - 乱数生成
+            var randomInt = 0
+            for i in 0...(result.count - 1 < 3 ? (result.count - 1) : 2) {
+                for j in 0...i {
+                    if j == 0 {
+                        randomInt = Int.random(in: 0..<result.count)
+                    } else {
+                        repeat {
+                            randomInt = Int.random(in: 0..<result.count)
+                        } while imageIndex[j] != randomInt
+                    }
+                    imageIndex.append(randomInt)
+                }
+            }
+        }
         return 3
     }
 
@@ -117,7 +141,12 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         }
         let imageView = UIImageView(frame: cell.contentView.bounds)
         //MARK: - ここで画像入れる
-        imageView.image = UIImage(named: imageNames[indexPath.row])
+        let result = realm.objects(Menu.self)
+        if result[imageIndex[indexPath.row]].imageData != Data() && indexPath.row < result.count {
+            imageView.image = UIImage(data: result[imageIndex[indexPath.row]].imageData)
+        } else {
+            imageView.image = UIImage(named: imageNames[indexPath.row])
+        }
         cell.contentView.addSubview(imageView)
         return cell
     }

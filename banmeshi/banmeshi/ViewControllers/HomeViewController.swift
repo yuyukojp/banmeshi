@@ -26,7 +26,6 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupUI() {
-//        self.navigationController?.title = "晩飯"
         self.navigationController?.navigationBar.topItem?.title = "some title"
     }
     
