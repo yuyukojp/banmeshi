@@ -72,11 +72,11 @@
             </objects>
             <point key="canvasLocation" x="-289" y="198"/>
         </scene>
-        <!--Item 1-->
+        <!--首页-->
         <scene sceneID="EvJ-vY-641">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZAe-GZ-atA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" image="bottom_tabbar_mainhome_normal_22x22_" selectedImage="bottom_tabbar_mainhome_selected_22x22_" id="NLO-a0-I5j">
+                    <tabBarItem key="tabBarItem" title="首页" image="bottom_tabbar_mainhome_normal_22x22_" selectedImage="bottom_tabbar_mainhome_selected_22x22_" id="NLO-a0-I5j">
                         <color key="badgeColor" red="1" green="0.64735893499999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>

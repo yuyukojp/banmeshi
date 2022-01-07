@@ -45,7 +45,6 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("++++set\(isEditMode)")
         if isEditMode {
             setDataFromDB()
         }
@@ -55,7 +54,7 @@ class AddMenuDetailViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         isEditMode = false
-        print("+++++close")
+
     }
     
     private func setupUI() {
@@ -71,6 +70,7 @@ class AddMenuDetailViewController: BaseViewController {
         guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
         imageData = resultsMenu.imageData
         introductionData = resultsMenu.introduction
+        guard (resultsDetail.menuCount == 0) != true else { return }
         for i in 0...(resultsDetail.menuCount - 1) {
             switch i {
             case 0:
@@ -252,7 +252,9 @@ class AddMenuDetailViewController: BaseViewController {
         try! realm.write {
             resultsMenu.setValue(introductionData, forKey: "introduction")
         }
+        
 
+        guard (detailData.count == 0) != true else { return }
         //素材保存
         for i in 0...detailData.count - 1 {
             switch i {
@@ -462,8 +464,6 @@ extension AddMenuDetailViewController: UITableViewDelegate {
         self.tempIndexPath = indexPath
         switch indexPath.section {
         case 0:
-            print("++++0")
-            
             Router.shared.showAddPhoto(from: self, indexPath: self.menuIndex)
         case 1:
             UIView.animate(withDuration: 0.3) {
@@ -562,12 +562,14 @@ extension AddMenuDetailViewController: UITableViewDataSource {
         } else if indexPath.section == 1 && introductionData != "" {
             cell.introductionLabel.isHidden = false
             cell.addLabel.isHidden = true
+            cell.photoView.isHidden = true
             cell.introductionLabel.text = introductionData
         } else if indexPath.section == 2 && self.detailData.count > 0 && indexPath.row < self.detailData.count {
             cell.nameLabel.isHidden = false
             cell.amfeLabel.isHidden = false
             cell.introductionLabel.isHidden = true
             cell.addLabel.isHidden = true
+            cell.photoView.isHidden = true
             cell.nameLabel.text = detailData[indexPath.row]
             cell.amfeLabel.text = ingredientData[indexPath.row ]
         } else {

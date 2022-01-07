@@ -76,7 +76,6 @@ class AddDetailView: UIView {
     }
     
     func getDetailData() -> String {
-        print("+++++dt:\(detailTextField.text)")
         return detailTextField.text ?? ""
     }
     
