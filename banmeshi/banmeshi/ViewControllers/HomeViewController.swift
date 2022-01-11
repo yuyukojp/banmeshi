@@ -12,7 +12,8 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     
     //delegateを実行
     func CycleViewItemClick(_ collectionView: UICollectionView, selectedItem item: Int) {
-        print(item)
+        guard let result = realm.objects(Menu.self).filter("id == \(item)").first else { return }
+        Router.shared.showMenuDetail(from: self, indexPath: item)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
