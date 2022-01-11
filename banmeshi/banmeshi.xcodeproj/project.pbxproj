@@ -17,6 +17,8 @@
 		C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */; };
 		C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */; };
 		C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */; };
+		C138B22F278D4BCE004916B4 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B22E278D4BCE004916B4 /* RankModel.swift */; };
+		C138B231278D70F2004916B4 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B230278D70F2004916B4 /* NoMenuDataView.xib */; };
 		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
 		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
@@ -36,7 +38,6 @@
 		C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */; };
 		C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */; };
 		C17A4EB1277BE568007CBE66 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB0277BE568007CBE66 /* Const.swift */; };
-		C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17A4EB4277BF35E007CBE66 /* Menu.storyboard */; };
 		C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4EB6277BF39B007CBE66 /* MenuModel.swift */; };
 		C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8EF12783DE4F00D61B08 /* AddIntroductionView.swift */; };
 		C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */; };
@@ -45,7 +46,6 @@
 		C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F132785816100D61B08 /* AddPhotoViewController.swift */; };
 		C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F142785816100D61B08 /* AddPhotoViewController.xib */; };
 		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
-		C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */; };
 		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +84,8 @@
 		C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailViewController.swift; sourceTree = "<group>"; };
 		C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailViewController.xib; sourceTree = "<group>"; };
+		C138B22E278D4BCE004916B4 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
+		C138B230278D70F2004916B4 /* NoMenuDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
 		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +109,6 @@
 		C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartManager.swift; sourceTree = "<group>"; };
 		C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C17A4EB0277BE568007CBE66 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		C17A4EB4277BF35E007CBE66 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		C17A4EB6277BF39B007CBE66 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		C18B8EF12783DE4F00D61B08 /* AddIntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIntroductionView.swift; sourceTree = "<group>"; };
 		C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIntroductionView.xib; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		C18B8F132785816100D61B08 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		C18B8F142785816100D61B08 /* AddPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoViewController.xib; sourceTree = "<group>"; };
 		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
-		C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
 		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,7 +267,7 @@
 				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
 				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
 				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
-				C18B8F232786DD6000D61B08 /* NoMenuDataView.xib */,
+				C138B230278D70F2004916B4 /* NoMenuDataView.xib */,
 				C18B8F312787D57900D61B08 /* CycleView.swift */,
 			);
 			path = Views;
@@ -301,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				C17A4C63277AF02A007CBE66 /* Main.storyboard */,
-				C17A4EB4277BF35E007CBE66 /* Menu.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -311,6 +310,7 @@
 			children = (
 				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 				C17A4EB6277BF39B007CBE66 /* MenuModel.swift */,
+				C138B22E278D4BCE004916B4 /* RankModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,8 +457,7 @@
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
-				C18B8F242786DD6000D61B08 /* NoMenuDataView.xib in Resources */,
-				C17A4EB5277BF35E007CBE66 /* Menu.storyboard in Resources */,
+				C138B231278D70F2004916B4 /* NoMenuDataView.xib in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
 				C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */,
 				C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */,
@@ -605,6 +604,7 @@
 				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
+				C138B22F278D4BCE004916B4 /* RankModel.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,

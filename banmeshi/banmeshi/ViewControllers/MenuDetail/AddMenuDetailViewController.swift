@@ -58,6 +58,7 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     private func setupUI() {
+        mainTableView.backgroundColor = .mainBackgroundColor()
         setNavigationBar()
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -580,6 +581,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.photoView.isHidden = true
             cell.addLabel.text = "添加"
         }
+        cell.backgroundColor = .mainBackgroundColor()
        
         return cell
     }

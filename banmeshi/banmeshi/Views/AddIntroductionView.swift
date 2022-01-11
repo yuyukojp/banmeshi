@@ -32,6 +32,7 @@ final class AddIntroductionView: UIView {
     }
     
     func setupView() {
+        
         titleLabel.text = "简介内容："
         // 枠のカラー
         introductionTextView.layer.borderColor = UIColor.blue.cgColor

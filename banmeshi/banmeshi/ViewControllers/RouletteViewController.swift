@@ -128,7 +128,11 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         //                let menus = self.realm.objects(Menu.self)
         //                let dataCount = menus.count
         let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
-        
+        let results = realm.objects(Menu.self)[selectedIndex]
+        let menuCount = results.rouletteCount + 1
+        try! realm.write {
+            results.setValue(menuCount, forKey: "rouletteCount")
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             if self.menuPoints[selectedIndex] > 6 {
                 Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
@@ -146,6 +150,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         let dataCount = menus.count
         menuDatas = []
         menuPoints = []
+        guard dataCount > 1 else { return }
         for i in 0...(dataCount - 1) {
             menuDatas.append(menus[i].name)
             menuPoints.append(menus[i].point)

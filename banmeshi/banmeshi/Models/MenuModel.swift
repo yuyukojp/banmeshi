@@ -23,6 +23,8 @@ class Menu: Object {
     @objc dynamic var isSetData = false
     //食材
 //    let ingredients =  List<Ingredient>()
+    //ルーレットで選択された回数
+    @objc dynamic var rouletteCount = 0
  
     override static func primaryKey() -> String? {
         return "id"

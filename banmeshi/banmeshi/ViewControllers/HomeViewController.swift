@@ -12,7 +12,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     
     //delegateを実行
     func CycleViewItemClick(_ collectionView: UICollectionView, selectedItem item: Int) {
-        guard let result = realm.objects(Menu.self).filter("id == \(item)").first else { return }
+        guard realm.objects(Menu.self).filter("id == \(item)").first != nil else { return }
         Router.shared.showMenuDetail(from: self, indexPath: item)
     }
     override func viewDidLoad() {
@@ -28,10 +28,15 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     
     private func setupUI() {
         self.navigationController?.navigationBar.topItem?.title = "some title"
+        
+    }
+    
+    private func setupDelimiter() {
+        
     }
     
     private func setupCycleView() {
-        self.view.backgroundColor = .white
+//        self.view.backgroundColor = .white
         //画像名
         let imageArr = ["image1","image2","image3"]
         //Frameを定義セーフエリアの高さを取得
@@ -39,6 +44,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         let statusBarManager: UIStatusBarManager = UIApplication.shared.windows.first!.windowScene!.statusBarManager!
         let statusHeight = statusBarManager.statusBarFrame.size.height
         
+        print("+++++++++セーフエリアの高さ\(statusHeight)")
         let rect = CGRect(x: 0, y: statusHeight + barHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 9 / 14)
         
         //1.デフォルトのPageControllは中央揃え、timeintervalは２S

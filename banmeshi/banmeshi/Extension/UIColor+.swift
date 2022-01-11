@@ -21,18 +21,53 @@ extension UIColor{
     public static func navigationWhite() -> UIColor {
         
         return UIColor(
-            red: 204/255.0,
-            green: 206/255.0,
-            blue: 206/255.0,
+            red: 204 / 255.0,
+            green: 206 / 255.0,
+            blue: 206 / 255.0,
             alpha: 1)
     }
     
     
     public static func whiteTwo() -> UIColor {
         return UIColor(
-            red: 224/255.0,
-            green: 224/255.0,
-            blue: 224/255.0,
+            red: 224 / 255.0,
+            green: 224 / 255.0,
+            blue: 224 / 255.0,
             alpha: 1)
+    }
+    
+    public static func delimiterColor() -> UIColor {
+        return UIColor(red: 255 / 255.0,
+                       green: 230 / 255.0,
+                       blue: 234 / 255.0,
+                       alpha: 1)
+    }
+    
+    public static func mainBackgroundColor() -> UIColor {
+        return UIColor(red: 247 / 255.0,
+                       green: 247 / 255.0,
+                       blue: 235 / 255.0,
+                       alpha: 1)
+    }
+    
+    public static func itemBGColor() -> UIColor {
+        return UIColor(red: 230 / 255.0,
+                       green: 230 / 255.0,
+                       blue: 250 / 255.0,
+                       alpha: 1)
+    }
+    
+    public static func textColor() -> UIColor {
+        return UIColor(red: 240 / 255.0,
+                       green: 124 / 255.0,
+                       blue: 154 / 255.0,
+                       alpha: 1)
+    }
+    
+    public static func navigation() -> UIColor {
+        return UIColor(red: 255 / 255.0,
+                       green: 230 / 255.0,
+                       blue: 234 / 255.0,
+                       alpha: 1)
     }
 }

@@ -28,6 +28,7 @@ class AddMenuDetailTableViewCell: UITableViewCell {
     
     func setCellLayout() {
         self.frame.size.width = Const.screenWidth
+        self.backgroundColor = .mainBackgroundColor()
     }
     func setToPhoto() {
         

@@ -13,6 +13,8 @@ import RxCocoa
 class MenuViewController: BaseViewController, UITableViewDataSource {
 
   
+    @IBOutlet weak var delimiterView1: UIView!
+    @IBOutlet weak var delimiterView2: UIView!
     @IBOutlet weak var menuTextField: UITextField!
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var pointTextField: UITextField!
@@ -27,7 +29,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         self.navigationItem.title = "菜单一览"
         self.tabBarController?.tabBar.isHidden = false
 
-        setTextField()
+        setupUI()
         registerBtn.isEnabled = false
     }
 
@@ -39,11 +41,17 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    private func setTextField() {
+    private func setupUI() {
+        delimiterView1.backgroundColor = .delimiterColor()
+        delimiterView2.backgroundColor = .delimiterColor()
         pointTextField.delegate = self
         menuTextField.delegate = self
+        pointTextField.backgroundColor = .itemBGColor()
+        menuTextField.backgroundColor = .itemBGColor()
+        menuTableView.backgroundColor = .mainBackgroundColor()
         menuTextField.placeholder = "请输入菜名"
         pointTextField.placeholder = "\(point)"
+        
 
         pointTextField.keyboardType = UIKeyboardType.numberPad
         
@@ -138,7 +146,10 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let menuData = realm.objects(Menu.self)
         cell.textLabel!.text = menuData[indexPath.row].name
+        cell.backgroundColor = .mainBackgroundColor()
+        cell.textLabel?.textColor = .textColor()
         cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
+        cell.detailTextLabel?.textColor = .textColor()
         return cell
     }
     

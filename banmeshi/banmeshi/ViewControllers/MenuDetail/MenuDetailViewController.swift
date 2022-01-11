@@ -164,7 +164,8 @@ extension MenuDetailViewController: UITableViewDataSource {
         default:
             break
         }
-        
+        cell.textLabel?.textColor = .textColor()
+        cell.detailTextLabel?.textColor = .textColor()
         return cell
     }
     
