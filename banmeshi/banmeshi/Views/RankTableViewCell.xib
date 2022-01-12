@@ -17,31 +17,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QU-As-5wZ">
-                        <rect key="frame" x="20" y="12" width="60" height="21"/>
+                        <rect key="frame" x="20" y="12" width="100" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="uIB-58-s4o"/>
+                            <constraint firstAttribute="width" constant="100" id="uIB-58-s4o"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IK0-29-dll">
-                        <rect key="frame" x="100" y="20" width="200" height="4"/>
+                        <rect key="frame" x="140" y="32" width="160" height="4"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="KWE-fn-pih"/>
+                            <constraint firstAttribute="width" constant="160" id="KWE-fn-pih"/>
                         </constraints>
                     </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYd-XL-Y7M">
+                        <rect key="frame" x="238" y="5" width="42" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="Vfp-H1-mph"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0QU-As-5wZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="HXq-IX-8Ff"/>
+                    <constraint firstAttribute="trailing" secondItem="EYd-XL-Y7M" secondAttribute="trailing" constant="40" id="ILt-Yo-Y9q"/>
+                    <constraint firstAttribute="bottom" secondItem="IK0-29-dll" secondAttribute="bottom" constant="8" id="NWb-ci-ViA"/>
                     <constraint firstAttribute="bottom" secondItem="0QU-As-5wZ" secondAttribute="bottom" constant="11" id="WQp-t8-LMq"/>
+                    <constraint firstItem="EYd-XL-Y7M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cEa-jm-u1s"/>
                     <constraint firstItem="0QU-As-5wZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="nL5-pj-eg4"/>
-                    <constraint firstItem="IK0-29-dll" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="u30-Zu-aoo"/>
                     <constraint firstAttribute="trailing" secondItem="IK0-29-dll" secondAttribute="trailing" constant="20" id="wno-AH-Ueo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="countLabel" destination="EYd-XL-Y7M" id="Dgz-ES-1l4"/>
                 <outlet property="menuProgress" destination="IK0-29-dll" id="bqG-9d-6fW"/>
                 <outlet property="nameLabel" destination="0QU-As-5wZ" id="Ktg-GX-lfM"/>
             </connections>

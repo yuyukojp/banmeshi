@@ -20,7 +20,8 @@ struct Const {
 }
 
 struct StringConst {
-
+    static let count = "共点中："
+    static let beforeCount = "次"
 }
 
 struct AlertConst {

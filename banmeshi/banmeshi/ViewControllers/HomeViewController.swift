@@ -11,6 +11,9 @@ import RealmSwift
 final class HomeViewController: BaseViewController, CycleViewDelegate {
     private var rankTabelView: UITableView = UITableView()
     private var statusHeight: CGFloat = 0
+    private var totalCount: Int = 0
+    private var tempData: [Int] = []
+    private var tempIndex: [Int] = []
 
     
     //delegateを実行
@@ -30,10 +33,21 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         rankTabelView.reloadData()
+        setupUI()
     }
     
     private func setupUI() {
         self.navigationController?.navigationBar.topItem?.title = "Banmeshi"
+        tempData = []
+        tempIndex = []
+        let result = realm.objects(Menu.self)
+        guard result.count != 0 else { return }
+        
+        for i in 0...(result.count - 1) {
+            tempIndex.append(result[i].id)
+            tempData.append(result[i].rouletteCount)
+            totalCount += result[i].rouletteCount
+        }
         
     }
     
@@ -91,19 +105,8 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = rankTabelView.dequeueReusableCell(withIdentifier: "RankCell", for: indexPath) as! RankTableViewCell
-        let result = realm.objects(Menu.self)
-        guard result.count != 0 else {
-            return cell
-        }
-        var tempData: [Int] = []
-        var tempIndex: [Int] = []
 
         
-        for i in 0...(result.count - 1) {
-            tempIndex.append(result[i].id)
-            tempData.append(result[i].rouletteCount)
-        }
-
         if tempData.count > 1 {
             for i in 1...(tempData.count - 1) {
                 for j in i...(tempData.count - 1) {
@@ -113,13 +116,19 @@ extension HomeViewController: UITableViewDataSource {
                     }
                 }
             }
-        }        
+        }
         
         let tempDataIndex = tempData.count - indexPath.row - 1
-        
+        print("+++++ti:\(tempDataIndex)")
         if tempDataIndex >= 0 {
             guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return cell}
             cell.nameLabel.text = resultsDetail.name
+            cell.countLabel.text = StringConst.count + String(resultsDetail.rouletteCount) + StringConst.beforeCount
+
+            let resultCount: Float = Float(resultsDetail.rouletteCount)
+            let toutalCounts: Float = Float(totalCount)
+
+            cell.menuProgress.progress = resultCount / toutalCounts
         }
         
         return cell
