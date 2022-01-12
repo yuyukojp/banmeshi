@@ -587,12 +587,14 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.introductionLabel.isHidden = true
             cell.addLabel.isHidden = true
             cell.photoView.isHidden = true
+            cell.frame.size.height = 40
             cell.nameLabel.text = detailData[indexPath.row]
             cell.amfeLabel.text = ingredientData[indexPath.row ]
         } else {
             cell.nameLabel.isHidden = true
             cell.amfeLabel.isHidden = true
             cell.introductionLabel.isHidden = true
+            cell.frame.size.height = 40
             cell.addLabel.isHidden = false
             cell.photoView.isHidden = true
             cell.addLabel.text = "添加"

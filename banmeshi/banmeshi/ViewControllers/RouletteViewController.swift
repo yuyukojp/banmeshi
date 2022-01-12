@@ -74,8 +74,9 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        removeAllSubviews(parentView: self.view)
         pieChartManager.setData(pieChartView, data: menuDatas)
         setupUI()
     }
@@ -89,12 +90,22 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         //Pie Chartの設定
         pieChartManager.setup(pieChartView)
         let result = realm.objects(Menu.self)
-        if result.count <= 1 {
-            let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
-            errorView = NoMenuDataView(frame: frame)
-            self.view.addSubview(errorView)
+        let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
+        errorView = NoMenuDataView(frame: frame)
+        self.view.addSubview(errorView)
+        if result.count < 2 {
+            errorView.isHidden = false
+        } else {
+            errorView.isHidden = true
         }
 
+    }
+    
+    func removeAllSubviews(parentView: UIView){
+        var subviews = parentView.subviews
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
     }
     
     func setupTimer() {

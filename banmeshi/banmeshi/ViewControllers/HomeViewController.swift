@@ -9,6 +9,8 @@ import UIKit
 import RealmSwift
 
 final class HomeViewController: BaseViewController, CycleViewDelegate {
+    private var rankTabelView: UITableView = UITableView()
+    private var statusHeight: CGFloat = 0
 
     
     //delegateを実行
@@ -21,11 +23,13 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.delegate = self
         setupCycleView()
+        setupRankTabelView()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        rankTabelView.reloadData()
     }
     
     private func setupUI() {
@@ -44,9 +48,8 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         //Frameを定義セーフエリアの高さを取得
         let barHeight = CGFloat(self.navigationController?.navigationBar.frame.height ?? 0)   //顶部NavigationBar高度
         let statusBarManager: UIStatusBarManager = UIApplication.shared.windows.first!.windowScene!.statusBarManager!
-        let statusHeight = statusBarManager.statusBarFrame.size.height
+        statusHeight = statusBarManager.statusBarFrame.size.height
         
-        print("+++++++++セーフエリアの高さ\(statusHeight)")
         let rect = CGRect(x: 0, y: statusHeight + barHeight, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 9 / 14)
         
         //1.デフォルトのPageControllは中央揃え、timeintervalは２S
@@ -55,14 +58,16 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         cycleView.delegate = self
         self.view.addSubview(cycleView)
         
-//        2.pageControlをカスタム
-//        let pageControl = UIPageControl(frame: CGRect(x: 100, y: 100, width: 100, height: 40))
-//        pageControl.currentPageIndicatorTintColor = UIColor.blue
-//        pageControl.isUserInteractionEnabled = false
-//        pageControl.numberOfPages = imageArr.count
-//        let cycleView = CycleView(frame: rect, imageNames: imageArr, pageControl: pageControl)
-//        cycleView.delegate = self
-//        self.view.addSubview(cycleView)
+    }
+    
+    private func setupRankTabelView() {
+        rankTabelView.delegate = self
+        rankTabelView.dataSource = self
+        
+        rankTabelView.frame = CGRect(x: 0, y: statusHeight + (UIScreen.main.bounds.width * 9 / 14) + 80, width: Const.screenWidth, height: 400)
+        rankTabelView.register(UINib(nibName: "RankTableViewCell", bundle: nil), forCellReuseIdentifier: "RankCell")
+        rankTabelView.backgroundColor = .mainBackgroundColor()
+        self.view.addSubview(rankTabelView)
     }
 
 }
@@ -70,5 +75,53 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
 extension HomeViewController: UINavigationBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let result = realm.objects(Menu.self)
+        return result.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = rankTabelView.dequeueReusableCell(withIdentifier: "RankCell", for: indexPath) as! RankTableViewCell
+        let result = realm.objects(Menu.self)
+        guard result.count != 0 else {
+            return cell
+        }
+        var tempData: [Int] = []
+        var tempIndex: [Int] = []
+
+        
+        for i in 0...(result.count - 1) {
+            tempIndex.append(result[i].id)
+            tempData.append(result[i].rouletteCount)
+        }
+
+        if tempData.count > 1 {
+            for i in 1...(tempData.count - 1) {
+                for j in i...(tempData.count - 1) {
+                    if tempData[j - 1] > tempData[j] {
+                        tempData.swapAt(j - 1, j)
+                        tempIndex.swapAt(j - 1, j)
+                    }
+                }
+            }
+        }        
+        
+        let tempDataIndex = tempData.count - indexPath.row - 1
+        
+        if tempDataIndex >= 0 {
+            guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return cell}
+            cell.nameLabel.text = resultsDetail.name
+        }
+        
+        return cell
     }
 }

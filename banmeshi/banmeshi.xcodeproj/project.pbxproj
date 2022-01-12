@@ -19,6 +19,8 @@
 		C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */; };
 		C138B22F278D4BCE004916B4 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B22E278D4BCE004916B4 /* RankModel.swift */; };
 		C138B231278D70F2004916B4 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B230278D70F2004916B4 /* NoMenuDataView.xib */; };
+		C138B234278E723B004916B4 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B232278E723B004916B4 /* RankTableViewCell.swift */; };
+		C138B235278E723B004916B4 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B233278E723B004916B4 /* RankTableViewCell.xib */; };
 		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
 		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
@@ -86,6 +88,8 @@
 		C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailViewController.xib; sourceTree = "<group>"; };
 		C138B22E278D4BCE004916B4 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		C138B230278D70F2004916B4 /* NoMenuDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
+		C138B232278E723B004916B4 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
+		C138B233278E723B004916B4 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
 				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
 				C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */,
+				C138B232278E723B004916B4 /* RankTableViewCell.swift */,
+				C138B233278E723B004916B4 /* RankTableViewCell.xib */,
 				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
 				C138B230278D70F2004916B4 /* NoMenuDataView.xib */,
 				C18B8F312787D57900D61B08 /* CycleView.swift */,
@@ -452,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17A4C6A277AF02C007CBE66 /* LaunchScreen.storyboard in Resources */,
+				C138B235278E723B004916B4 /* RankTableViewCell.xib in Resources */,
 				C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */,
 				C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */,
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
@@ -613,6 +620,7 @@
 				C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */,
 				C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,
+				C138B234278E723B004916B4 /* RankTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
