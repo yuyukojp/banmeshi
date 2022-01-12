@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftUI
 
 final class HomeViewController: BaseViewController, CycleViewDelegate {
     private var rankTabelView: UITableView = UITableView()
@@ -18,16 +19,27 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     
     //delegateを実行
     func CycleViewItemClick(_ collectionView: UICollectionView, selectedItem item: Int) {
-        guard realm.objects(Menu.self).filter("id == \(item)").first != nil else { return }
-        Router.shared.showMenuDetail(from: self, indexPath: item)
+//        guard let result = realm.objects(Menu.self).filter("id == \(tempIndex[item])").first else { return }
+//        print("++++rid:\(result.id),image:\(result.imageData)")
+//        print("++++nil:\(Data())")
+//        if result.imageData == Data() {
+//            print("++++NO data")
+//        } else {
+//            print("++++have data")
+//        }
+//        if realm.objects(Menu.self)[tempIndex[item]].imageData == Data() {
+//            print("+++No Data")
+//        } else {
+//            Router.shared.showMenuDetail(from: self, indexPath: item)
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.delegate = self
-        setupCycleView()
         setupRankTabelView()
         setupUI()
+        setupCycleView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,7 +90,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         rankTabelView.delegate = self
         rankTabelView.dataSource = self
         
-        rankTabelView.frame = CGRect(x: 0, y: statusHeight + (UIScreen.main.bounds.width * 9 / 14) + 80, width: Const.screenWidth, height: 400)
+        rankTabelView.frame = CGRect(x: 0, y: statusHeight + (UIScreen.main.bounds.width * 9 / 14) + 110, width: Const.screenWidth, height: 400)
         rankTabelView.register(UINib(nibName: "RankTableViewCell", bundle: nil), forCellReuseIdentifier: "RankCell")
         rankTabelView.backgroundColor = .mainBackgroundColor()
         self.view.addSubview(rankTabelView)
@@ -93,8 +105,16 @@ extension HomeViewController: UINavigationBarDelegate {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tempDataIndex = tempData.count - indexPath.row - 1
+        guard let results = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return }
+        print("++++id:\(results.id)mflg:\(results.isSetData)")
+        if results.isSetData {
+            Router.shared.showMenuDetail(from: self, indexPath: results.id)
+        } else {
+            Router.shared.showAddMenuDetail(from: self, indexPath: results.id)
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -119,9 +139,10 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         let tempDataIndex = tempData.count - indexPath.row - 1
-        print("+++++ti:\(tempDataIndex)")
         if tempDataIndex >= 0 {
-            guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return cell}
+            guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else {
+                return cell
+            }
             cell.nameLabel.text = resultsDetail.name
             cell.countLabel.text = StringConst.count + String(resultsDetail.rouletteCount) + StringConst.beforeCount
 
