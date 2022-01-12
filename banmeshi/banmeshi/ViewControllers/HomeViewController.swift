@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 final class HomeViewController: BaseViewController, CycleViewDelegate {
+
     
     //delegateを実行
     func CycleViewItemClick(_ collectionView: UICollectionView, selectedItem item: Int) {
@@ -18,6 +19,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.delegate = self
         setupCycleView()
         setupUI()
     }
@@ -27,7 +29,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupUI() {
-        self.navigationController?.navigationBar.topItem?.title = "some title"
+        self.navigationController?.navigationBar.topItem?.title = "Banmeshi"
         
     }
     
@@ -65,3 +67,8 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
 
 }
     
+extension HomeViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+}

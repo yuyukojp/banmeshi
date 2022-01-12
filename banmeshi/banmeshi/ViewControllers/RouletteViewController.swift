@@ -70,7 +70,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.delegate = self
         setupUI()
     }
     
@@ -82,6 +82,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     private func setupUI() {
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationItem.title = "幸运大转盘"
         setData()
         //Layout
         setupViewsLayout()
@@ -195,6 +196,12 @@ private extension RouletteViewController {
                 startStopButton.widthAnchor.constraint(equalToConstant: 200)
             ]
         )
+    }
+}
+
+extension RouletteViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
 

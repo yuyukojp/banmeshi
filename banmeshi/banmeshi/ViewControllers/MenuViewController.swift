@@ -28,6 +28,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         super.viewDidLoad()
         self.navigationItem.title = "菜单一览"
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.delegate = self
 
         setupUI()
         registerBtn.isEnabled = false
@@ -221,5 +222,11 @@ extension MenuViewController: UITextFieldDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension MenuViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }

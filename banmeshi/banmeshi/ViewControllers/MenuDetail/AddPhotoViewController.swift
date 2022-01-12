@@ -8,19 +8,32 @@
 import UIKit
 
 
-class AddPhotoViewController: BaseViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var menuIndex = 0
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var albumBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
+    private var backBotton = UIBarButtonItem()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .mainBackgroundColor()
+        self.navigationController?.navigationBar.barTintColor = .navigation()
+        navigationItem.backBarButtonItem = backBotton
+        backBotton = UIBarButtonItem(title: "＜返回", style: .done, target: self, action: #selector(backButtonTapped(_:)))
+        navigationItem.setLeftBarButton(backBotton, animated: false)
+//        self.navigationController?.navigationBar.delegate = self
     }
 
+    @objc func backButtonTapped(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
     
     @IBAction func tapTakePhoto(_ sender: Any) {
         let sourceType:UIImagePickerController.SourceType =

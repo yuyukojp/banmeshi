@@ -25,10 +25,11 @@ class AddMenuDetailViewController: BaseViewController {
     let itemQuantityTextField = UITextField()
     private var addIntroductionView: AddIntroductionView!
     private var addDetailView: AddDetailView!
+    private var backBottons: UIBarButtonItem!
+    private var saveButton: UIBarButtonItem!
     
     var disposeBag = DisposeBag()
-    
-    private var saveButton: UIBarButtonItem!
+
     var menuIndex: Int = 0
     // Sectionのタイトル
     let sectionTitle: NSArray = ["照片", "简介", "详细"]
@@ -42,6 +43,7 @@ class AddMenuDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+//        self.navigationController?.navigationBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +65,8 @@ class AddMenuDetailViewController: BaseViewController {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "AddMenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCell")
+        itemNameLabel.textColor = .textColor()
+        itemQuantityLabel.textColor = .textColor()
         
     }
     
@@ -186,16 +190,17 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     private func setNavigationBar() {
-        if isEditMode {
-            saveButton = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(editSaveButtonTapped(_:)))
-            navigationItem.setRightBarButton(saveButton, animated: false)
-        }
+        backBottons = UIBarButtonItem(title: "＜返回", style: .done, target: self, action: #selector(backButtonTapped(_:)))
+        navigationItem.setLeftBarButton(backBottons, animated: false)
         saveButton = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(saveButtonTapped(_:)))
         navigationItem.setRightBarButton(saveButton, animated: false)
-//        navigationItem.rightBarButtonItem?.title = "保存"
     }
     
     @objc func editSaveButtonTapped (_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func backButtonTapped(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
         
@@ -528,6 +533,15 @@ extension AddMenuDetailViewController: UITableViewDelegate {
         .bind(to: confirmButton.rx.isEnabled)
         .disposed(by: disposeBag)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // 背景色を変更する
+//        view.tintColor = .red
+
+        let header = view as! UITableViewHeaderFooterView
+        // テキスト色を変更する
+        header.textLabel?.textColor = .textColor()
+    }
 }
 
 extension AddMenuDetailViewController: UITableViewDataSource {
@@ -562,7 +576,9 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.photoView.isHidden = false
         } else if indexPath.section == 1 && introductionData != "" {
             cell.introductionLabel.isHidden = false
+            cell.frame.size.height = 40
             cell.addLabel.isHidden = true
+            cell.photoView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
             cell.photoView.isHidden = true
             cell.introductionLabel.text = introductionData
         } else if indexPath.section == 2 && self.detailData.count > 0 && indexPath.row < self.detailData.count {
@@ -584,5 +600,11 @@ extension AddMenuDetailViewController: UITableViewDataSource {
         cell.backgroundColor = .mainBackgroundColor()
        
         return cell
+    }
+}
+
+extension AddMenuDetailViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }

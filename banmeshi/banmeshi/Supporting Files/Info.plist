@@ -20,6 +20,10 @@
 				</dict>
 			</array>
 		</dict>
+		<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>请求获得相撤权限</string>
+		<key>NSCameraUsageDescription</key>
+		<string>请求获得相机权限</string>
 	</dict>
 </dict>
 </plist>

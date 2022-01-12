@@ -17,9 +17,10 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .mainBackgroundColor()
-        backBotton.title = "返回"
-        self.navigationItem.titleView?.backgroundColor = .delimiterColor()
-        navigationItem.backBarButtonItem = backBotton
+//        self.navigationController?.navigationBar.delegate = self
+//        backBotton.title = "返回"
+        self.navigationController?.navigationBar.barTintColor = .navigation()
+//        navigationItem.backBarButtonItem = backBotton
     }
     
     func setStoryboard(sbName : String) -> UIStoryboard {
@@ -35,8 +36,4 @@ class BaseViewController: UIViewController {
 
 }
 
-extension BaseViewController: UINavigationBarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
+

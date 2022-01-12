@@ -35,7 +35,7 @@
                         <constraint firstAttribute="height" constant="21" id="gri-6f-Ijo"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-Re-4hy">
@@ -110,7 +110,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="编辑">
                         <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                        <color key="baseForegroundColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>
                     <connections>
                         <action selector="tapEditBtn:" destination="-1" eventType="touchUpInside" id="kKe-vt-hTj"/>
@@ -150,9 +150,6 @@
     </objects>
     <resources>
         <image name="empty_coupon" width="242" height="188"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
