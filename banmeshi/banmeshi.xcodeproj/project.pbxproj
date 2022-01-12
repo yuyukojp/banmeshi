@@ -804,6 +804,7 @@
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "幸运晚餐";
 				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -837,6 +838,7 @@
 				DEVELOPMENT_TEAM = 3YDR7T8879;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = banmeshi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "幸运晚餐";
 				INFOPLIST_KEY_NSCameraUsageDescription = "请求获得相机权限";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请求获得相撤权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

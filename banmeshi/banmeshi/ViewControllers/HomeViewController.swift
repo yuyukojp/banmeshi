@@ -49,7 +49,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupUI() {
-        self.navigationController?.navigationBar.topItem?.title = "Banmeshi"
+        self.navigationController?.navigationBar.topItem?.title = "幸运晚餐"
         tempData = []
         tempIndex = []
         let result = realm.objects(Menu.self)
@@ -68,7 +68,6 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupCycleView() {
-//        self.view.backgroundColor = .white
         //画像名
         let imageArr = ["image1","image2","image3"]
         //Frameを定義セーフエリアの高さを取得
