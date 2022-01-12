@@ -20,5 +20,6 @@ class MenuDetailTableViewCell: UITableViewCell {
     }
     func setCellLayout() {
         self.frame.size.width = Const.screenWidth
+        self.backgroundColor = .mainBackgroundColor()
     }
 }

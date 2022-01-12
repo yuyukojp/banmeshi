@@ -1,20 +1,16 @@
 //
-//  AddMenuDetailTableViewCell.swift
+//  RankTableViewCell.swift
 //  banmeshi
 //
-//  Created by 金斗石 on 2021/12/31.
+//  Created by 金斗石 on 2022/1/12.
 //
 
 import UIKit
 
-class AddMenuDetailTableViewCell: UITableViewCell {
+class RankTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var amfeLabel: UILabel!
-    @IBOutlet weak var photoView: UIImageView!    
-    @IBOutlet weak var addLabel: UILabel!
-    @IBOutlet weak var introductionLabel: UILabel!
-    
-    
+    @IBOutlet weak var menuProgress: UIProgressView!
+    @IBOutlet weak var countLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

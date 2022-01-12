@@ -11,17 +11,29 @@ import RealmSwift
 class BaseViewController: UIViewController {
     let realm = try! Realm()
     let backBotton = UIBarButtonItem()
+    let delimiterVeiw: UIView = UIView()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        backBotton.title = "返回"
-        navigationItem.backBarButtonItem = backBotton
+        self.view.backgroundColor = .mainBackgroundColor()
+//        self.navigationController?.navigationBar.delegate = self
+//        backBotton.title = "返回"
+        self.navigationController?.navigationBar.barTintColor = .navigation()
+//        navigationItem.backBarButtonItem = backBotton
     }
     
     func setStoryboard(sbName : String) -> UIStoryboard {
         return UIStoryboard(name: sbName, bundle: Bundle.main)
     }
     
+    func setupDelimiter(x: CGFloat = 0, y: CGFloat = 0, width: CGFloat = Const.screenWidth, height: CGFloat = Const.screenHeight ) {
+        delimiterVeiw.frame = CGRect(x: x, y: y, width: width, height: height)
+        delimiterVeiw.backgroundColor = .delimiterColor()
+    }
+    
+    
 
 }
+
+

@@ -26,6 +26,7 @@ class MenuDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+//        self.navigationController?.navigationBar.delegate = self
     }
     
     private func setupUI() {
@@ -164,8 +165,15 @@ extension MenuDetailViewController: UITableViewDataSource {
         default:
             break
         }
-        
+        cell.textLabel?.textColor = .textColor()
+        cell.detailTextLabel?.textColor = .textColor()
         return cell
     }
     
+}
+
+extension MenuDetailViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
 }

@@ -12,13 +12,16 @@ struct Const {
     static let screenBounds = UIScreen.main.bounds
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
+    //セーフエリアの高さ
+    static let safeAreaHeight = CGFloat(67.0)
     //文言
 
     
 }
 
 struct StringConst {
-
+    static let count = "共点中："
+    static let beforeCount = "次"
 }
 
 struct AlertConst {

@@ -70,30 +70,42 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.delegate = self
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        removeAllSubviews(parentView: self.view)
         pieChartManager.setData(pieChartView, data: menuDatas)
         setupUI()
     }
     
     private func setupUI() {
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationItem.title = "幸运大转盘"
         setData()
         //Layout
         setupViewsLayout()
         //Pie Chartの設定
         pieChartManager.setup(pieChartView)
         let result = realm.objects(Menu.self)
-        if result.count <= 1 {
-            let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
-            errorView = NoMenuDataView(frame: frame)
-            self.view.addSubview(errorView)
+        let frame = CGRect(x: 0, y: 0, width: Const.screenWidth, height: Const.screenHeight)
+        errorView = NoMenuDataView(frame: frame)
+        self.view.addSubview(errorView)
+        if result.count < 2 {
+            errorView.isHidden = false
+        } else {
+            errorView.isHidden = true
         }
 
+    }
+    
+    func removeAllSubviews(parentView: UIView){
+        var subviews = parentView.subviews
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
     }
     
     func setupTimer() {
@@ -128,7 +140,11 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         //                let menus = self.realm.objects(Menu.self)
         //                let dataCount = menus.count
         let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
-        
+        let results = realm.objects(Menu.self)[selectedIndex]
+        let menuCount = results.rouletteCount + 1
+        try! realm.write {
+            results.setValue(menuCount, forKey: "rouletteCount")
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             if self.menuPoints[selectedIndex] > 6 {
                 Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
@@ -146,6 +162,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         let dataCount = menus.count
         menuDatas = []
         menuPoints = []
+        guard dataCount > 1 else { return }
         for i in 0...(dataCount - 1) {
             menuDatas.append(menus[i].name)
             menuPoints.append(menus[i].point)
@@ -190,6 +207,12 @@ private extension RouletteViewController {
                 startStopButton.widthAnchor.constraint(equalToConstant: 200)
             ]
         )
+    }
+}
+
+extension RouletteViewController: UINavigationBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 }
 
