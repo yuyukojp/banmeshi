@@ -23,6 +23,8 @@
 		C138B235278E723B004916B4 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B233278E723B004916B4 /* RankTableViewCell.xib */; };
 		C138B238278FBEFA004916B4 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B236278FBEFA004916B4 /* HistoryTableViewCell.swift */; };
 		C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B237278FBEFA004916B4 /* HistoryTableViewCell.xib */; };
+		C138B23D278FF003004916B4 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B23C278FF003004916B4 /* MypageViewController.swift */; };
+		C138B23F278FF424004916B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B23E278FF424004916B4 /* CustomButton.swift */; };
 		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
 		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
@@ -94,6 +96,8 @@
 		C138B233278E723B004916B4 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		C138B236278FBEFA004916B4 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		C138B237278FBEFA004916B4 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		C138B23C278FF003004916B4 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		C138B23E278FF424004916B4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +262,7 @@
 				C17A4C61277AF02A007CBE66 /* HomeViewController.swift */,
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
+				C138B23C278FF003004916B4 /* MypageViewController.swift */,
 				C11D7EF3277D44DB002B563D /* MenuDetail */,
 			);
 			path = ViewControllers;
@@ -341,6 +346,7 @@
 			children = (
 				C17A4EA0277B0402007CBE66 /* UIViewController+.swift */,
 				C1B800CD277D7E31009B06D0 /* UIImage+.swift */,
+				C138B23E278FF424004916B4 /* CustomButton.swift */,
 				C17A4EA2277B0433007CBE66 /* UIColor+.swift */,
 			);
 			path = Extension;
@@ -607,6 +613,7 @@
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
 				C138B238278FBEFA004916B4 /* HistoryTableViewCell.swift in Sources */,
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
+				C138B23F278FF424004916B4 /* CustomButton.swift in Sources */,
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
 				C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */,
@@ -621,6 +628,7 @@
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C138B22F278D4BCE004916B4 /* HistoryModel.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
+				C138B23D278FF003004916B4 /* MypageViewController.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
 				C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */,
