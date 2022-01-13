@@ -38,7 +38,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.delegate = self
         setupRankTabelView()
-        setupUI()
+//        setupUI()
         setupCycleView()
     }
     
@@ -52,6 +52,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         self.navigationController?.navigationBar.topItem?.title = "幸运晚餐"
         tempData = []
         tempIndex = []
+        totalCount = 0
         let result = realm.objects(Menu.self)
         guard result.count != 0 else { return }
         
@@ -107,7 +108,6 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tempDataIndex = tempData.count - indexPath.row - 1
         guard let results = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return }
-        print("++++id:\(results.id)mflg:\(results.isSetData)")
         if results.isSetData {
             Router.shared.showMenuDetail(from: self, indexPath: results.id)
         } else {
