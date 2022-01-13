@@ -70,4 +70,18 @@ extension UIColor{
                        blue: 234 / 255.0,
                        alpha: 1)
     }
+    
+    public static func titleColor() -> UIColor {
+        return UIColor(red: 253 / 255.0,
+                       green: 102 / 255.0,
+                       blue: 104 / 255.0,
+                       alpha: 1)
+    }
+    
+    public static func buttonColor() -> UIColor {
+        return UIColor(red: 136 / 255.0,
+                       green: 117 / 255.0,
+                       blue: 227 / 255.0,
+                       alpha: 1)
+    }
 }

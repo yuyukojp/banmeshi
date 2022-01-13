@@ -17,10 +17,12 @@
 		C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */; };
 		C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */; };
 		C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */; };
-		C138B22F278D4BCE004916B4 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B22E278D4BCE004916B4 /* RankModel.swift */; };
+		C138B22F278D4BCE004916B4 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B22E278D4BCE004916B4 /* HistoryModel.swift */; };
 		C138B231278D70F2004916B4 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B230278D70F2004916B4 /* NoMenuDataView.xib */; };
 		C138B234278E723B004916B4 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B232278E723B004916B4 /* RankTableViewCell.swift */; };
 		C138B235278E723B004916B4 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B233278E723B004916B4 /* RankTableViewCell.xib */; };
+		C138B238278FBEFA004916B4 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B236278FBEFA004916B4 /* HistoryTableViewCell.swift */; };
+		C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C138B237278FBEFA004916B4 /* HistoryTableViewCell.xib */; };
 		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
 		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
@@ -86,10 +88,12 @@
 		C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailViewController.swift; sourceTree = "<group>"; };
 		C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailViewController.xib; sourceTree = "<group>"; };
-		C138B22E278D4BCE004916B4 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
+		C138B22E278D4BCE004916B4 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		C138B230278D70F2004916B4 /* NoMenuDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
 		C138B232278E723B004916B4 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		C138B233278E723B004916B4 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
+		C138B236278FBEFA004916B4 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		C138B237278FBEFA004916B4 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +278,8 @@
 				C138B233278E723B004916B4 /* RankTableViewCell.xib */,
 				C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */,
 				C138B230278D70F2004916B4 /* NoMenuDataView.xib */,
+				C138B236278FBEFA004916B4 /* HistoryTableViewCell.swift */,
+				C138B237278FBEFA004916B4 /* HistoryTableViewCell.xib */,
 				C18B8F312787D57900D61B08 /* CycleView.swift */,
 			);
 			path = Views;
@@ -316,7 +322,7 @@
 			children = (
 				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 				C17A4EB6277BF39B007CBE66 /* MenuModel.swift */,
-				C138B22E278D4BCE004916B4 /* RankModel.swift */,
+				C138B22E278D4BCE004916B4 /* HistoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C138B231278D70F2004916B4 /* NoMenuDataView.xib in Resources */,
+				C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
 				C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */,
 				C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */,
@@ -598,6 +605,7 @@
 			files = (
 				C11D7EF6277D454A002B563D /* MenuDetailViewController.swift in Sources */,
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
+				C138B238278FBEFA004916B4 /* HistoryTableViewCell.swift in Sources */,
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
@@ -611,7 +619,7 @@
 				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
-				C138B22F278D4BCE004916B4 /* RankModel.swift in Sources */,
+				C138B22F278D4BCE004916B4 /* HistoryModel.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,

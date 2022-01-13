@@ -22,6 +22,8 @@ struct Const {
 struct StringConst {
     static let count = "共点中："
     static let beforeCount = "次"
+    static let historyTabelViewTitle = "中　奖　履　历"
+    static let historyClearBtnTitle = "清除记录"
 }
 
 struct AlertConst {
@@ -36,4 +38,5 @@ struct AlertConst {
     static let noSave = "继续编辑"
     static let noIntroductionTitle = "请注意"
     static let noIntroductionMsg = "未填写简介内容，是否继续保存？"
+    static let clearHistoryMsg = "是否清除所有菜单的中奖记录"
 }

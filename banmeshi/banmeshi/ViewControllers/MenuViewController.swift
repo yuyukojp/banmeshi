@@ -126,17 +126,6 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         }
     }
     
-    //MARK: - 新規ID作成
-    func newId<T: Object>(model: T) -> Int? {
-        guard let key = T.primaryKey() else { return nil }
-
-        if let last = realm.objects(T.self).last,
-            let lastId = last[key] as? Int {
-            return lastId + 1
-        } else {
-            return 0
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let menuData = realm.objects(Menu.self)
@@ -186,9 +175,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
         }
-    }
- 
- 
+    } 
 }
 
 extension MenuViewController: UITableViewDelegate {
