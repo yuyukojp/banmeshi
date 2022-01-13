@@ -84,6 +84,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        setData()
         removeAllSubviews(parentView: self.view)
         pieChartManager.setData(pieChartView, data: menuDatas)
         setupUI()

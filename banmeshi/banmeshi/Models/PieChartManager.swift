@@ -35,7 +35,7 @@ struct PieChartManager {
         //グラフの注釈を表示/非表示
         pieChartView.legend.enabled = false
         //グラフをタッチしたときのハイライト
-        pieChartView.highlightPerTapEnabled = false
+        pieChartView.highlightPerTapEnabled = true
         //表示アニメーション
         pieChartView.animate(xAxisDuration: 1.0)
         
