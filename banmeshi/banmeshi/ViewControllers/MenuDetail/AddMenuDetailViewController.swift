@@ -577,6 +577,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
         } else if indexPath.section == 1 && introductionData != "" {
             cell.introductionLabel.isHidden = false
             cell.frame.size.height = 40
+            cell.photoView.image = UIImage()
             cell.addLabel.isHidden = true
             cell.photoView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
             cell.photoView.isHidden = true
@@ -595,6 +596,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.amfeLabel.isHidden = true
             cell.introductionLabel.isHidden = true
             cell.frame.size.height = 40
+            cell.photoView.image = UIImage()
             cell.addLabel.isHidden = false
             cell.photoView.isHidden = true
             cell.addLabel.text = "添加"
