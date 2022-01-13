@@ -38,7 +38,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.delegate = self
         setupRankTabelView()
-        setupUI()
+//        setupUI()
         setupCycleView()
     }
     
@@ -49,9 +49,10 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupUI() {
-        self.navigationController?.navigationBar.topItem?.title = "Banmeshi"
+        self.navigationController?.navigationBar.topItem?.title = "幸运晚餐"
         tempData = []
         tempIndex = []
+        totalCount = 0
         let result = realm.objects(Menu.self)
         guard result.count != 0 else { return }
         
@@ -68,7 +69,6 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     }
     
     private func setupCycleView() {
-//        self.view.backgroundColor = .white
         //画像名
         let imageArr = ["image1","image2","image3"]
         //Frameを定義セーフエリアの高さを取得
@@ -108,7 +108,6 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tempDataIndex = tempData.count - indexPath.row - 1
         guard let results = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else { return }
-        print("++++id:\(results.id)mflg:\(results.isSetData)")
         if results.isSetData {
             Router.shared.showMenuDetail(from: self, indexPath: results.id)
         } else {

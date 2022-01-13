@@ -8,6 +8,7 @@
 import UIKit
 import Charts
 import RealmSwift
+import SwiftUI
 
 final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
@@ -22,10 +23,17 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
     var menuDatas: [String] = []
     var menuPoints: [Int] = []
+    var selectedId: Int = 0
+    var tabelViewLabel: UILabel = UILabel()
+    private let historyTabelView: UITableView = UITableView()
+    private let histroyClearBtn: UIButton = UIButton()
     
     private lazy var pieChartView: PieChartView = {
         let view = PieChartView()
         view.delegate = self
+        view.transparentCircleColor = .navigation()
+        view.holeColor = .textColor()
+        
         return view
     }()
     
@@ -98,7 +106,14 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         } else {
             errorView.isHidden = true
         }
-
+        setupHistoryTabelview()
+    }
+    
+    func setupHistoryTabelview() {
+        historyTabelView.delegate = self
+        historyTabelView.dataSource = self
+        historyTabelView.register(UINib(nibName: "HistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "HistoryCell")
+        tabelViewLabel.text = StringConst.historyTabelViewTitle
     }
     
     func removeAllSubviews(parentView: UIView){
@@ -142,6 +157,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         let selectedIndex = self.pieChartManager.getSelectedIndex(dataCount: self.menuDatas.count, randomAngle: self.randomAngle)
         let results = realm.objects(Menu.self)[selectedIndex]
         let menuCount = results.rouletteCount + 1
+        selectedId = results.id
         try! realm.write {
             results.setValue(menuCount, forKey: "rouletteCount")
         }
@@ -149,11 +165,16 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
             if self.menuPoints[selectedIndex] > 6 {
                 Alert.okAlert(title: "恭喜！", message: "选中得分高达:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])，针不戳～", on: self)
             } else if self.menuPoints[selectedIndex] > 3 {
-                Alert.okAlert(title: "抱歉！", message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖", on: self)
+                Alert.okAlert(title: "抱歉！",
+                              message: "被得分仅为:\(self.menuPoints[selectedIndex])的\(self.menuDatas[selectedIndex])砸中，推荐点外卖",
+                              on: self)
             } else {
-                Alert.okAlert(title: "警告！！", message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)", on: self)
+                Alert.okAlert(title: "警告！！",
+                              message: "被仅获得\(self.menuPoints[selectedIndex])分的\(self.menuDatas[selectedIndex])盯上！一定要外食或外卖！！(小命要紧)",
+                              on: self)
             }
-            
+            self.setHistoryData()
+            self.historyTabelView.reloadData()
         }
     }
     
@@ -166,6 +187,49 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
         for i in 0...(dataCount - 1) {
             menuDatas.append(menus[i].name)
             menuPoints.append(menus[i].point)
+        }
+    }
+    
+    private func setHistoryData() {
+        //履歴データをDBに保存
+        let history = History()
+        history.id = self.newId(model: history)!
+        history.menuId = selectedId
+        try! realm.write {
+            realm.add(history)
+        }
+    }
+    
+    @objc func tapClearHistory() {
+        //部品のアラートを作る
+        let alertController = UIAlertController(title: AlertConst.alertTitle, message: AlertConst.clearHistoryMsg, preferredStyle: UIAlertController.Style.alert)
+        //OKボタン追加
+        let okAction = UIAlertAction(title: AlertConst.ok, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+            self.clearRouletteCount()
+        })
+        let cancelAction = UIAlertAction(title: AlertConst.cancel, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+        })
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+
+        //アラートを表示する
+         present(alertController, animated: true, completion: nil)
+       
+    }
+    
+    private func clearRouletteCount() {
+        let historyResults = realm.objects(History.self)
+        try! realm.write {
+            realm.delete(historyResults)
+        }
+        historyTabelView.reloadData()
+        let results = realm.objects(Menu.self)
+        for i in 0...(results.count - 1) {
+            let result = realm.objects(Menu.self)[i]
+            try! realm.write {
+                result.setValue(0, forKey: "rouletteCount")
+            }
         }
     }
 }
@@ -207,7 +271,89 @@ private extension RouletteViewController {
                 startStopButton.widthAnchor.constraint(equalToConstant: 200)
             ]
         )
+        
+        //historyTabelView
+        view.addSubview(historyTabelView)
+        historyTabelView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                historyTabelView.topAnchor.constraint(equalTo: startStopButton.bottomAnchor, constant: 70),
+                historyTabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+                historyTabelView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+                historyTabelView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+//                historyTabelView.heightAnchor.constraint(equalToConstant: 300)
+            ]
+        )
+        historyTabelView.backgroundColor = .mainBackgroundColor()
+        
+        //histroyTabelViewLabel
+        view.addSubview(tabelViewLabel)
+        tabelViewLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                tabelViewLabel.topAnchor.constraint(equalTo: startStopButton.bottomAnchor, constant: 30),
+                tabelViewLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+                tabelViewLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+                tabelViewLabel.heightAnchor.constraint(equalToConstant: 30)
+            ]
+        )
+        tabelViewLabel.textColor = .titleColor()
+        tabelViewLabel.backgroundColor = .mainBackgroundColor()
+        tabelViewLabel.textAlignment = NSTextAlignment.center
+        tabelViewLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+//        tabelViewLabel.layer.cornerRadius = 3
+//        tabelViewLabel.layer.borderWidth = 0.5
+//        tabelViewLabel.layer.shadowColor = CGColor(red: 211, green: 211, blue: 211, alpha: 1)
+//        tabelViewLabel.layer.shadowOpacity = 0.8
+//        tabelViewLabel.layer.shadowRadius = 0.6
+//        tabelViewLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        //historyClearBtn
+        view.addSubview(histroyClearBtn)
+        histroyClearBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                histroyClearBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
+                histroyClearBtn.heightAnchor.constraint(equalToConstant: 20),
+                histroyClearBtn.widthAnchor.constraint(equalToConstant: 80),
+                histroyClearBtn.bottomAnchor.constraint(equalTo: historyTabelView.topAnchor, constant: 0)
+            ]
+        )
+        histroyClearBtn.setTitle(StringConst.historyClearBtnTitle, for: .normal)
+        histroyClearBtn.backgroundColor = .buttonColor()
+        histroyClearBtn.tintColor = .white
+        //layerを設定
+        histroyClearBtn.layer.cornerRadius = 6
+        histroyClearBtn.layer.borderWidth = 0.5
+        histroyClearBtn.layer.shadowColor = CGColor(red: 211, green: 211, blue: 211, alpha: 1)
+        histroyClearBtn.layer.shadowOpacity = 0.8
+        histroyClearBtn.layer.shadowRadius = 0.6
+        histroyClearBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
+        histroyClearBtn.addTarget(self, action: #selector(tapClearHistory), for: .touchUpInside)
     }
+}
+
+extension RouletteViewController: UITableViewDelegate {
+    
+    
+}
+
+extension RouletteViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return realm.objects(History.self).count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = historyTabelView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
+        let indexResult = realm.objects(History.self)
+        let menuId = indexResult[indexResult.count - 1 - indexPath.row].menuId
+        guard let result = realm.objects(Menu.self).filter("id == \(menuId)").first else {
+            return cell
+        }
+        cell.historyNameLabel.text = result.name
+        cell.pointLabel.text = String(result.point) + " 分"
+        return cell
+    }    
 }
 
 extension RouletteViewController: UINavigationBarDelegate {

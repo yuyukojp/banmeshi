@@ -151,7 +151,8 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         } else {
             imageView.image = UIImage(named: imageNames[indexPath.row])
         }
-
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        cell.backgroundColor = .itemBGColor()
         cell.contentView.addSubview(imageView)
         return cell
     }
