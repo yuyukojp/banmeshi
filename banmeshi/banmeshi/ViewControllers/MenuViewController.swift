@@ -88,12 +88,20 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     }
 
     @IBAction func tapRegisterBtn(_ sender: Any) {
-        addMenu()
-        menuTextField.text = ""
-        pointTextField.text = ""
-        menuTextField.endEditing(true)
-        pointTextField.endEditing(true)
-        menuTableView.reloadData()
+        let tempText: String = pointTextField.text ?? ""
+        let enterPoint = Int(tempText) ?? 0
+        if enterPoint > 10 {
+            Alert.okAlert(title: AlertConst.errorTitle,
+                          message: AlertConst.pointOverRangeMsg,
+                          on: self)
+        } else {
+            addMenu()
+            menuTextField.text = ""
+            pointTextField.text = ""
+            menuTextField.endEditing(true)
+            pointTextField.endEditing(true)
+            menuTableView.reloadData()
+        }
     }
     
     private func addMenu() {

@@ -39,4 +39,6 @@ struct AlertConst {
     static let noIntroductionTitle = "请注意"
     static let noIntroductionMsg = "未填写简介内容，是否继续保存？"
     static let clearHistoryMsg = "是否清除所有菜单的中奖记录"
+    static let errorTitle = "错误！"
+    static let pointOverRangeMsg = "得分需在0-10范围内"
 }

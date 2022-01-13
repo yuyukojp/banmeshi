@@ -351,7 +351,7 @@ extension RouletteViewController: UITableViewDataSource {
             return cell
         }
         cell.historyNameLabel.text = result.name
-        cell.pointLabel.text = String(result.point)
+        cell.pointLabel.text = String(result.point) + " 分"
         return cell
     }    
 }
