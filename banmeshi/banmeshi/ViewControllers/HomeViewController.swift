@@ -124,11 +124,10 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = rankTabelView.dequeueReusableCell(withIdentifier: "RankCell", for: indexPath) as! RankTableViewCell
-
         
         if tempData.count > 1 {
             for i in 1...(tempData.count - 1) {
-                for j in i...(tempData.count - 1) {
+                for j in 1...(tempData.count - i) {
                     if tempData[j - 1] > tempData[j] {
                         tempData.swapAt(j - 1, j)
                         tempIndex.swapAt(j - 1, j)

@@ -9,9 +9,15 @@ import UIKit
 import RealmSwift
 import RxSwift
 import RxCocoa
+import SwiftUI
  
 class MenuViewController: BaseViewController, UITableViewDataSource {
-
+    enum SortStatus: Int {
+        case unsorted = 0
+        case ascending = 1
+        case descending = 2
+        case select = 3
+    }
   
     @IBOutlet weak var delimiterView1: UIView!
     @IBOutlet weak var delimiterView2: UIView!
@@ -21,7 +27,16 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var editButton: UIButton!
     private var point: Int = 6
+    @IBOutlet weak var selectPointTF: UITextField!
+    @IBOutlet weak var sortButton: UIButton!
+    private var selectPointBtn: CusstomButton!
+    private var clearSelectBtn: CusstomButton!
     var disposeBag = DisposeBag()
+    private var sortFlg: SortStatus!    
+    private var tempPoints: [Int] = []
+    private var tempIndex: [Int] = []
+    private var tempSelectPoints: [Int] = []
+    private var tempSelectIndex: [Int] = []
      
     // 初期表示時の処理
     override func viewDidLoad() {
@@ -52,7 +67,11 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         menuTableView.backgroundColor = .mainBackgroundColor()
         menuTextField.placeholder = "请输入菜名"
         pointTextField.placeholder = "\(point)"
-        
+        setupViewsLayout()
+        selectPointTF.backgroundColor = .itemBGColor()
+        bindButtonToValue()
+        sortFlg = .unsorted
+        getData()
 
         pointTextField.keyboardType = UIKeyboardType.numberPad
         
@@ -86,6 +105,79 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         .bind(to: registerBtn.rx.isEnabled)
         .disposed(by: disposeBag)
     }
+    
+    private func getData() {
+        tempPoints = []
+        tempIndex = []
+        let result = realm.objects(Menu.self)
+        guard result.count != 0 else { return }
+        
+        for i in 0...(result.count - 1) {
+            tempIndex.append(result[i].id)
+            tempPoints.append(result[i].point)
+        }
+        
+        if tempPoints.count > 1 {
+            for i in 1...(tempPoints.count - 1) {
+                for j in 1...(tempPoints.count - i) {
+                    if tempPoints[j - 1] > tempPoints[j] {
+                        tempPoints.swapAt(j - 1, j)
+                        tempIndex.swapAt(j - 1, j)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func bindButtonToValue() {
+        selectPointBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let findPoint = Int(self?.selectPointTF.text ?? "") else { return }
+                self?.tempSelectIndex = []
+                self?.tempSelectPoints = []
+                if findPoint > 0 && findPoint < 11 {
+                    for i in 0...((self?.tempPoints.count ?? 0) - 1) {
+                        if self?.tempPoints[i] == findPoint {
+                            self?.tempSelectIndex.append(self?.tempIndex[i] ?? 0)
+                            self?.tempSelectPoints.append(self?.tempPoints[i] ?? 0)
+                        }
+                    }
+                    self?.selectPointTF.resignFirstResponder()
+                    self?.sortFlg = .select
+                } else {
+                    Alert.okAlert(title: AlertConst.errorTitle,
+                                  message: AlertConst.pointOverRangeMsg,
+                                  on: self!)
+                }
+                self?.menuTableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        clearSelectBtn.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.sortFlg = .unsorted
+                self?.tempSelectIndex = []
+                self?.tempSelectPoints = []
+                self?.selectPointTF.text = ""
+                self?.getData()
+                self?.menuTableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        
+        sortButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                if self?.sortFlg == .unsorted || self?.sortFlg == .descending {
+                    self?.sortFlg = .ascending
+                    self?.sortButton.setTitle(StringConst.upSymbol, for: .normal)
+                } else if self?.sortFlg == .ascending {
+                    self?.sortFlg = .descending
+                    self?.sortButton.setTitle(StringConst.downSymbol, for: .normal)
+                } else { return }
+                self?.menuTableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
 
     @IBAction func tapRegisterBtn(_ sender: Any) {
         let tempText: String = pointTextField.text ?? ""
@@ -102,6 +194,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
             pointTextField.endEditing(true)
             menuTableView.reloadData()
         }
+        getData()
     }
     
     private func addMenu() {
@@ -136,18 +229,50 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let menuData = realm.objects(Menu.self)
-        return menuData.count
+        if sortFlg == .select {
+            return tempSelectIndex.count
+        } else {
+            return tempIndex.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let menuData = realm.objects(Menu.self)
-        cell.textLabel!.text = menuData[indexPath.row].name
+        var name = ""
+        var point = 0
+        if self.sortFlg == .unsorted {
+            name = menuData[indexPath.row].name
+            point = menuData[indexPath.row].point
+        } else if self.sortFlg == .ascending {
+            let tempDataIndex = tempPoints.count - indexPath.row - 1
+            if tempDataIndex >= 0 {
+                guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else {
+                    return cell
+                }
+                name = resultsDetail.name
+                point = resultsDetail.point
+            }
+        } else if self.sortFlg == .descending {
+            let tempDataIndex = indexPath.row
+            if tempDataIndex >= 0 {
+                guard let resultsDetail = realm.objects(Menu.self).filter("id == \(tempIndex[tempDataIndex])").first else {
+                    return cell
+                }
+                name = resultsDetail.name
+                point = resultsDetail.point
+            }
+        } else if self.sortFlg == .select {
+            name = menuData[tempSelectIndex[indexPath.row]].name
+            point = menuData[tempSelectIndex[indexPath.row]].point
+        }
+        
+        cell.textLabel!.text = name
         cell.backgroundColor = .mainBackgroundColor()
         cell.textLabel?.textColor = .textColor()
-        cell.detailTextLabel!.text = String("\(menuData[indexPath.row].point) 分")
+        cell.detailTextLabel!.text = String("\(point) 分")
         cell.detailTextLabel?.textColor = .textColor()
+
         return cell
     }
     
@@ -223,5 +348,38 @@ extension MenuViewController: UITextFieldDelegate {
 extension MenuViewController: UINavigationBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
+    }
+}
+
+private extension MenuViewController {
+    private func setupViewsLayout() {
+        //selectPointBtn
+        selectPointBtn = CusstomButton(frame: CGRect())
+        view.addSubview(selectPointBtn)
+        selectPointBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                selectPointBtn.leftAnchor.constraint(equalTo: selectPointTF.rightAnchor, constant: 30),
+                selectPointBtn.heightAnchor.constraint(equalToConstant: 30),
+                selectPointBtn.widthAnchor.constraint(equalToConstant: 80),
+                selectPointBtn.centerYAnchor.constraint(equalTo: selectPointTF.centerYAnchor) //bottomAnchor.constraint(equalTo: menuTableView.topAnchor, constant: 40)
+            ]
+        )
+        selectPointBtn.setTitle(StringConst.fundBtnTitle, for: .normal)
+        
+        //clearSelectBtn
+        clearSelectBtn = CusstomButton(frame: CGRect())
+        view.addSubview(clearSelectBtn)
+        clearSelectBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                clearSelectBtn.leftAnchor.constraint(equalTo: selectPointBtn.rightAnchor, constant: 30),
+                clearSelectBtn.heightAnchor.constraint(equalToConstant: 30),
+                clearSelectBtn.widthAnchor.constraint(equalToConstant: 70),
+                clearSelectBtn.centerYAnchor.constraint(equalTo: selectPointTF.centerYAnchor) //bottomAnchor.constraint(equalTo: menuTableView.topAnchor, constant: 40)
+            ]
+        )
+        clearSelectBtn.setTitle(StringConst.clearBtnTitler, for: .normal)
+
     }
 }

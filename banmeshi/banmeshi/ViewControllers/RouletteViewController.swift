@@ -9,6 +9,7 @@ import UIKit
 import Charts
 import RealmSwift
 import SwiftUI
+import RxSwift
 
 final class RouletteViewController: BaseViewController, ChartViewDelegate {
     

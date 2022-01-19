@@ -14,6 +14,7 @@ import SwiftCSVExport
 class MypageViewController: BaseViewController {
     private var outputButton: CusstomButton!
     private var inputButton:CusstomButton!
+    private var testTextField: CustomTextField!
     
     
     override func viewDidLoad() {
@@ -49,6 +50,9 @@ class MypageViewController: BaseViewController {
         inputButton.addTarget(self, action: #selector(tapInputBtn), for: .touchUpInside)
         self.view.addSubview(outputButton)
         self.view.addSubview(inputButton)
+        testTextField = CustomTextField(frame: CGRect(x: 20, y: 120, width: 200, height: 40))
+        self.view.addSubview(testTextField)
+        
     }
     
     @objc func tapOutputBtn() {

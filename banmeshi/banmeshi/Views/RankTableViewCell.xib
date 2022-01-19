@@ -25,7 +25,7 @@
                         <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IK0-29-dll">
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IK0-29-dll">
                         <rect key="frame" x="140" y="32" width="160" height="4"/>
                         <color key="tintColor" red="0.23137254901960785" green="0.80000000000000004" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
