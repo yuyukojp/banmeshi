@@ -15,6 +15,8 @@ class MypageViewController: BaseViewController {
     private var outputButton: CusstomButton!
     private var inputButton:CusstomButton!
     private var testTextField: CustomTextField!
+    private var versionLabel: UILabel!
+    private var buildLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -52,7 +54,19 @@ class MypageViewController: BaseViewController {
         self.view.addSubview(inputButton)
         testTextField = CustomTextField(frame: CGRect(x: 20, y: 120, width: 200, height: 40))
         self.view.addSubview(testTextField)
-        
+//        setupViewsLayout()
+        versionLabel = UILabel()
+        buildLabel = UILabel()
+        versionLabel.frame = CGRect(x: 80, y: Const.screenHeight - 130, width: 120, height: 30)
+        buildLabel.frame = CGRect(x: (Const.screenWidth / 2) + 20, y: Const.screenHeight - 130, width: 120, height: 30)
+        let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        versionLabel.text = "Version: \(version)"
+        buildLabel.text = "Build: \(build)"
+        versionLabel.textColor = .lightGray
+        buildLabel.textColor = .lightGray
+        self.view.addSubview(versionLabel)
+        self.view.addSubview(buildLabel)
     }
     
     @objc func tapOutputBtn() {
@@ -67,5 +81,26 @@ class MypageViewController: BaseViewController {
 extension MypageViewController: UINavigationBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
+    }
+}
+
+private extension MypageViewController {
+    private func setupViewsLayout() {
+        //selectPointBtn
+        versionLabel = UILabel()
+        view.addSubview(versionLabel)
+        versionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(
+            [
+                versionLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 130),
+                versionLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
+                versionLabel.heightAnchor.constraint(equalToConstant: 30),
+                versionLabel.widthAnchor.constraint(equalToConstant: 80),
+//                versionLabel.centerYAnchor.constraint(equalTo: selectPointTF.centerYAnchor) //bottomAnchor.constraint(equalTo: menuTableView.topAnchor, constant: 40)
+            ]
+        )
+        versionLabel.text = "321321"
+        versionLabel.textColor = .lightText
+
     }
 }
