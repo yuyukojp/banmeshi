@@ -11,6 +11,8 @@
 		61363172257BF0A542C8DC48 /* Pods_banmeshi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10ADB904EE09BD479E234C /* Pods_banmeshi.framework */; };
 		6FEFA8150200749D90745F8C /* Pods_banmeshi_banmeshiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */; };
 		C119B9732797A24D00278621 /* NoMenuDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C119B9722797A24D00278621 /* NoMenuDataView.xib */; };
+		C119B9752797AF1300278621 /* AddPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C119B9742797AF1300278621 /* AddPointView.swift */; };
+		C119B9772797AF2D00278621 /* AddPointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C119B9762797AF2D00278621 /* AddPointView.xib */; };
 		C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EED277D3A46002B563D /* BaseViewController.swift */; };
 		C11D7EF6277D454A002B563D /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */; };
 		C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */; };
@@ -85,6 +87,8 @@
 		AA7F85E3023A727ADF0C01B3 /* Pods_banmeshi_banmeshiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_banmeshi_banmeshiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF21760BBB669F74F5A2AE8B /* Pods-banmeshiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-banmeshiTests.debug.xcconfig"; path = "Target Support Files/Pods-banmeshiTests/Pods-banmeshiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C119B9722797A24D00278621 /* NoMenuDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMenuDataView.xib; sourceTree = "<group>"; };
+		C119B9742797AF1300278621 /* AddPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPointView.swift; sourceTree = "<group>"; };
+		C119B9762797AF2D00278621 /* AddPointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPointView.xib; sourceTree = "<group>"; };
 		C11D7EED277D3A46002B563D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailViewController.xib; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */,
 				C18B8EF9278446DE00D61B08 /* AddDetailView.swift */,
 				C18B8EFB278446E900D61B08 /* AddDetailView.xib */,
+				C119B9742797AF1300278621 /* AddPointView.swift */,
+				C119B9762797AF2D00278621 /* AddPointView.xib */,
 				C11D7EFA277D49ED002B563D /* MenuDetailTableViewCell.swift */,
 				C11D7EFB277D49ED002B563D /* MenuDetailTableViewCell.xib */,
 				C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */,
@@ -479,6 +485,7 @@
 				C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */,
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
+				C119B9772797AF2D00278621 /* AddPointView.xib in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
@@ -625,6 +632,7 @@
 				C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */,
 				C11D7EEE277D3A46002B563D /* BaseViewController.swift in Sources */,
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
+				C119B9752797AF1300278621 /* AddPointView.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
 				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,

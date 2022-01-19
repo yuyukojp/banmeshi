@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import SwiftUI
  
-class MenuViewController: BaseViewController, UITableViewDataSource {
+class MenuViewController: BaseViewController {
     enum SortStatus: Int {
         case unsorted = 0
         case ascending = 1
@@ -26,7 +26,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
     @IBOutlet weak var pointTextField: UITextField!
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    private var point: Int = 6
+    private var point: Int = -1
     @IBOutlet weak var selectPointTF: UITextField!
     @IBOutlet weak var sortButton: UIButton!
     private var selectPointBtn: CusstomButton!
@@ -55,6 +55,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         self.tabBarController?.tabBar.isHidden = false
         // NavigationBarを表示したい場合
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        menuTableView.reloadData()
     }
     
     private func setupUI() {
@@ -66,7 +67,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         menuTextField.backgroundColor = .itemBGColor()
         menuTableView.backgroundColor = .mainBackgroundColor()
         menuTextField.placeholder = "请输入菜名"
-        pointTextField.placeholder = "\(point)"
+        pointTextField.placeholder = "ー"
         setupViewsLayout()
         selectPointTF.backgroundColor = .itemBGColor()
         bindButtonToValue()
@@ -167,7 +168,10 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         
         sortButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                if self?.sortFlg == .unsorted || self?.sortFlg == .descending {
+                if self?.sortFlg == .unsorted {
+                    self?.sortFlg = .ascending
+                    self?.sortButton.setTitle(StringConst.unsortSymbol, for: .normal)
+                } else if self?.sortFlg == .descending {
                     self?.sortFlg = .ascending
                     self?.sortButton.setTitle(StringConst.upSymbol, for: .normal)
                 } else if self?.sortFlg == .ascending {
@@ -195,13 +199,14 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
             menuTableView.reloadData()
         }
         getData()
+        menuTableView.reloadData()
     }
     
     private func addMenu() {
         let menu = Menu()
         menu.name = menuTextField.text!
         if pointTextField.text == "" {
-            menu.point = Int(pointTextField.placeholder ?? "0")!
+            menu.point = -1
         } else {
             menu.point = Int(pointTextField.text!)!
         }
@@ -226,8 +231,10 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
             editButton.setTitle("完了", for: .normal)
         }
     }
-    
-    
+   
+}
+
+extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sortFlg == .select {
             return tempSelectIndex.count
@@ -270,7 +277,11 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
         cell.textLabel!.text = name
         cell.backgroundColor = .mainBackgroundColor()
         cell.textLabel?.textColor = .textColor()
-        cell.detailTextLabel!.text = String("\(point) 分")
+        if point == -1 {
+            cell.detailTextLabel!.text = "ー 分"
+        } else {
+            cell.detailTextLabel!.text = String("\(point) 分")
+        }
         cell.detailTextLabel?.textColor = .textColor()
 
         return cell
@@ -295,7 +306,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
             }
             try! realm.write {
                 guard let results = realm.objects(MenuDetail.self).filter("menuId == \(tempPath)").first else { return }
-                self.realm.delete(results)                
+                self.realm.delete(results)
             }
             isSwipe = false
         }
@@ -308,7 +319,7 @@ class MenuViewController: BaseViewController, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.fade)
             }
         }
-    } 
+    }
 }
 
 extension MenuViewController: UITableViewDelegate {

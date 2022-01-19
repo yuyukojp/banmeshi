@@ -27,6 +27,7 @@ struct StringConst {
     static let fundBtnTitle = "筛选"
     static let downSymbol = "升序 ↑"
     static let upSymbol = "降序 ↓"
+    static let unsortSymbol = "排序 →"
     static let clearBtnTitler = "清除"
 }
 

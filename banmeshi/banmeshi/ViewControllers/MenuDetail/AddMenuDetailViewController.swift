@@ -25,19 +25,22 @@ class AddMenuDetailViewController: BaseViewController {
     let itemQuantityTextField = UITextField()
     private var addIntroductionView: AddIntroductionView!
     private var addDetailView: AddDetailView!
+    private var addPointView: AddPointView!
     private var backBottons: UIBarButtonItem!
     private var saveButton: UIBarButtonItem!
+    private var pointDetail: Int = -1
+    private var isMovetoNextView: Bool = false
+    var isEditMode: Bool = false
     
     var disposeBag = DisposeBag()
 
     var menuIndex: Int = 0
     // Sectionのタイトル
-    let sectionTitle: NSArray = ["照片", "简介", "详细"]
+    let sectionTitle: NSArray = ["照片", "分数", "简介", "详细"]
     var imageData: Data = Data()
     private var introductionData: String = ""
     private var detailData: [String] = []
     private var ingredientData: [String] = []
-    var isEditMode: Bool = false
     
     
     override func viewDidLoad() {
@@ -56,7 +59,10 @@ class AddMenuDetailViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         isEditMode = false
-
+        if !isMovetoNextView {
+            let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
+            navigationController?.popToViewController(targetVC, animated: true)
+        }
     }
     
     private func setupUI() {
@@ -184,9 +190,13 @@ class AddMenuDetailViewController: BaseViewController {
         addIntroductionView.setupView()
         addDetailView = AddDetailView(frame: frame)
         addDetailView.setupView()
+        addPointView = AddPointView(frame: frame)
+        addDetailView.setupView()
         self.view.addSubview(addIntroductionView)
         self.view.addSubview(addDetailView)
-        
+        self.view.addSubview(addPointView)
+        guard let resultPoint = realm.objects(Menu.self).filter("id == \(menuIndex)").first?.point else { return }
+        pointDetail = resultPoint
     }
     
     private func setNavigationBar() {
@@ -201,6 +211,7 @@ class AddMenuDetailViewController: BaseViewController {
     }
     
     @objc func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.isMovetoNextView = true
         navigationController?.popViewController(animated: true)
     }
         
@@ -220,7 +231,12 @@ class AddMenuDetailViewController: BaseViewController {
         //OKボタン追加
         let okAction = UIAlertAction(title: AlertConst.save, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
             self.saveAction()
-            Router.shared.showMenuDetail(from: self, indexPath: self.menuIndex)
+            self.isMovetoNextView = true
+            if self.isEditMode {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                Router.shared.showMenuDetail(from: self, indexPath: self.menuIndex)
+            }            
         })
         let cancelAction = UIAlertAction(title: AlertConst.noSave, style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
         })
@@ -239,12 +255,10 @@ class AddMenuDetailViewController: BaseViewController {
         }
         
         let results = realm.objects(Menu.self).filter("id == \(menuIndex)").first
-
         try! realm.write {
             results?.setValue(true, forKey: "isSetData")
         }
        saveDataToDB()
-        
     }
     
     private func saveDataToDB() {
@@ -259,6 +273,10 @@ class AddMenuDetailViewController: BaseViewController {
             resultsMenu.setValue(introductionData, forKey: "introduction")
         }
         
+        //point保存
+        try! realm.write {
+            resultsMenu.point = pointDetail
+        }
 
         guard (detailData.count == 0) != true else { return }
         //素材保存
@@ -429,6 +447,7 @@ class AddMenuDetailViewController: BaseViewController {
             resultsDetail.setValue(detailData.count, forKey: "menuCount")
         }
         
+
     }
         
     
@@ -445,6 +464,22 @@ class AddMenuDetailViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         addDetailView.detailTextField.text = ""
         addDetailView.ingredientTextfield.text = ""
+        mainTableView.reloadData()
+    }
+        
+    @objc func tapSetPointData() {
+        //ポイントを更新
+        let resetPoint = Int(addPointView.getPointData()) ?? -1
+        if resetPoint < 0 || resetPoint > 10 {
+            Alert.okAlert(title: AlertConst.errorTitle,
+                          message: AlertConst.pointOverRangeMsg,
+                          on: self)
+        } else {
+            pointDetail = Int(addPointView.getPointData()) ?? -1
+            addPointView.hideView()
+        }
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        addPointView.pointTextField.text = ""
         mainTableView.reloadData()
     }
     
@@ -473,12 +508,19 @@ extension AddMenuDetailViewController: UITableViewDelegate {
             Router.shared.showAddPhoto(from: self, indexPath: self.menuIndex)
         case 1:
             UIView.animate(withDuration: 0.3) {
+                self.addPointView.showView(point: self.pointDetail)
+                self.addPointView.regestButton.addTarget(self, action: #selector(self.tapSetPointData), for: .touchUpInside)
+                self.addPointView.closeButton.addTarget(self, action: #selector(self.tapAddCloseBtn), for: .touchUpInside)
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+            }
+        case 2:
+            UIView.animate(withDuration: 0.3) {
                 self.addIntroductionView.showView()
                 self.addIntroductionView.confirmBtn.addTarget(self, action: #selector(self.tapIngredientOKBtn), for: .touchUpInside)
                 self.addIntroductionView.closeBtn.addTarget(self, action: #selector(self.tapAddCloseBtn), for: .touchUpInside)
                 self.navigationItem.rightBarButtonItem?.isEnabled = false
             }
-        case 2:
+        case 3:
             UIView.animate(withDuration: 0.3) {
                 if indexPath.row == self.detailData.count {
                     self.addDetailView.showView(detail: nil, ingredient: nil)
@@ -547,7 +589,7 @@ extension AddMenuDetailViewController: UITableViewDelegate {
 extension AddMenuDetailViewController: UITableViewDataSource {
     //セッションを設置
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitle.count > 31 ? 31 : sectionTitle.count
+        return sectionTitle.count// > 31 ? 31 : sectionTitle.count
     }
     // Sectioのタイトル
     func tableView(_ tableView: UITableView,
@@ -556,12 +598,14 @@ extension AddMenuDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section < 2 {
+        if section < 3 {
             return 1
         } else {
             return detailData.count + 1
         }
     }
+    
+    // addlabel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddMenuDetailTableViewCell
@@ -574,7 +618,16 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             let cellImage = UIImage(data: imageData)
             cell.photoView.image = cellImage?.resize(size: CGSize(width: 200,height: 200))
             cell.photoView.isHidden = false
-        } else if indexPath.section == 1 && introductionData != "" {
+        } else if indexPath.section == 1 && pointDetail > -1 {
+            cell.nameLabel.isHidden = false
+            cell.amfeLabel.isHidden = true
+            cell.introductionLabel.isHidden = true
+            cell.addLabel.isHidden = true
+            cell.photoView.isHidden = true
+            cell.frame.size.height = 40
+            cell.nameLabel.text = String(pointDetail)
+        }
+        else if indexPath.section == 2 && introductionData != "" {
             cell.introductionLabel.isHidden = false
             cell.frame.size.height = 40
             cell.photoView.image = UIImage()
@@ -582,7 +635,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
             cell.photoView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
             cell.photoView.isHidden = true
             cell.introductionLabel.text = introductionData
-        } else if indexPath.section == 2 && self.detailData.count > 0 && indexPath.row < self.detailData.count {
+        } else if indexPath.section == 3 && self.detailData.count > 0 && indexPath.row < self.detailData.count {
             cell.nameLabel.isHidden = false
             cell.amfeLabel.isHidden = false
             cell.introductionLabel.isHidden = true
