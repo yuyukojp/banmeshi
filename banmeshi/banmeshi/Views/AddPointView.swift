@@ -31,7 +31,6 @@ class AddPointView: UIView {
     }
     
     func setupView() {
-//        pointTextField.delegate = self
         pointTextField.keyboardType = UIKeyboardType.numberPad
         //MARK: - TextFieldの最大文字数設定
         pointTextField.rx.text

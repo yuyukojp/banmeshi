@@ -96,7 +96,6 @@ private extension MypageViewController {
                 versionLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
                 versionLabel.heightAnchor.constraint(equalToConstant: 30),
                 versionLabel.widthAnchor.constraint(equalToConstant: 80),
-//                versionLabel.centerYAnchor.constraint(equalTo: selectPointTF.centerYAnchor) //bottomAnchor.constraint(equalTo: menuTableView.topAnchor, constant: 40)
             ]
         )
         versionLabel.text = "321321"

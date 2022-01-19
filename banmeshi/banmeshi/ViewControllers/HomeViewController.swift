@@ -19,19 +19,7 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
     
     //delegateを実行
     func CycleViewItemClick(_ collectionView: UICollectionView, selectedItem item: Int) {
-//        guard let result = realm.objects(Menu.self).filter("id == \(tempIndex[item])").first else { return }
-//        print("++++rid:\(result.id),image:\(result.imageData)")
-//        print("++++nil:\(Data())")
-//        if result.imageData == Data() {
-//            print("++++NO data")
-//        } else {
-//            print("++++have data")
-//        }
-//        if realm.objects(Menu.self)[tempIndex[item]].imageData == Data() {
-//            print("+++No Data")
-//        } else {
-//            Router.shared.showMenuDetail(from: self, indexPath: item)
-//        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()

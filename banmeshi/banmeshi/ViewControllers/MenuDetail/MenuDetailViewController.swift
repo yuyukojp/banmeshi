@@ -28,7 +28,6 @@ class MenuDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        self.navigationController?.navigationBar.delegate = self
     }
         
     override func viewWillDisappear(_ animated: Bool) {

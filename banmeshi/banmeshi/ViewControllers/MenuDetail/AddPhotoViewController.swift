@@ -24,7 +24,6 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate 
         navigationItem.backBarButtonItem = backBotton
         backBotton = UIBarButtonItem(title: "＜返回", style: .done, target: self, action: #selector(backButtonTapped(_:)))
         navigationItem.setLeftBarButton(backBotton, animated: false)
-//        self.navigationController?.navigationBar.delegate = self
     }
 
     @objc func backButtonTapped(_ sender: UIBarButtonItem) {

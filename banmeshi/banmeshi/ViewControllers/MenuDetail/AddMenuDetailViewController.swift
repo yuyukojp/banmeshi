@@ -46,7 +46,6 @@ class AddMenuDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        self.navigationController?.navigationBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -577,9 +576,6 @@ extension AddMenuDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        // 背景色を変更する
-//        view.tintColor = .red
-
         let header = view as! UITableViewHeaderFooterView
         // テキスト色を変更する
         header.textLabel?.textColor = .textColor()
@@ -589,7 +585,7 @@ extension AddMenuDetailViewController: UITableViewDelegate {
 extension AddMenuDetailViewController: UITableViewDataSource {
     //セッションを設置
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitle.count// > 31 ? 31 : sectionTitle.count
+        return sectionTitle.count
     }
     // Sectioのタイトル
     func tableView(_ tableView: UITableView,
@@ -605,8 +601,7 @@ extension AddMenuDetailViewController: UITableViewDataSource {
         }
     }
     
-    // addlabel
-    
+    // addlabel    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddMenuDetailTableViewCell
 

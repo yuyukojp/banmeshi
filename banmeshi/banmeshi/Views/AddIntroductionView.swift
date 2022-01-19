@@ -41,7 +41,6 @@ final class AddIntroductionView: UIView {
         // 枠を角丸にする
         introductionTextView.layer.cornerRadius = 8.0
         introductionTextView.layer.masksToBounds = true
-//        introductionTextField.placeholder = "请输入简介"
         
         //MARK: - TextFieldの最大文字数設定
         introductionTextView.rx.text
