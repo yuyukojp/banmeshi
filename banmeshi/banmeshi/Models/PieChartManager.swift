@@ -26,7 +26,7 @@ struct CustomChartColor {
 struct PieChartManager {
     func setup(_ pieChartView: PieChartView) {
         //Viewの背景
-        pieChartView.backgroundColor = .darkGray
+        pieChartView.backgroundColor = .itemBGColor()
         //entry label styling
         pieChartView.entryLabelColor = .white
         pieChartView.entryLabelFont = .systemFont(ofSize: 12)

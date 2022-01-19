@@ -16,7 +16,9 @@ class MenuDetailViewController: BaseViewController {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var introductionLabel: UILabel!
     @IBOutlet weak var introductionTableView: UITableView!
+    @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var editBtn: UIButton!
+    private var isMovetoNextView: Bool = false
     
     private var backButton: UIBarButtonItem!
     
@@ -28,9 +30,16 @@ class MenuDetailViewController: BaseViewController {
         setupUI()
 //        self.navigationController?.navigationBar.delegate = self
     }
-    
+        
+    override func viewWillDisappear(_ animated: Bool) {
+        if !isMovetoNextView {
+            let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
+            navigationController?.popToViewController(targetVC, animated: true)
+        }
+    }
+
     private func setupUI() {
-        self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
         guard let resultsMenu = realm.objects(Menu.self).filter("id == \(menuIndex)").first else { return }
         self.navigationItem.title = resultsMenu.name
         if resultsMenu.imageData != Data() {
@@ -40,9 +49,15 @@ class MenuDetailViewController: BaseViewController {
         introductionTableView.register(UINib(nibName: "MenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuDetailTableViewCell")
         introductionLabel.text = resultsMenu.introduction
         setNavigationItems()
+        var pointString: String = String(resultsMenu.point)
+        if resultsMenu.point == -1 {
+            pointString = "-"
+        }
+        pointLabel.text = "本菜得分：\(pointString)分"
     }
     
     @IBAction func tapEditBtn(_ sender: Any) {
+        isMovetoNextView = true
         Router.shared.showAddMenuDetailEdit(from: self, indexPath: self.menuIndex)
     }
     

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddPointView" customModule="banmeshi" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="PVL-3G-j3p" id="C9K-08-msT"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="NyZ-4H-rvP"/>
+                <outlet property="pointLabel" destination="CPS-ek-GcI" id="jTk-zL-uea"/>
+                <outlet property="pointTextField" destination="AHl-pZ-caC" id="6Ym-rt-O38"/>
+                <outlet property="regestButton" destination="59V-Ct-m16" id="W8S-eT-jGu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TV4-lx-m1C">
+                    <rect key="frame" x="20" y="144" width="374" height="280"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59V-Ct-m16">
+                            <rect key="frame" x="147" y="230" width="80" height="30"/>
+                            <color key="backgroundColor" red="0.53247921480000004" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0Kx-wz-UqZ"/>
+                                <constraint firstAttribute="width" constant="80" id="y8x-Xf-jwp"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="登录"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColo">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                    <real key="value" value="0.59999999999999998"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                    <size key="value" width="1" height="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="tapRegestBtn:" destination="-1" eventType="touchUpInside" id="aMu-5z-sdP"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获得分数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPS-ek-GcI">
+                            <rect key="frame" x="30" y="80" width="324" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="VFP-0x-xO4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHl-pZ-caC">
+                            <rect key="frame" x="30" y="112" width="314" height="40"/>
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="LEo-SU-qqN"/>
+                            </constraints>
+                            <color key="textColor" red="0.94117647059999998" green="0.48627450979999998" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColo">
+                                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                    <real key="value" value="0.80000000000000004"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                    <real key="value" value="0.59999999999999998"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                    <size key="value" width="1" height="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-3G-j3p">
+                            <rect key="frame" x="349" y="3" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="AbC-tW-buF"/>
+                                <constraint firstAttribute="width" constant="20" id="odH-QL-nc5"/>
+                            </constraints>
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="delete.forward.fill" catalog="system"/>
+                            <connections>
+                                <action selector="tapCloseBtn:" destination="-1" eventType="touchUpInside" id="eiu-qa-GFh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="59V-Ct-m16" secondAttribute="bottom" constant="20" id="AbP-68-rlg"/>
+                        <constraint firstItem="AHl-pZ-caC" firstAttribute="leading" secondItem="TV4-lx-m1C" secondAttribute="leading" constant="30" id="EOX-ki-hQ0"/>
+                        <constraint firstAttribute="trailing" secondItem="AHl-pZ-caC" secondAttribute="trailing" constant="30" id="Hdx-MJ-ClE"/>
+                        <constraint firstAttribute="height" constant="280" id="Rbv-fh-xhT"/>
+                        <constraint firstItem="CPS-ek-GcI" firstAttribute="leading" secondItem="TV4-lx-m1C" secondAttribute="leading" constant="30" id="UDz-hI-SfR"/>
+                        <constraint firstItem="AHl-pZ-caC" firstAttribute="top" secondItem="CPS-ek-GcI" secondAttribute="bottom" constant="12" id="Xk0-X9-S3t"/>
+                        <constraint firstAttribute="trailing" secondItem="CPS-ek-GcI" secondAttribute="trailing" constant="20" id="aem-aG-Yyy"/>
+                        <constraint firstAttribute="trailing" secondItem="PVL-3G-j3p" secondAttribute="trailing" constant="5" id="eXg-na-qx3"/>
+                        <constraint firstItem="PVL-3G-j3p" firstAttribute="top" secondItem="TV4-lx-m1C" secondAttribute="top" constant="3" id="iCy-EQ-7LJ"/>
+                        <constraint firstItem="CPS-ek-GcI" firstAttribute="top" secondItem="TV4-lx-m1C" secondAttribute="top" constant="80" id="zJT-Uc-nb7"/>
+                        <constraint firstItem="59V-Ct-m16" firstAttribute="centerX" secondItem="TV4-lx-m1C" secondAttribute="centerX" id="zaZ-fb-zdR"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColo">
+                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                            <real key="value" value="0.80000000000000004"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                            <real key="value" value="0.59999999999999998"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                            <size key="value" width="0.0" height="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.50149849392720403" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TV4-lx-m1C" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="d6J-Y1-MD2"/>
+                <constraint firstItem="TV4-lx-m1C" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="gyN-4o-XrO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TV4-lx-m1C" secondAttribute="trailing" constant="20" id="qPe-V9-frq"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="67"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="delete.forward.fill" catalog="system" width="128" height="104"/>
+    </resources>
+</document>

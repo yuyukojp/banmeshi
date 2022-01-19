@@ -10,7 +10,8 @@ target 'banmeshi' do
   pod 'IQKeyboardManagerSwift'
   pod 'RealmSwift'
   pod 'RxSwift'
-  pod 'RxCocoa'  
+  pod 'RxCocoa'
+  pod 'SwiftCSVExport'
 
   target 'banmeshiTests' do
     inherit! :search_paths

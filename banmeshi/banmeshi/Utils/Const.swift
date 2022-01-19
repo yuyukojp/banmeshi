@@ -24,6 +24,11 @@ struct StringConst {
     static let beforeCount = "次"
     static let historyTabelViewTitle = "中　奖　履　历"
     static let historyClearBtnTitle = "清除记录"
+    static let fundBtnTitle = "筛选"
+    static let downSymbol = "升序 ↑"
+    static let upSymbol = "降序 ↓"
+    static let unsortSymbol = "排序 →"
+    static let clearBtnTitler = "清除"
 }
 
 struct AlertConst {

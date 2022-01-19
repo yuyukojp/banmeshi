@@ -9,6 +9,7 @@ import UIKit
 import Charts
 import RealmSwift
 import SwiftUI
+import RxSwift
 
 final class RouletteViewController: BaseViewController, ChartViewDelegate {
     
@@ -26,7 +27,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     var selectedId: Int = 0
     var tabelViewLabel: UILabel = UILabel()
     private let historyTabelView: UITableView = UITableView()
-    private let histroyClearBtn: UIButton = UIButton()
+    private let histroyClearBtn: CusstomButton = CusstomButton(frame: CGRect())
     
     private lazy var pieChartView: PieChartView = {
         let view = PieChartView()
@@ -86,6 +87,7 @@ final class RouletteViewController: BaseViewController, ChartViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         setData()
         removeAllSubviews(parentView: self.view)
+        setData()
         pieChartManager.setData(pieChartView, data: menuDatas)
         setupUI()
     }
@@ -302,12 +304,6 @@ private extension RouletteViewController {
         tabelViewLabel.backgroundColor = .mainBackgroundColor()
         tabelViewLabel.textAlignment = NSTextAlignment.center
         tabelViewLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-//        tabelViewLabel.layer.cornerRadius = 3
-//        tabelViewLabel.layer.borderWidth = 0.5
-//        tabelViewLabel.layer.shadowColor = CGColor(red: 211, green: 211, blue: 211, alpha: 1)
-//        tabelViewLabel.layer.shadowOpacity = 0.8
-//        tabelViewLabel.layer.shadowRadius = 0.6
-//        tabelViewLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
         
         //historyClearBtn
         view.addSubview(histroyClearBtn)
@@ -316,20 +312,11 @@ private extension RouletteViewController {
             [
                 histroyClearBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5),
                 histroyClearBtn.heightAnchor.constraint(equalToConstant: 20),
-                histroyClearBtn.widthAnchor.constraint(equalToConstant: 80),
+                histroyClearBtn.widthAnchor.constraint(equalToConstant: 100),
                 histroyClearBtn.bottomAnchor.constraint(equalTo: historyTabelView.topAnchor, constant: 0)
             ]
         )
         histroyClearBtn.setTitle(StringConst.historyClearBtnTitle, for: .normal)
-        histroyClearBtn.backgroundColor = .buttonColor()
-        histroyClearBtn.tintColor = .white
-        //layerを設定
-        histroyClearBtn.layer.cornerRadius = 6
-        histroyClearBtn.layer.borderWidth = 0.5
-        histroyClearBtn.layer.shadowColor = CGColor(red: 211, green: 211, blue: 211, alpha: 1)
-        histroyClearBtn.layer.shadowOpacity = 0.8
-        histroyClearBtn.layer.shadowRadius = 0.6
-        histroyClearBtn.layer.shadowOffset = CGSize(width: 1, height: 1)
         histroyClearBtn.addTarget(self, action: #selector(tapClearHistory), for: .touchUpInside)
     }
 }

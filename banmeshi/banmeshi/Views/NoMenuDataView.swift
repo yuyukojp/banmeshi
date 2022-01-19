@@ -32,6 +32,7 @@ class NoMenuDataView: UIView {
         contentView.backgroundColor = .mainBackgroundColor()
         
         errorImageView.image = UIImage(named: "bblive_2233_loading_error_128x94_")
+        errorImageView.contentMode = UIView.ContentMode.scaleAspectFit
         errorImageView.frame = CGRect(x:0 , y: Const.safeAreaHeight, width: Const.screenWidth, height: 400)
         contentView.addSubview(errorImageView)
         
