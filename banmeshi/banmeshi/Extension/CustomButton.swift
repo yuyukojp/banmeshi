@@ -21,8 +21,7 @@ class CusstomButton: UIButton {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds;
         gradientLayer.colors = [UIColor(displayP3Red: 136 / 255, green: 117 / 255, blue: 227 / 255,alpha: 1.0).cgColor, UIColor(displayP3Red: 255 / 255, green: 230 / 255, blue: 234 / 255,alpha: 1.0).cgColor]
-        layer.insertSublayer(gradientLayer, at:0)
-        
+        layer.insertSublayer(gradientLayer, at:0)        
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
@@ -30,7 +29,6 @@ class CusstomButton: UIButton {
         layer.shadowOffset = CGSize(width: 3, height: 3)
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 5
-    
     }
     
     required init?(coder: NSCoder) {

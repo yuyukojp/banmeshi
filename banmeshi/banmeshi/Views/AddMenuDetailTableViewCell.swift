@@ -23,12 +23,10 @@ class AddMenuDetailTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func setCellLayout() {
         self.frame.size.width = Const.screenWidth
         self.backgroundColor = .mainBackgroundColor()
-    }
-    
+    }    
 }

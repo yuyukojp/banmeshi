@@ -56,8 +56,7 @@ struct PieChartManager {
         //labelの色
         dataSet.valueTextColor = .blue
         //labelのfont
-        dataSet.valueFont = .boldSystemFont(ofSize: 12)
-        
+        dataSet.valueFont = .boldSystemFont(ofSize: 12)        
         pieChartView.data = PieChartData(dataSet: dataSet)
     }
     

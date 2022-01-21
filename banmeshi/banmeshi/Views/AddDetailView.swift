@@ -67,11 +67,12 @@ class AddDetailView: UIView {
         .bind(to: confirmBtn.rx.isEnabled)
         .disposed(by: disposeBag)
     }
+    
     @IBAction func tapConfirmBtn(_ sender: Any) {
         hideView()
     }
+    
     @IBAction func tapCloseBtn(_ sender: Any) {
-
         hideView()
     }
     

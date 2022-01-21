@@ -31,8 +31,7 @@ final class AddIntroductionView: UIView {
         super.init(coder: coder)
     }
     
-    func setupView() {
-        
+    func setupView() {        
         titleLabel.text = "简介内容："
         // 枠のカラー
         introductionTextView.layer.borderColor = UIColor.blue.cgColor
@@ -84,6 +83,4 @@ final class AddIntroductionView: UIView {
         introductionTextView.becomeFirstResponder()
         self.frame.origin.y = 0
     }
-
-    
 }

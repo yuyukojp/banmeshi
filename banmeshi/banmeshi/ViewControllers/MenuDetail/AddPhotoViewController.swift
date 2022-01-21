@@ -45,7 +45,6 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate 
             cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
             self.present(cameraPicker, animated: true, completion: nil)
-            
         }
     }
     
@@ -82,13 +81,10 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate 
     private func saveImage() {
         guard let image = imageView.image else { return }
         let imageData = image.jpegData(compressionQuality: 0.6)
-        
         let nav = self.navigationController
         //MARK: - 一つ前のViewControllerを取得する
         let targetVC = nav?.viewControllers[(nav?.viewControllers.count)! - 2] as! AddMenuDetailViewController
         targetVC.imageData = imageData!
-
         self.navigationController?.popViewController(animated: true)
-    }
-    
+    }    
 }

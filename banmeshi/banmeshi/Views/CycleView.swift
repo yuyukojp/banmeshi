@@ -44,6 +44,7 @@ class CycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
         setupCollectionView()
         setupTimer()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

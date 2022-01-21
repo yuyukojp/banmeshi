@@ -21,8 +21,6 @@ class Menu: Object {
     @objc dynamic var introduction = ""
     //メニュー詳細設定フラグ
     @objc dynamic var isSetData = false
-    //食材
-//    let ingredients =  List<Ingredient>()
     //ルーレットで選択された回数
     @objc dynamic var rouletteCount = 0
  
@@ -35,14 +33,6 @@ class Menu: Object {
      }
 
 }
-
-///// 食材モデル
-//class Ingredient: Object {
-//    // 食材名
-//    @objc dynamic var ingredientName: String = ""
-//    // 分量
-//    @objc dynamic var amount: String = ""
-//}
 
 class MenuDetail: Object {
     @objc dynamic var menuId = 0

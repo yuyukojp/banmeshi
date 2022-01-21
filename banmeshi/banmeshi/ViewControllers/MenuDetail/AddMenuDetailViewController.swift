@@ -71,8 +71,7 @@ class AddMenuDetailViewController: BaseViewController {
         mainTableView.dataSource = self
         mainTableView.register(UINib(nibName: "AddMenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCell")
         itemNameLabel.textColor = .textColor()
-        itemQuantityLabel.textColor = .textColor()
-        
+        itemQuantityLabel.textColor = .textColor()        
     }
     
     private func setDataFromDB() {
@@ -445,8 +444,6 @@ class AddMenuDetailViewController: BaseViewController {
         try! realm.write {
             resultsDetail.setValue(detailData.count, forKey: "menuCount")
         }
-        
-
     }
         
     
@@ -530,13 +527,10 @@ extension AddMenuDetailViewController: UITableViewDelegate {
                 } else { return }
                 self.addDetailView.closeBtn.addTarget(self, action: #selector(self.tapAddCloseBtn), for: .touchUpInside)
                 self.navigationItem.rightBarButtonItem?.isEnabled = false
-
             }
-
         default:
             break
         }
-        
     }
     
     

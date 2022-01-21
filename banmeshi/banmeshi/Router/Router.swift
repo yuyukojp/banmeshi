@@ -54,7 +54,5 @@ final class Router {
         menuDetailVC.menuIndex = indexPath
         menuDetailVC.isEditMode = true
         from.show(to: menuDetailVC)
-    }
-
-    
+    }   
 }
