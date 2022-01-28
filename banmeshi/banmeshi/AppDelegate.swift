@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         Router.shared.showRoot(window: window)
         IQKeyboardManager.shared.enable = true
+        // 全部のビューが同時にクリックすることを防止
+        // 連打防止
+        UIView.appearance().isExclusiveTouch = true
         return true
     }
 }

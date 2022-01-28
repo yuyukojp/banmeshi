@@ -57,6 +57,9 @@
 		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
 		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
+		C1E72193279EA57E00140B1D /* APIMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E72192279EA57E00140B1D /* APIMenuModel.swift */; };
+		C1E72195279F8C4F00140B1D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E72194279F8C4F00140B1D /* TestModel.swift */; };
+		C1E72197279FC33600140B1D /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E72196279FC33600140B1D /* NetworkTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +140,10 @@
 		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
 		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		C1E72190279E3E0600140B1D /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		C1E72192279EA57E00140B1D /* APIMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMenuModel.swift; sourceTree = "<group>"; };
+		C1E72194279F8C4F00140B1D /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		C1E72196279FC33600140B1D /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,9 +340,12 @@
 		C17A4E92277AFE66007CBE66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C1E72190279E3E0600140B1D /* test.json */,
 				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 				C17A4EB6277BF39B007CBE66 /* MenuModel.swift */,
 				C138B22E278D4BCE004916B4 /* HistoryModel.swift */,
+				C1E72192279EA57E00140B1D /* APIMenuModel.swift */,
+				C1E72194279F8C4F00140B1D /* TestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +364,7 @@
 			children = (
 				C17A4EA0277B0402007CBE66 /* UIViewController+.swift */,
 				C1B800CD277D7E31009B06D0 /* UIImage+.swift */,
+				C1E72196279FC33600140B1D /* NetworkTools.swift */,
 				C138B23E278FF424004916B4 /* CustomButton.swift */,
 				C138B24027914103004916B4 /* CustomTextField.swift */,
 				C17A4EA2277B0433007CBE66 /* UIColor+.swift */,
@@ -638,13 +649,16 @@
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
 				C138B22F278D4BCE004916B4 /* HistoryModel.swift in Sources */,
+				C1E72193279EA57E00140B1D /* APIMenuModel.swift in Sources */,
 				C17A4C60277AF02A007CBE66 /* SceneDelegate.swift in Sources */,
+				C1E72197279FC33600140B1D /* NetworkTools.swift in Sources */,
 				C138B23D278FF003004916B4 /* MypageViewController.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
 				C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */,
 				C18B8EFA278446DE00D61B08 /* AddDetailView.swift in Sources */,
 				C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */,
+				C1E72195279F8C4F00140B1D /* TestModel.swift in Sources */,
 				C138B24127914103004916B4 /* CustomTextField.swift in Sources */,
 				C18B8F152785816100D61B08 /* AddPhotoViewController.swift in Sources */,
 				C17A4EB1277BE568007CBE66 /* Const.swift in Sources */,

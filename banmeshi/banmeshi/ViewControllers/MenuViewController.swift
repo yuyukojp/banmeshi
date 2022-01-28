@@ -288,8 +288,7 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     //セルの編集許可
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-    {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
@@ -342,7 +341,6 @@ extension MenuViewController: UITextFieldDelegate {
         if textField == pointTextField && string.count > 0 {
             var allowedCharacters = CharacterSet(charactersIn: "1234567890") // 入力可能な文字
             allowedCharacters.insert(charactersIn: " -") // "white space & hyphen"
-            
             // 入力可能な文字を全て取り去った文字列に文字があれば、テキスト変更できないFalseを返す。
             let unwantedStr = string.trimmingCharacters(in: allowedCharacters)
             if unwantedStr.count == 0 {
@@ -391,6 +389,5 @@ private extension MenuViewController {
             ]
         )
         clearSelectBtn.setTitle(StringConst.clearBtnTitler, for: .normal)
-
     }
 }
