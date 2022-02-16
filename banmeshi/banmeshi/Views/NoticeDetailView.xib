@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NoticeDetailView" customModule="banmeshi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0ET-ks-lhf">
+                    <rect key="frame" x="50" y="244" width="314" height="300"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="ENi-Bs-tcy"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGi-2p-rKd">
+                    <rect key="frame" x="185.5" y="584" width="43" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="2PG-aV-NcA"/>
+                    </constraints>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="X">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tupCloseBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="iOg-7t-oGG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.35863883921642176" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0ET-ks-lhf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="A8r-6A-YbZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0ET-ks-lhf" secondAttribute="trailing" constant="50" id="WEF-JI-7gP"/>
+                <constraint firstItem="0ET-ks-lhf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="200" id="XwP-zH-nu4"/>
+                <constraint firstItem="LGi-2p-rKd" firstAttribute="top" secondItem="0ET-ks-lhf" secondAttribute="bottom" constant="40" id="cf9-QO-Ozj"/>
+                <constraint firstItem="LGi-2p-rKd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gM2-SA-GCT"/>
+            </constraints>
+            <connections>
+                <outlet property="closeBtn" destination="LGi-2p-rKd" id="zga-UO-fjG"/>
+                <outlet property="textView" destination="0ET-ks-lhf" id="Bed-tz-0Tk"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="95"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

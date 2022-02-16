@@ -56,6 +56,10 @@
 		C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18B8F142785816100D61B08 /* AddPhotoViewController.xib */; };
 		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
 		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
+		C1ACC71227BC9B0000C816E1 /* ExampleJKBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACC71127BC9B0000C816E1 /* ExampleJKBlurPopup.swift */; };
+		C1ACC71427BC9B5900C816E1 /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACC71327BC9B5900C816E1 /* NoticeDetailView.swift */; };
+		C1ACC71627BC9B6C00C816E1 /* NoticeDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1ACC71527BC9B6C00C816E1 /* NoticeDetailView.xib */; };
+		C1ACC71827BC9C6500C816E1 /* JKBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACC71727BC9C6500C816E1 /* JKBlurPopup.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
 		C1E72193279EA57E00140B1D /* APIMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E72192279EA57E00140B1D /* APIMenuModel.swift */; };
 		C1E72195279F8C4F00140B1D /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E72194279F8C4F00140B1D /* TestModel.swift */; };
@@ -139,6 +143,10 @@
 		C18B8F142785816100D61B08 /* AddPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoViewController.xib; sourceTree = "<group>"; };
 		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
 		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
+		C1ACC71127BC9B0000C816E1 /* ExampleJKBlurPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleJKBlurPopup.swift; sourceTree = "<group>"; };
+		C1ACC71327BC9B5900C816E1 /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
+		C1ACC71527BC9B6C00C816E1 /* NoticeDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailView.xib; sourceTree = "<group>"; };
+		C1ACC71727BC9C6500C816E1 /* JKBlurPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBlurPopup.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C1E72190279E3E0600140B1D /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		C1E72192279EA57E00140B1D /* APIMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMenuModel.swift; sourceTree = "<group>"; };
@@ -276,6 +284,8 @@
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
 				C138B23C278FF003004916B4 /* MypageViewController.swift */,
+				C1ACC71727BC9C6500C816E1 /* JKBlurPopup.swift */,
+				C1ACC71127BC9B0000C816E1 /* ExampleJKBlurPopup.swift */,
 				C11D7EF3277D44DB002B563D /* MenuDetail */,
 			);
 			path = ViewControllers;
@@ -284,6 +294,8 @@
 		C17A4C8E277AFD53007CBE66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C1ACC71327BC9B5900C816E1 /* NoticeDetailView.swift */,
+				C1ACC71527BC9B6C00C816E1 /* NoticeDetailView.xib */,
 				C18B8EF12783DE4F00D61B08 /* AddIntroductionView.swift */,
 				C18B8EF32783DE6000D61B08 /* AddIntroductionView.xib */,
 				C18B8EF9278446DE00D61B08 /* AddDetailView.swift */,
@@ -500,6 +512,7 @@
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */,
 				C11D7EFD277D49ED002B563D /* MenuDetailTableViewCell.xib in Resources */,
+				C1ACC71627BC9B6C00C816E1 /* NoticeDetailView.xib in Resources */,
 				C18B8F162785816100D61B08 /* AddPhotoViewController.xib in Resources */,
 				C18B8EF42783DE6000D61B08 /* AddIntroductionView.xib in Resources */,
 				C18B8EFC278446E900D61B08 /* AddDetailView.xib in Resources */,
@@ -645,6 +658,7 @@
 				C17A4EA6277B04EA007CBE66 /* Router.swift in Sources */,
 				C119B9752797AF1300278621 /* AddPointView.swift in Sources */,
 				C17A4EAD277B06DC007CBE66 /* PieChartManager.swift in Sources */,
+				C1ACC71227BC9B0000C816E1 /* ExampleJKBlurPopup.swift in Sources */,
 				C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */,
 				C11D7F00277D4EF1002B563D /* AddMenuDetailViewController.swift in Sources */,
 				C17A4E9E277B03C1007CBE66 /* Alert.swift in Sources */,
@@ -655,8 +669,10 @@
 				C138B23D278FF003004916B4 /* MypageViewController.swift in Sources */,
 				C17A4EB7277BF39B007CBE66 /* MenuModel.swift in Sources */,
 				C17A4EA3277B0433007CBE66 /* UIColor+.swift in Sources */,
+				C1ACC71827BC9C6500C816E1 /* JKBlurPopup.swift in Sources */,
 				C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */,
 				C18B8EFA278446DE00D61B08 /* AddDetailView.swift in Sources */,
+				C1ACC71427BC9B5900C816E1 /* NoticeDetailView.swift in Sources */,
 				C18B8EF22783DE4F00D61B08 /* AddIntroductionView.swift in Sources */,
 				C1E72195279F8C4F00140B1D /* TestModel.swift in Sources */,
 				C138B24127914103004916B4 /* CustomTextField.swift in Sources */,

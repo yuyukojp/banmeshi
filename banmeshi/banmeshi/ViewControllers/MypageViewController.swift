@@ -70,8 +70,9 @@ class MypageViewController: BaseViewController {
         self.view.addSubview(buildLabel)
     }
     
+    let popup = ExampleJKBlurPopup()
     @objc func tapOutputBtn() {
-        
+        popup.showInView(target: self.view)
     }
     
     @objc func tapInputBtn() {
