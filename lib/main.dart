@@ -29,14 +29,28 @@ class MyApp extends StatelessWidget {
                 onPressed: () => {},
               ),
               IconButton(
-                icon: Icon(Icons.close),
+                icon: Icon(
+                  Icons.dehaze,
+                  color: Colors.yellow,
+                ),
                 onPressed: () => {},
               ),
               OutlineButton(
                 child: Text('OutlineButton'),
                 color: Colors.blue,
                 textColor: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
                 onPressed: () => {},
+              ),
+              // OutlineButton(
+              //   child: Text('カスタムボタン'),
+              //   shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(20.0)),
+              // ),
+              Image(
+                image: AssetImage("asset/images/vip.png"),
+                width: 500,
               ),
             ],
           ),
