@@ -15,7 +15,15 @@ class MyApp extends StatelessWidget {
           title: new Text('Appbarタイトル'),
         ),
         body: new Center(
-          child: new Text('ハローワールド'),
+          child: new Text(
+            'ハローワールド',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                color: Colors.blue,
+                fontSize: 32,
+                decoration: TextDecoration.underline),
+          ),
         ),
       ),
     );
