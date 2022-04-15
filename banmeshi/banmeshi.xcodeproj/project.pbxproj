@@ -57,6 +57,8 @@
 		C18B8F222786DD5100D61B08 /* NoMenuDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */; };
 		C18B8F322787D57A00D61B08 /* CycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B8F312787D57900D61B08 /* CycleView.swift */; };
 		C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B800CD277D7E31009B06D0 /* UIImage+.swift */; };
+		C1CD0B3727F53BEB002EBC89 /* MenuDetailViewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1CD0B3627F53BEB002EBC89 /* MenuDetailViewsController.xib */; };
+		C1CD0B3A27F55751002EBC89 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD0B3927F55751002EBC89 /* Files.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		C18B8F212786DD5100D61B08 /* NoMenuDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMenuDataView.swift; sourceTree = "<group>"; };
 		C18B8F312787D57900D61B08 /* CycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
 		C1B800CD277D7E31009B06D0 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		C1CD0B3627F53BEB002EBC89 /* MenuDetailViewsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailViewsController.xib; sourceTree = "<group>"; };
+		C1CD0B3927F55751002EBC89 /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 			children = (
 				C11D7EF4277D454A002B563D /* MenuDetailViewController.swift */,
 				C11D7EF5277D454A002B563D /* MenuDetailViewController.xib */,
+				C1CD0B3627F53BEB002EBC89 /* MenuDetailViewsController.xib */,
 				C11D7EFE277D4EF1002B563D /* AddMenuDetailViewController.swift */,
 				C11D7EFF277D4EF1002B563D /* AddMenuDetailViewController.xib */,
 				C18B8F132785816100D61B08 /* AddPhotoViewController.swift */,
@@ -336,6 +341,7 @@
 				C17A4EAC277B06DC007CBE66 /* PieChartManager.swift */,
 				C17A4EB6277BF39B007CBE66 /* MenuModel.swift */,
 				C138B22E278D4BCE004916B4 /* HistoryModel.swift */,
+				C1CD0B3927F55751002EBC89 /* Files.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				C11D7F01277D4EF1002B563D /* AddMenuDetailViewController.xib in Resources */,
 				C11D7EF7277D454A002B563D /* MenuDetailViewController.xib in Resources */,
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
+				C1CD0B3727F53BEB002EBC89 /* MenuDetailViewsController.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
 				C119B9772797AF2D00278621 /* AddPointView.xib in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
@@ -627,6 +634,7 @@
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
 				C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */,
+				C1CD0B3A27F55751002EBC89 /* Files.swift in Sources */,
 				C17A4EAB277B056E007CBE66 /* RouletteViewController.swift in Sources */,
 				C17A4EA1277B0402007CBE66 /* UIViewController+.swift in Sources */,
 				C1B800CE277D7E31009B06D0 /* UIImage+.swift in Sources */,

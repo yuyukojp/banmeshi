@@ -39,6 +39,9 @@ final class HomeViewController: BaseViewController, CycleViewDelegate {
         self.navigationController?.navigationBar.delegate = self
         setupRankTabelView()
 //        setupUI()
+        let targetView = Files()
+        let text = targetView.fuck
+        print("++++++++\(text)")
         setupCycleView()
     }
     

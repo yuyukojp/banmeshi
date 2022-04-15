@@ -59,10 +59,10 @@ class AddMenuDetailViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         isEditMode = false
-        if !isMovetoNextView {
-            let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
-            navigationController?.popToViewController(targetVC, animated: true)
-        }
+//        if !isMovetoNextView {
+//            let targetVC = navigationController?.viewControllers[0] ?? UIViewController()
+//            navigationController?.popToViewController(targetVC, animated: true)
+//        }
     }
     
     private func setupUI() {
