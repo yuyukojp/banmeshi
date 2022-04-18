@@ -14,70 +14,155 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('Welcome to Flutter'),
         ),
-        body: new Column(
-          children: <Widget>[
-            Container(
-              width: 100.0,
-              height: 100.0,
-              color: Colors.blue,
-              child: FittedBox(
-                child: Text(
-                  'BoxFit.contain',
-                  style: TextStyle(fontSize: 32),
-                ),
-                fit: BoxFit.contain,
-              ),
-            ),
-            Container(
-              width: 100.0,
-              height: 100.0,
-              color: Colors.red,
-              child: FittedBox(
-                child: Text(
-                  'BoxFit.cover',
-                  style: TextStyle(fontSize: 32),
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              width: 100.0,
-              height: 100.0,
-              color: Colors.yellow,
-              child: FittedBox(
-                child: Text(
-                  'BoxFit.fill',
-                  style: TextStyle(fontSize: 32),
-                ),
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              width: 100.0,
-              height: 100.0,
-              color: Colors.orange,
-              child: FittedBox(
-                child: Text(
-                  'BoxFit.scaleDown',
-                  style: TextStyle(fontSize: 32),
-                ),
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-            Container(
-              width: 100.0,
-              height: 100.0,
-              color: Colors.indigo,
-              child: FittedBox(
-                child: Text(
-                  'BoxFit.fitHeight',
-                  style: TextStyle(fontSize: 32),
-                ),
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-          ],
+
+        //MARK: - SingleChildScrollView（横）
+        body: new SingleChildScrollView(
+          scrollDirection: Axis.horizontal, // 子ウィジェットのスクロール方向この場合row()使用
+          child: Row(
+            children: <Widget>[
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+              Text('テスト用のテキスト1'),
+            ],
+          ),
         ),
+
+        //MARK: - SingleChildScrollView（縦）
+        // body: new SingleChildScrollView(
+        //   child: Column(
+        //     children: <Widget>[
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //       Text("テスト用テキスt"),
+        //     ],
+        //   ),
+        // ),
+
+        //MARK: - コンテナー関連
+        // body: new Column(
+        //   children: <Widget>[
+        //     Container(
+        //       width: 100.0,
+        //       height: 100.0,
+        //       color: Colors.blue,
+        //       child: FittedBox(
+        //         child: Text(
+        //           'BoxFit.contain',
+        //           style: TextStyle(fontSize: 32),
+        //         ),
+        //         fit: BoxFit.contain,
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100.0,
+        //       height: 100.0,
+        //       color: Colors.red,
+        //       child: FittedBox(
+        //         child: Text(
+        //           'BoxFit.cover',
+        //           style: TextStyle(fontSize: 32),
+        //         ),
+        //         fit: BoxFit.cover,
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100.0,
+        //       height: 100.0,
+        //       color: Colors.yellow,
+        //       child: FittedBox(
+        //         child: Text(
+        //           'BoxFit.fill',
+        //           style: TextStyle(fontSize: 32),
+        //         ),
+        //         fit: BoxFit.fill,
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100.0,
+        //       height: 100.0,
+        //       color: Colors.orange,
+        //       child: FittedBox(
+        //         child: Text(
+        //           'BoxFit.scaleDown',
+        //           style: TextStyle(fontSize: 32),
+        //         ),
+        //         fit: BoxFit.scaleDown,
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 100.0,
+        //       height: 100.0,
+        //       color: Colors.indigo,
+        //       child: FittedBox(
+        //         child: Text(
+        //           'BoxFit.fitHeight',
+        //           style: TextStyle(fontSize: 32),
+        //         ),
+        //         fit: BoxFit.fitHeight,
+        //       ),
+        //     ),
+        //     Container(
+        //       width: 200.0,
+        //       height: 200.0,
+        //       color: Colors.pinkAccent,
+        //       child: Padding(
+        //         child: Text('テキスト'),
+        //         padding: const EdgeInsets.all(10.0),
+        //       ),
+        //     ),
+        //   ],
+        // ),
 
         //MARK: - コンテナーの使用事例
         // body: Container(
