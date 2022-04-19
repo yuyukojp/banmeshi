@@ -19,30 +19,37 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('AppBarタイトル'),
         ),
-        body: RotatedBox(
-          quarterTurns: -1,
-          child: ListWheelScrollView(
-            offAxisFraction: -0.5,
-            diameterRatio: 1.4,
-            itemExtent: 200,
-            children: [
-              for (var i in List.generate(100, (i) => i))
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: Container(
-                    width: 100.0,
-                    height: 50.0,
-                    color: Colors.blue[100],
-                    child: Center(
-                      child: Text(
-                        "Index: $i",
-                        style: TextStyle(fontSize: 30.0),
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 4,
+              ),
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, int index) {
+                return Container(
+                  alignment: Alignment.center,
+                  color: Color.fromARGB(
+                      255, 255 - index * 6, 255 - index * 20, index * 20),
+                  child: Text('gridview$index'),
+                );
+              }, childCount: 10),
+            ),
+            SliverFixedExtentList(
+              itemExtent: 50,
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, int index) {
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.teal[100 * (index % 5)],
+                  child: Text('listview$index'),
+                );
+              }),
+            ),
+          ],
         ),
       ),
     );
