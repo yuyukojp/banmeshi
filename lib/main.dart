@@ -1,55 +1,107 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'onePage.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  List<String> list = [
-    'https://cdn.pixabay.com/photo/2017/09/11/20/48/branches-2740419_960_720.png',
-    'https://cdn.pixabay.com/photo/2017/09/11/20/48/branches-2740419_960_720.png'
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'タイトル',
+      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('AppBarタイトル'),
-        ),
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverGrid(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 4,
-              ),
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  color: Color.fromARGB(
-                      255, 255 - index * 6, 255 - index * 20, index * 20),
-                  child: Text('gridview$index'),
-                );
-              }, childCount: 10),
+      routes: {
+        '/page1': (context) => RightPage(
+              "ホーム画面",
             ),
-            SliverFixedExtentList(
-              itemExtent: 50,
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  color: Colors.teal[100 * (index % 5)],
-                  child: Text('listview$index'),
-                );
-              }),
+        '/page2': (context) => RightPage(
+              "画像",
+            ),
+        '/page3': (context) => RightPage(
+              "ファイル",
+            ),
+        '/page4': (context) => RightPage(
+              "ゲーム",
+            ),
+      },
+      home: DrawerDemo(),
+    );
+  }
+}
+
+class DrawerDemo extends StatefulWidget {
+  // DrawerDemo({Key key, this.title}) : super(key: key);
+
+  // final String title;
+
+  @override
+  _DrawerDemoState createState() => _DrawerDemoState();
+}
+
+class _DrawerDemoState extends State<DrawerDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('側面メニュー'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('name'),
+              accountEmail: Text('mail'),
+              currentAccountPicture: GestureDetector(
+                child: new CircleAvatar(
+                    // backgroundImage: AssetImage('images/header.png'),
+                    ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('ホーム'),
+              leading: Icon(Icons.description),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.pushNamed(context, '/page1');
+              },
+            ),
+            ListTile(
+              title: Text('画像'),
+              leading: Icon(Icons.image),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.pushNamed(context, '/page2');
+              },
+            ),
+            ListTile(
+              title: Text('ファイル'),
+              leading: Icon(Icons.insert_drive_file),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.pushNamed(context, '/page3');
+              },
+            ),
+            ListTile(
+              title: Text('ゲーム'),
+              leading: Icon(Icons.videogame_asset),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.pushNamed(context, '/page4');
+              },
             ),
           ],
+        ),
+      ),
+      body: Center(
+        child: Text(
+          'メイン画面',
+          style: TextStyle(fontSize: 50),
         ),
       ),
     );
