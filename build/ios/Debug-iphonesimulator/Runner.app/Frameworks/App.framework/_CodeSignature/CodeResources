@@ -6,7 +6,7 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		2WH3EkzfNpYxRzEQezsUEM18s6A=
+		85iaADE5tc/NukRC+KGdiZaZ0ZA=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		lkxtbPisqsSAnL4f508Bu17EKqY=
+		+qDO/rA6sxKe1N9/PLvD5ysr/eg=
 		</data>
 		<key>flutter_assets/asset/images/chair.png</key>
 		<data>
@@ -34,33 +34,33 @@
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
-		33xe6rFwPlxRnZOgZWsODADpUI4=
+		mcmNrC70e/OT89y/p5EgxkVsLrs=
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		7Jt1VzUkTmBMIqzT8+Exp0F3vXU=
+		fsqGDcDrvDWlVFj12kXsBYB4zS8=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		vWWQIqxaFbzYv8ui7yreVkFBLss=
+		pwHBbDVV9JcUTa0dvRAuaiA4da0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
 		</data>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
+		<data>
+		JLGzKB72rJuuY3bLxuz2dQJFVCE=
+		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
-		cuieaQ9j+9gCTKYPRhW1tc4y4co=
+		3zYB2wPuOED43PDx7ntzim7tUrg=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			2y2AMEZa11jWd96kdUFYe4QgXi8=
-			</data>
 			<key>hash2</key>
 			<data>
 			eG+s5ZGi5yvm1LFqavhyzjnu0zX+r5bt601qyPYMmtA=
@@ -68,10 +68,6 @@
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vKJkVIcw+LGHFnKJGwrQwCREv68=
-			</data>
 			<key>hash2</key>
 			<data>
 			zX4DZFvESy3Ue3y2JvUcTsv1Whl6t3JBYotHrBZfviE=
@@ -79,21 +75,13 @@
 		</dict>
 		<key>flutter_assets/NOTICES.Z</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lkxtbPisqsSAnL4f508Bu17EKqY=
-			</data>
 			<key>hash2</key>
 			<data>
-			6hR/DIf9XzSxcLGt3NrKLzET0Fgz25iuJISEK3ZsPEw=
+			Z0ytZSS8eY6BAaIIIqoWfqzXWdVrNKeAhUu5U1EPLIM=
 			</data>
 		</dict>
 		<key>flutter_assets/asset/images/chair.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			62IWCWBKLgva56Dra1p0rBbIlwY=
-			</data>
 			<key>hash2</key>
 			<data>
 			O/FYTQh9+vSgJDrLKk70Ur6pWIWTPxl/Tum3zGA1uUU=
@@ -101,10 +89,6 @@
 		</dict>
 		<key>flutter_assets/asset/images/header.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DLr57koObHkCjW7n4lrZNzvyx+k=
-			</data>
 			<key>hash2</key>
 			<data>
 			Mb8PplqpYS/Symnxuyxfrb/5fteaMIoxapFhZLiM4Vc=
@@ -112,10 +96,6 @@
 		</dict>
 		<key>flutter_assets/asset/images/vip.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JK+KrnYAy3dJOocQOZQ2AuTuZyc=
-			</data>
 			<key>hash2</key>
 			<data>
 			HUHAEZdXM+r8Nf5mv11N1mDqlWS567BCBrAcS97qXfE=
@@ -123,57 +103,44 @@
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			33xe6rFwPlxRnZOgZWsODADpUI4=
-			</data>
 			<key>hash2</key>
 			<data>
-			0E0I/gLatnGI9y4elyWPSg2LWYJSPgLt6hMvgJD5+rQ=
+			BugRRJlkJdABYrpi+ZDcvZjsh+EPQ4Uf2ST65b83vlc=
 			</data>
 		</dict>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			7Jt1VzUkTmBMIqzT8+Exp0F3vXU=
-			</data>
 			<key>hash2</key>
 			<data>
-			ZFODmTeagWrvsG4zM70kE2pUuv9LC65LEG0iTLSZR8s=
+			ag1R7V8mgz9CJPfywBntGxmpQYappFX5n+YbSeoQerg=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vWWQIqxaFbzYv8ui7yreVkFBLss=
-			</data>
 			<key>hash2</key>
 			<data>
-			Tt0wnaK21aS7tyRmcsw24q82rlRoJx58UrOgggByiDk=
+			US953HB+RnN2dYG8nTnOkVOQm/MfKWtuAX0xaUZnM1E=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			P7bb/oR3EhwqCIH1M6LyTuBIWYU=
-			</data>
 			<key>hash2</key>
 			<data>
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
 			</data>
 		</dict>
-		<key>flutter_assets/vm_snapshot_data</key>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cuieaQ9j+9gCTKYPRhW1tc4y4co=
-			</data>
 			<key>hash2</key>
 			<data>
-			nc7zSGd5LPg51+X2B4gM/FLTg8moyL55+ErAW3mTHI0=
+			qkKHQDR/pSsyDPoQaATdVdNUY/Pl35MSN+Odz7HzRYQ=
+			</data>
+		</dict>
+		<key>flutter_assets/vm_snapshot_data</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eWeor1+REl9XNU1HnxBGMONc5Mh9IlRax0Ns/WPNpzI=
 			</data>
 		</dict>
 	</dict>
