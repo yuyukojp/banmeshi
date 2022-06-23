@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'onePage.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,99 +6,165 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        '/page1': (context) => RightPage(
-              "ホーム画面",
-            ),
-        '/page2': (context) => RightPage(
-              "画像",
-            ),
-        '/page3': (context) => RightPage(
-              "ファイル",
-            ),
-        '/page4': (context) => RightPage(
-              "ゲーム",
-            ),
-      },
-      home: DrawerDemo(),
+      home: MyHomePage(),
     );
   }
 }
 
-class DrawerDemo extends StatefulWidget {
-  // DrawerDemo({Key key, this.title}) : super(key: key);
-
-  // final String title;
-
+class MyHomePage extends StatefulWidget {
   @override
-  _DrawerDemoState createState() => _DrawerDemoState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _DrawerDemoState extends State<DrawerDemo> {
+class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _controller = TextEditingController();
+  // ignore: deprecated_member_use
+  final List<TodoItem> _items = [];
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('側面メニュー'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Todo App'),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text('name'),
-              accountEmail: Text('mail'),
-              currentAccountPicture: GestureDetector(
-                child: new CircleAvatar(
-                    // backgroundImage: AssetImage('images/header.png'),
+      body: Column(
+        children: <Widget>[
+          Container(
+            child: Row(
+              children: [
+                _buttons('追加', 0),
+                _buttons('削除ラスト', 1),
+                _buttons('削除-全部', 2),
+              ],
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                flex: 3,
+                child: TextField(
+                  controller: _controller,
+                ),
+              ),
+            ],
+          ),
+          Container(
+            child: SizedBox(
+              height: 80,
+            ),
+          ),
+          Container(
+            color: Colors.deepOrange,
+          ),
+          Expanded(
+            child: Column(
+              children: _items,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buttons(
+    String title,
+    int type,
+  ) {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            width: 120,
+          ),
+          Container(
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  child: Container(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
                     ),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
+                  ),
+                  onPressed: () {
+                    switch (type) {
+                      case 0:
+                        if (_controller.text != '') {
+                          _addItem();
+                        } else {
+                          setState(() {});
+                        }
+                        break;
+                      case 1:
+                        _items.length == 0 ? null : _removeLast();
+                        break;
+                      case 2:
+                        _items.length == 0 ? null : _removeAll();
+                        break;
+                    }
+                  },
+                )
+              ],
             ),
-            ListTile(
-              title: Text('ホーム'),
-              leading: Icon(Icons.description),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.pushNamed(context, '/page1');
-              },
-            ),
-            ListTile(
-              title: Text('画像'),
-              leading: Icon(Icons.image),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.pushNamed(context, '/page2');
-              },
-            ),
-            ListTile(
-              title: Text('ファイル'),
-              leading: Icon(Icons.insert_drive_file),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.pushNamed(context, '/page3');
-              },
-            ),
-            ListTile(
-              title: Text('ゲーム'),
-              leading: Icon(Icons.videogame_asset),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.pushNamed(context, '/page4');
-              },
-            ),
-          ],
-        ),
+          )
+        ],
       ),
-      body: Center(
-        child: Text(
-          'メイン画面',
-          style: TextStyle(fontSize: 50),
+    );
+  }
+
+  void _addItem() {
+    setState(() {
+      _items.add(TodoItem(
+        content: _controller.text,
+      ));
+      _controller.clear();
+    });
+  }
+
+  void _removeLast() {
+    setState(() {
+      _items.removeLast();
+      _controller.clear();
+    });
+  }
+
+  void _removeAll() {
+    setState(() {
+      _items.clear();
+      _controller.clear();
+    });
+  }
+}
+
+class TodoItem extends StatelessWidget {
+  final String content;
+
+  TodoItem({@required t, required this.content});
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints.expand(height: 50.0),
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.lightBlue))),
+        child: Center(
+          child: Text(content,
+              style: TextStyle(
+                fontSize: 18.0,
+              )),
         ),
       ),
     );
