@@ -1,7 +1,8 @@
 PODS:
-  - Charts (3.6.0):
-    - Charts/Core (= 3.6.0)
-  - Charts/Core (3.6.0)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - IQKeyboardManagerSwift (6.5.9)
   - Realm (10.20.1):
     - Realm/Headers (= 10.20.1)
@@ -14,10 +15,11 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - SwiftAlgorithms (1.0.0)
   - SwiftCSVExport (2.6.0)
 
 DEPENDENCIES:
-  - Charts
+  - Charts (~> 4.1.0)
   - IQKeyboardManagerSwift
   - RealmSwift
   - RxCocoa
@@ -33,18 +35,20 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftAlgorithms
     - SwiftCSVExport
 
 SPEC CHECKSUMS:
-  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Realm: fac5ecd031fcb81171627b74944c885662d4b266
   RealmSwift: 9b02d25acb46a14756bde9893abb99e2e3675923
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwiftCSVExport: d9db3fb80484115028792f8d539445e3fb2c0ecb
 
-PODFILE CHECKSUM: c0aaf1a0c8cf37cd2abe156990348a7a4aa449a8
+PODFILE CHECKSUM: 7a1909a2d9f40adb16a4ca165706b372c47c6c0c
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

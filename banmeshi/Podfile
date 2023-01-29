@@ -6,7 +6,7 @@ target 'banmeshi' do
   use_frameworks!
 
   # Pods for banmeshi
-  pod 'Charts'
+  pod 'Charts', '~> 4.1.0'
   pod 'IQKeyboardManagerSwift'
   pod 'RealmSwift'
   pod 'RxSwift'
