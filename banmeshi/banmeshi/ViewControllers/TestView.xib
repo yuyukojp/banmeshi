@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestView" customModule="PDF_Export_Demo" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="zoU-jE-sHW" id="Rml-TC-CRu"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="n7d-07-98A"/>
+                <outlet property="label1" destination="5P4-2M-ia3" id="1iB-r6-CnX"/>
+                <outlet property="label2" destination="g3w-lE-i5B" id="ROL-3n-8DA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="780" height="653"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPRT月度報告件数　確認書" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngV-FU-wd4">
+                    <rect key="frame" x="213.33333333333334" y="60" width="353.66666666666663" height="33.666666666666657"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ご施設名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwl-G9-tZc">
+                    <rect key="frame" x="50.000000000000007" y="159" width="81.666666666666686" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="27c-LP-h80"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〇〇○病院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P4-2M-ia3">
+                    <rect key="frame" x="161.66666666666666" y="159" width="99.666666666666657" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzd-a3-yRn">
+                    <rect key="frame" x="50" y="213" width="81" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="81" id="BNB-yx-Bpf"/>
+                        <constraint firstAttribute="height" constant="24" id="XBV-Py-i9e"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023/3/1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3w-lE-i5B">
+                    <rect key="frame" x="161" y="213" width="79" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="測定装置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-cc-iU0">
+                    <rect key="frame" x="50" y="267" width="100" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="i1C-EX-iOs"/>
+                        <constraint firstAttribute="height" constant="24" id="xPc-9r-VMI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zoU-jE-sHW">
+                    <rect key="frame" x="50" y="341" width="680" height="228"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zIq-aV-Yjb">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5P4-2M-ia3" firstAttribute="leading" secondItem="jwl-G9-tZc" secondAttribute="trailing" constant="30" id="0kx-Df-Q04"/>
+                <constraint firstItem="zoU-jE-sHW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="3ib-Tk-yhP"/>
+                <constraint firstItem="g3w-lE-i5B" firstAttribute="centerY" secondItem="Hzd-a3-yRn" secondAttribute="centerY" id="3lO-Qh-HGf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zoU-jE-sHW" secondAttribute="bottom" constant="50" id="B4s-d5-WfY"/>
+                <constraint firstItem="NuE-cc-iU0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="Ofp-lT-jeG"/>
+                <constraint firstItem="zoU-jE-sHW" firstAttribute="top" secondItem="NuE-cc-iU0" secondAttribute="bottom" constant="50" id="Ukc-sn-CQH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zoU-jE-sHW" secondAttribute="trailing" constant="50" id="VYh-pl-ugc"/>
+                <constraint firstItem="jwl-G9-tZc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="ZKg-XW-TlA"/>
+                <constraint firstItem="ngV-FU-wd4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="e3c-ox-6R6"/>
+                <constraint firstItem="NuE-cc-iU0" firstAttribute="top" secondItem="Hzd-a3-yRn" secondAttribute="bottom" constant="30" id="iGW-Ao-cKl"/>
+                <constraint firstItem="jwl-G9-tZc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="jF6-ic-Kdk"/>
+                <constraint firstItem="g3w-lE-i5B" firstAttribute="leading" secondItem="Hzd-a3-yRn" secondAttribute="trailing" constant="30" id="nxV-3a-zrS"/>
+                <constraint firstItem="Hzd-a3-yRn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="ppd-JG-vtc"/>
+                <constraint firstItem="Hzd-a3-yRn" firstAttribute="top" secondItem="jwl-G9-tZc" secondAttribute="bottom" constant="30" id="vQR-fq-bVv"/>
+                <constraint firstItem="5P4-2M-ia3" firstAttribute="centerY" secondItem="jwl-G9-tZc" secondAttribute="centerY" id="y5H-6T-WSq"/>
+                <constraint firstItem="ngV-FU-wd4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ybN-0E-2d7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="299.23664122137404" y="337.67605633802816"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

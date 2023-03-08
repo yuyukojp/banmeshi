@@ -28,6 +28,8 @@
 		C138B23D278FF003004916B4 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B23C278FF003004916B4 /* MypageViewController.swift */; };
 		C138B23F278FF424004916B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B23E278FF424004916B4 /* CustomButton.swift */; };
 		C138B24127914103004916B4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C138B24027914103004916B4 /* CustomTextField.swift */; };
+		C1394A3B29B831EE00E8C57B /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1394A3929B831ED00E8C57B /* TestView.xib */; };
+		C1394A3C29B831EE00E8C57B /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394A3A29B831ED00E8C57B /* TestView.swift */; };
 		C13AB5C0277E9F81005345F4 /* AddMenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */; };
 		C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */; };
 		C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A4C5D277AF02A007CBE66 /* AppDelegate.swift */; };
@@ -106,6 +108,8 @@
 		C138B23C278FF003004916B4 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		C138B23E278FF424004916B4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C138B24027914103004916B4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C1394A3929B831ED00E8C57B /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		C1394A3A29B831ED00E8C57B /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C13AB5BE277E9F81005345F4 /* AddMenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C13AB5BF277E9F81005345F4 /* AddMenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C17A4C5A277AF02A007CBE66 /* banmeshi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banmeshi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +278,8 @@
 				C17A4EAA277B056E007CBE66 /* RouletteViewController.swift */,
 				C17A4EAE277B0EDD007CBE66 /* MenuViewController.swift */,
 				C138B23C278FF003004916B4 /* MypageViewController.swift */,
+				C1394A3A29B831ED00E8C57B /* TestView.swift */,
+				C1394A3929B831ED00E8C57B /* TestView.xib */,
 				C11D7EF3277D44DB002B563D /* MenuDetail */,
 			);
 			path = ViewControllers;
@@ -492,6 +498,7 @@
 				C13AB5C1277E9F81005345F4 /* AddMenuDetailTableViewCell.xib in Resources */,
 				C1CD0B3727F53BEB002EBC89 /* MenuDetailViewsController.xib in Resources */,
 				C17A4C67277AF02C007CBE66 /* Assets.xcassets in Resources */,
+				C1394A3B29B831EE00E8C57B /* TestView.xib in Resources */,
 				C119B9772797AF2D00278621 /* AddPointView.xib in Resources */,
 				C17A4C65277AF02A007CBE66 /* Main.storyboard in Resources */,
 				C138B239278FBEFA004916B4 /* HistoryTableViewCell.xib in Resources */,
@@ -630,6 +637,7 @@
 				C17A4C62277AF02A007CBE66 /* HomeViewController.swift in Sources */,
 				C138B238278FBEFA004916B4 /* HistoryTableViewCell.swift in Sources */,
 				C17A4EAF277B0EDD007CBE66 /* MenuViewController.swift in Sources */,
+				C1394A3C29B831EE00E8C57B /* TestView.swift in Sources */,
 				C138B23F278FF424004916B4 /* CustomButton.swift in Sources */,
 				C11D7EFC277D49ED002B563D /* MenuDetailTableViewCell.swift in Sources */,
 				C17A4C5E277AF02A007CBE66 /* AppDelegate.swift in Sources */,
